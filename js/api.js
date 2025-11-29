@@ -9,7 +9,7 @@ const api = axios.create({
 
 
 
-// all functions for API
+// functions for API
 export const apiService = {
     //  examples
   // posts

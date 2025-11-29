@@ -1,59 +1,74 @@
-
-.logo-container {
-  align-items: center;     
-  gap: -20px;               
+:root {
+    --primary: #0A66C2;
+    --primary-light: #004896;;
+    --card-bg: #ffffff;
+    --border: rgba(0,0,0,0.6);
+    --radius: 20px;
+    --input-radius: 8px;
+    --shadow: 0 6px 30px rgba(0,0,0,0.15);
 }
+* {
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
 
-.img {
-  width: 60px;
-  height: 60px;
-    border-radius: 50%;
 }
-
-.logo-text {
-  color: white;            
-  font-size: 24px;
-  font-weight: bold;
-}
-
-/* General Layout */
 body {
-  font-family: 'Segoe UI', sans-serif;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
   margin: 0;
+  min-height: 100vh;
   background:     
   linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
   url('../image/background.jpg') center/cover no-repeat;
-  padding-top: 80px;
-  min-height: 100vh;
 }
 
 /* Centered box */
 .container {
-  background: white;
-  padding: 40px 50px;
-  border-radius: 20px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  width: 340px;
-  text-align: center;
+  width: 430px;
+  background: var(--card-bg);
+  padding: 40px 45px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin: 10px;
+  animation: fadeIn 0.4s ease;
+
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0);   }
 }
 
-/* Circle logo */
-.logo {
-  width: 100px;
-  height: 100px;
-  background-color: #cfcfcf;
+.login-box {
+    text-align: center;     
+}
+/* Logo styling */
+.img {
+  width: 130px;
+  height: 130px;
   border-radius: 50%;
-  margin: 0 auto 20px auto;
+
 }
 
-/* Site title */
-.site-title {
-  margin-bottom: 25px;
-  color: #333;
+.logo-text {
+  color: rgb(0, 0, 0);            
+  font-weight: bold;
+  margin-top: 0;
+
+}
+.logo-container-horizontal {
+    display: flex;
+    align-items: center;
+}
+.pi-img {
+    width: 60px;
+    height: 60px;
+}
+
+.pi-logo-text {
+    margin-left: 15px;
+    font-size: 28px;
+    font-weight: 700;
 }
 
 /* Input styling */
@@ -61,30 +76,32 @@ label {
   display: block;
   text-align: left;
   font-size: 14px;
-  margin: 10px 0 5px;
+  margin-bottom: 5px;
+  margin-top: 16px;
   color: #333;
 }
 
-input {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  margin-bottom: 10px;
-  font-size: 14px;
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: var(--input-radius);
+    border: 1px solid var(--border);
+    transition: 0.25s;
 }
-
-input:focus {
-  border-color: #468df1;
-  outline: none;
-  box-shadow: 0 0 5px rgba(70, 141, 241, 0.3);
+input:focus, textarea:focus {
+    
+    border-color: var(--primary);
+    background: #fff;
+    box-shadow: 0 0 0 1px  var(--primary);
+    outline: none;
 }
 
 /* Links and buttons */
 .forgot {
   display: block;
   text-align: left;
-  margin: 8px 0 20px;
+  margin: 8px 0 10px;
   font-size: 13px;
   color: #0078ff;
   text-decoration: none;
@@ -94,88 +111,33 @@ input:focus {
   text-decoration: underline;
 }
 
-.signin-btn,
-.register-btn{
-  width: 100%;
-  padding: 10px;
-  border: none;
-  border-radius: 8px;
-  font-size: 15px;
-  cursor: pointer;
-  margin-top: 5px;
-}
 
-.signin-btn {
-  background-color: #0078ff;
+.signin-btn:active {
+  transform: scale(0.98);
+}
+.signin-btn
+{
+  margin-top: 15px;
+  font-weight: 600;
+  width: 100%;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+
+  background-color: var(--primary);
   color: white;
   box-shadow: 0 2px 5px rgba(0, 120, 255, 0.3);
 }
 
 .signin-btn:hover {
-  background-color: #005fd4;
+  background-color: var(--primary-light); 
 }
 
-.register-btn {
-  background-color: #ccc;
-  color: #666;
-  margin-top: 10px;
-}
 
-.register-btn:hover {
-  background-color: #b3b3b3;
-}
-.back-btn {
-  background-color: #54575e;
-  color: white;
-  box-shadow: 0 2px 5px rgba(0, 120, 255, 0.3);
-  padding: 10px;
-  border: none;
-  border-radius: 8px;
-  font-size: 15px;
-  cursor: pointer;
-  margin-top: 5px;
-  margin-right: 4px;
-}
 
-.back-btn:hover {
-  background-color: #484c50;
-}
-.bottom-t {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-}
-.logo-container {
-  align-items: center;     
-  gap: -20px;               
-}
-.logo-container2 {
-  align-items: center;     
-    display: flex;           
-          
-}
-.img {
-  width: 130px;
-  height: 130px;
-
-}
-
-.logo-text {
-  color: rgb(0, 0, 0);            
-  font-weight: bold;
-  margin-top: 0;
-}
-.pi-img {
-  width: 64px;
-  height: 64px;
-}
-
-.pi-logo-text {
-  color: rgb(0, 0, 0);            
-  font-weight: bold;
-  margin-top: 0;
-  margin-left: 25px
-}
 /* Forgot password info text */
 .info-text {
   font-size: 14px;
@@ -183,44 +145,171 @@ input:focus {
   margin-bottom: 20px;
   line-height: 1.5;
 }
+
+
 /* Profile info form adjustments */
-textarea {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  resize: vertical;
-  font-size: 14px;
-  font-family: 'Segoe UI', sans-serif;
-  margin-bottom: 15px;
+
+
+/* ROLE SELECTOR — two buttons */
+.role-select {
+    display: flex;
+    margin-top: 10px;
+    gap: 10px;
 }
 
-select {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  background-color: white;
-  font-size: 14px;
-  margin-bottom: 15px;
+.role-btn {
+    flex: 1;
+    padding: 12px;
+    border-radius: var(--input-radius);
+    border: 1px solid var(--border);
+    background: #f5f5f5;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.25s;
 }
 
-select:focus, textarea:focus {
-  border-color: #468df1;
-  outline: none;
-  box-shadow: 0 0 5px rgba(70, 141, 241, 0.3);
+.role-btn.active {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(10,102,194,0.2);
 }
 
-input[type="file"] {
-  margin-bottom: 15px;
-  font-size: 13px;
+.role-btn:hover {
+    background: var(--primary-light);
+    color: white;
 }
 
+/* YEAR BOX — современный вариант */
 .year-box {
-  display: flex;
-  gap: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
 }
 
-.year-box div {
-  flex: 1;
+/* BUTTONS */
+.bottom-t {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+}
+
+.back-btn, .forward-btn {
+    padding: 12px 20px;
+    border-radius: 20px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.back-btn {
+    background: #444;
+    color: white;
+}
+
+.back-btn:hover {
+    background: #333;
+}
+
+.forward-btn {
+    background: var(--primary);
+    color: white;
+}
+
+.forward-btn:hover {
+    background: var(--primary-light);
+}
+
+.year-range-box {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: #f3f6fa;
+    padding: 14px 18px;
+    border-radius: 14px;
+    border: 1px solid #d7dde7;
+    transition: .2s ease;
+    
+}
+
+.year-range-box:hover {
+    border-color: #0a66c2;
+    box-shadow: 0 0 0 1px  var(--primary);
+
+}
+
+.year-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.year-item span {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 4px;
+}
+
+.year-item input {
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background: white;
+    transition: .2s;
+}
+
+.year-item input:focus {
+    border-color: #0a66c2;
+    box-shadow: 0 0 0 1px  var(--primary);
+    outline: none;
+}
+
+.year-divider {
+    font-size: 20px;
+    font-weight: 600;
+    color: #777;
+}
+
+
+.upload-box {
+    width: 100%;
+    background: #f3f6fa;
+    border: 2px dashed #c8d0dc;
+    border-radius: 16px;
+    padding: 25px;
+    text-align: center;
+    cursor: pointer;
+    transition: .25s;
+}
+
+.upload-box:hover {
+    border-color: #0a66c2;
+    background: #eef5ff;
+}
+
+.upload-icon {
+    width: 42px;
+    opacity: 0.7;
+    margin-bottom: 10px;
+}
+
+.upload-box p {
+    font-size: 14px;
+    color: #444;
+    margin: 0;
+}
+
+.upload-box p span {
+    color: #0a66c2;
+    font-weight: bold;
+}
+.preview-photo {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 14px;
 }

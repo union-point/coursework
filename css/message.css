@@ -19,14 +19,14 @@
 body {
     background-color: #f9fbfd;
     color: var(--text-color);
-    min-height: 100vh;
     position: relative;
 }
 
 /* ================== Chat Layout ================== */
 .chat-container {
     display: flex;
-    height: calc(100vh);
+    margin-top: 90px;
+    height: calc(100vh - 90px);
     background:     
   linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
   url('../image/background.jpg') center/cover no-repeat;

@@ -10,49 +10,62 @@
 
 <body>
   <div class="container">
-    <div class="login-box">
-      <div class="logo-container2">
-        <img class="pi-img" src="./image/logo.png" alt="Logo" class="logo-img">
-        <h1 class="pi-logo-text">PolyLink</h1>
-      </div>
-      <form>
-
-        <label for="faculty">Ֆակուլտետ</label>
-        <input type="text" id="faculty" placeholder="օրինակ՝ Ճարտարագիտության ֆակուլտետ" required />
-
-        <label for="specialization">Մասնագիտացում</label>
-        <input type="text" id="specialization" placeholder="օրինակ՝ Ինֆորմատիկա և հաշվողական տեխնիկա" required />
-
-        <div class="year-box">
-          <div>
-            <label for="year-start">Ընդունվելու տարի</label>
-            <input type="number" id="year-start" placeholder="օրինակ՝ 2019" required />
-          </div>
-          <div>
-            <label for="year-end">Ավարտելու տարի</label>
-            <input type="number" id="year-end" placeholder="օրինակ՝ 2023" required />
-          </div>
-        </div>
-
-        <label for="role">Ես եմ՝</label>
-        <select id="role" required>
-          <option value="" disabled selected>Ընտրեք մեկը</option>
-          <option value="graduate">Շրջանավարտ</option>
-          <option value="teacher">Դասախոս</option>
-        </select>
-
-        <label for="photo">Ներբեռնել լուսանկար</label>
-        <input type="file" id="photo" accept="image/*" />
-
-        <label for="bio">Հակիրճ նկարագրություն</label>
-        <textarea id="bio" rows="4" placeholder="Պատմեք Ձեր մասին..." required></textarea>
-        <div class="bottom-t">
-          <button type="button" class="back-btn" onclick="goToRg()">Հետ</button>
-          <button type="button" class="signin-btn" onclick="goToNextPage()">Հաջորդը</button>
-        </div>
-      </form>
+    <div class="logo-container-horizontal">
+      <img class="pi-img" src="./image/logo.png" alt="Logo">
+      <h1 class="pi-logo-text">PolyLink</h1>
     </div>
+
+    <form>
+
+      <label>Ես եմ՝</label>
+      <div class="role-select">
+        <div class="role-btn active" data-role="graduate">Շրջանավարտ</div>
+        <div class="role-btn" data-role="teacher">Դասախոս</div>
+      </div>
+
+      <input type="hidden" id="role" value="graduate">
+
+      <label for="faculty">Ֆակուլտետ</label>
+      <input type="text" id="faculty" placeholder="օրինակ՝ Ճարտարագիտության ֆակուլտետ" required>
+
+      <label for="specialization">Մասնագիտացում</label>
+      <input type="text" id="specialization" placeholder="օրինակ՝ Ինֆորմատիկա և հաշվողական տեխնիկա" required>
+
+      <label>Ուսման տարիներ</label>
+      <div class="year-range-box">
+        <div class="year-item">
+          <span>Սկիզբ</span>
+          <input type="number" id="year-start" placeholder="2019" required>
+        </div>
+
+        <div class="year-divider">—</div>
+
+        <div class="year-item">
+          <span>Ավարտ</span>
+          <input type="number" id="year-end" placeholder="2023" required>
+        </div>
+      </div>
+
+
+      <label for="photo">Ներբեռնել լուսանկար</label>
+
+      <div class="upload-box" onclick="document.getElementById('photo').click()">
+        <img src="./image/upload-icon.svg" class="upload-icon" alt="">
+        <p>Քաշեք և գցեք կամ <span>ընտրեք ֆայլ</span></p>
+      </div>
+
+      <input type="file" id="photo" accept="image/*" hidden>
+
+      <label for="bio">Հակիրճ նկարագրություն</label>
+      <textarea id="bio" rows="4" placeholder="Պատմեք Ձեր մասին..." required></textarea>
+
+      <div class="bottom-t">
+        <button type="button" class="back-btn" onclick="goToRg()">Հետ</button>
+        <button type="button" class="forward-btn" onclick="goToNextPage()">Հաջորդը</button>
+      </div>
+    </form>
   </div>
+
 </body>
 <script>function goToRg() {
     window.location.href = "register.html";
@@ -60,5 +73,32 @@
   function goToNextPage() {
     window.location.href = "profile.html";
   }</script>
+<script>
+  document.querySelectorAll(".role-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll(".role-btn").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      document.getElementById("role").value = btn.dataset.role;
+    });
+  });
+
+
+  const photoInput = document.getElementById("photo");
+  const box = document.querySelector(".upload-box");
+
+  photoInput.addEventListener("change", () => {
+    if (photoInput.files && photoInput.files[0]) {
+      const reader = new FileReader();
+
+      reader.onload = e => {
+        box.innerHTML = `<img src="${e.target.result}" class="preview-photo">`;
+      };
+
+      reader.readAsDataURL(photoInput.files[0]);
+    }
+  });
+
+</script>
+
 
 </html>
