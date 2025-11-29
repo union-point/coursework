@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile Information | Polytech Alumni Network</title>
+  <link rel="stylesheet" href="./css/auth.css" />
+</head>
+
+<body>
+  <div class="container">
+    <div class="login-box">
+      <div class="logo-container2">
+        <img class="pi-img" src="./image/logo.png" alt="Logo" class="logo-img">
+        <h1 class="pi-logo-text">PolyLink</h1>
+      </div>
+      <form>
+
+        <label for="faculty">Ֆակուլտետ</label>
+        <input type="text" id="faculty" placeholder="օրինակ՝ Ճարտարագիտության ֆակուլտետ" required />
+
+        <label for="specialization">Մասնագիտացում</label>
+        <input type="text" id="specialization" placeholder="օրինակ՝ Ինֆորմատիկա և հաշվողական տեխնիկա" required />
+
+        <div class="year-box">
+          <div>
+            <label for="year-start">Ընդունվելու տարի</label>
+            <input type="number" id="year-start" placeholder="օրինակ՝ 2019" required />
+          </div>
+          <div>
+            <label for="year-end">Ավարտելու տարի</label>
+            <input type="number" id="year-end" placeholder="օրինակ՝ 2023" required />
+          </div>
+        </div>
+
+        <label for="role">Ես եմ՝</label>
+        <select id="role" required>
+          <option value="" disabled selected>Ընտրեք մեկը</option>
+          <option value="graduate">Շրջանավարտ</option>
+          <option value="teacher">Դասախոս</option>
+        </select>
+
+        <label for="photo">Ներբեռնել լուսանկար</label>
+        <input type="file" id="photo" accept="image/*" />
+
+        <label for="bio">Հակիրճ նկարագրություն</label>
+        <textarea id="bio" rows="4" placeholder="Պատմեք Ձեր մասին..." required></textarea>
+        <div class="bottom-t">
+          <button type="button" class="back-btn" onclick="goToRg()">Հետ</button>
+          <button type="button" class="signin-btn" onclick="goToNextPage()">Հաջորդը</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+<script>function goToRg() {
+    window.location.href = "register.html";
+  }
+  function goToNextPage() {
+    window.location.href = "profile.html";
+  }</script>
+
+</html>

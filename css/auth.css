@@ -1,0 +1,226 @@
+
+.logo-container {
+  align-items: center;     
+  gap: -20px;               
+}
+
+.img {
+  width: 60px;
+  height: 60px;
+    border-radius: 50%;
+}
+
+.logo-text {
+  color: white;            
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* General Layout */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  background:     
+  linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+  url('../image/background.jpg') center/cover no-repeat;
+  padding-top: 80px;
+  min-height: 100vh;
+}
+
+/* Centered box */
+.container {
+  background: white;
+  padding: 40px 50px;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  width: 340px;
+  text-align: center;
+}
+
+/* Circle logo */
+.logo {
+  width: 100px;
+  height: 100px;
+  background-color: #cfcfcf;
+  border-radius: 50%;
+  margin: 0 auto 20px auto;
+}
+
+/* Site title */
+.site-title {
+  margin-bottom: 25px;
+  color: #333;
+}
+
+/* Input styling */
+label {
+  display: block;
+  text-align: left;
+  font-size: 14px;
+  margin: 10px 0 5px;
+  color: #333;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+input:focus {
+  border-color: #468df1;
+  outline: none;
+  box-shadow: 0 0 5px rgba(70, 141, 241, 0.3);
+}
+
+/* Links and buttons */
+.forgot {
+  display: block;
+  text-align: left;
+  margin: 8px 0 20px;
+  font-size: 13px;
+  color: #0078ff;
+  text-decoration: none;
+}
+
+.forgot:hover {
+  text-decoration: underline;
+}
+
+.signin-btn,
+.register-btn{
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+.signin-btn {
+  background-color: #0078ff;
+  color: white;
+  box-shadow: 0 2px 5px rgba(0, 120, 255, 0.3);
+}
+
+.signin-btn:hover {
+  background-color: #005fd4;
+}
+
+.register-btn {
+  background-color: #ccc;
+  color: #666;
+  margin-top: 10px;
+}
+
+.register-btn:hover {
+  background-color: #b3b3b3;
+}
+.back-btn {
+  background-color: #54575e;
+  color: white;
+  box-shadow: 0 2px 5px rgba(0, 120, 255, 0.3);
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  margin-top: 5px;
+  margin-right: 4px;
+}
+
+.back-btn:hover {
+  background-color: #484c50;
+}
+.bottom-t {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.logo-container {
+  align-items: center;     
+  gap: -20px;               
+}
+.logo-container2 {
+  align-items: center;     
+    display: flex;           
+          
+}
+.img {
+  width: 130px;
+  height: 130px;
+
+}
+
+.logo-text {
+  color: rgb(0, 0, 0);            
+  font-weight: bold;
+  margin-top: 0;
+}
+.pi-img {
+  width: 64px;
+  height: 64px;
+}
+
+.pi-logo-text {
+  color: rgb(0, 0, 0);            
+  font-weight: bold;
+  margin-top: 0;
+  margin-left: 25px
+}
+/* Forgot password info text */
+.info-text {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+/* Profile info form adjustments */
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  resize: vertical;
+  font-size: 14px;
+  font-family: 'Segoe UI', sans-serif;
+  margin-bottom: 15px;
+}
+
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: white;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+select:focus, textarea:focus {
+  border-color: #468df1;
+  outline: none;
+  box-shadow: 0 0 5px rgba(70, 141, 241, 0.3);
+}
+
+input[type="file"] {
+  margin-bottom: 15px;
+  font-size: 13px;
+}
+
+.year-box {
+  display: flex;
+  gap: 10px;
+}
+
+.year-box div {
+  flex: 1;
+}

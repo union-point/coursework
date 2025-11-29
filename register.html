@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register | Polytech Alumni Network</title>
+  <link rel="stylesheet" href="./css/auth.css" />
+</head>
+
+<body>
+  <div class="container">
+    <div class="login-box">
+      <div class="logo-container">
+        <img class="img" src="./image/logo.png" alt="Logo" class="logo-img">
+        <h1 class="logo-text">PolyLink</h1>
+      </div>
+      <form>
+        <label for="fullname">Անուն Ազգանուն</label>
+        <input type="text" id="fullname" placeholder="Ձեր անունը և ազգանունը" required />
+
+        <label for="email">«Պոլիտեխնիկի» էլ. փոստ</label>
+        <input type="email" id="email" placeholder="օրինակ@polytech.am" required />
+
+        <label for="password">Գաղտնաբառ</label>
+        <input type="password" id="password" placeholder="Մուտքագրեք գաղտնաբառ" required />
+
+        <label for="confirm">Հաստատել գաղտնաբառը</label>
+        <input type="password" id="confirm" placeholder="Կրկին մուտքագրեք գաղտնաբառը" required />
+
+        <button type="button" class="signin-btn" onclick="goToNextPage()">Գրանցվել</button>
+
+        <p class="bottom-text">
+          Արդեն ունե՞ք հաշիվ։ <a href="login.html">Մուտք</a>
+        </p>
+      </form>
+    </div>
+  </div>
+</body>
+<script>function goToNextPage() {
+    window.location.href = "profile_info.html";
+  }</script>
+
+</html>
