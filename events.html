@@ -39,12 +39,37 @@
   <div class="container">
 
     <main>
-      <button class="add-button">Ավելացնել հայտարարություն</button>
+      <div class="upper-container">
+        <div class="create-post-container">
+          <div class="avatar-wrapper">
+            <img src="https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg" alt="User"
+              class="modal-user-img">
+          </div>
+          <button class="create-post-btn">Ավելացնել հայտարարություն</button>
 
+        </div>
+        <div class="filters">
+          <select class="tag-selector">
+            <option value="">Բոլորը</option>
+            <option value="programming">Ծրագրավորում</option>
+            <option value="engineering">Ինժեներություն</option>
+            <option value="data-science">Տվյալների գիտություն</option>
+            <option value="marketing">Մարկետինգ</option>
+          </select>
+
+          <select class="tag-selector" id="category-selector">
+            <option value="">Բոլոր կատեգորիաները</option>
+            <option value="job">Աշխատանք</option>
+            <option value="internship">Պրակտիկա</option>
+            <option value="training">Դասընթաց</option>
+          </select>
+
+        </div>
+      </div>
       <div class="announcements-list">
 
         <!-- Հայտարարություն 1 -->
-        <div class="announcement-card">
+        <div class="announcement-card" data-category="job">
           <div class="announcement-header">
             <img
               src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=100&h=100"
@@ -53,6 +78,8 @@
               <h3 class="user-name">Ծրագրավորման ամբիոն</h3>
               <p class="announcement-date">26 Հոկտեմբեր 2025, 11:20</p>
             </div>
+            <span class="category-badge job">Աշխատանք</span>
+
           </div>
           <div class="announcement-content">
             <p><strong>Աշխատանքային հնարավորություն</strong><br>
@@ -92,7 +119,7 @@
         </div>
 
         <!-- Հայտարարություն 2 -->
-        <div class="announcement-card">
+        <div class="announcement-card" data-category="internship">
           <div class="announcement-header">
             <img
               src="https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=100&h=100"
@@ -101,6 +128,8 @@
               <h3 class="user-name">Էլեկտրոնիկայի ամբիոն</h3>
               <p class="announcement-date">25 Հոկտեմբեր 2025, 09:00</p>
             </div>
+            <span class="category-badge internship">Պրակտիկա</span>
+
           </div>
           <div class="announcement-content">
             <p><strong>Աշխատանքային առաջարկ՝ ինժեներների համար</strong><br>
@@ -138,7 +167,7 @@
         </div>
 
         <!-- Հայտարարություն 3 -->
-        <div class="announcement-card">
+        <div class="announcement-card" data-category="training">
           <div class="announcement-header">
             <img
               src="https://images.pexels.com/photos/3785079/pexels-photo-3785079.jpeg?auto=compress&cs=tinysrgb&w=100&h=100"
@@ -147,6 +176,8 @@
               <h3 class="user-name">Տվյալների գիտության ամբիոն</h3>
               <p class="announcement-date">24 Հոկտեմբեր 2025, 15:00</p>
             </div>
+            <span class="category-badge training">Պրակտիկա</span>
+
           </div>
           <div class="announcement-content">
             <p><strong>Data Analyst Internship</strong><br>
@@ -187,6 +218,42 @@
       </div>
     </main>
   </div>
+  <!-- Post Modal -->
+  <div id="postModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="user-profile-header">
+          <div class="avatar-wrapper">
+            <img src="https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg" alt="User"
+              class="modal-user-img">
+          </div>
+          <div class="user-meta">
+            <span class="modal-user-name">Գայանե Սարգսյան</span>
+            <select class="visibility-selector" id="category-selector">
+              <option value="job">Աշխատանք</option>
+              <option value="internship">Պրակտիկա</option>
+              <option value="training">Դասընթաց</option>
+            </select>
+          </div>
+        </div>
+        <span class="close-btn">&times;</span>
+      </div>
+      <div class="modal-body">
+        <textarea class="post-textarea" placeholder="Ինչի՞ մասին եք ուզում խոսել։"></textarea>
+      </div>
+      <div class="modal-footer">
+        <button class="schedule-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+            <path
+              d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z" />
+          </svg>
+        </button>
+        <button class="publish-btn">Հրապարակել</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="./js/posts.js"></script>
 </body>
 
 </html>

@@ -1,6 +1,23 @@
-import { authService } from './auth.js';
-import { apiService } from './api.js';
+document.addEventListener('DOMContentLoaded', function () {
+    const modal = document.getElementById('postModal');
+    const btn = document.querySelector('.create-post-btn');
+    const span = document.querySelector('.close-btn');
 
-if (!authService.isAuthenticated()) {
-  window.location.href = '/login.html';
-}
+    if (btn) {
+        btn.onclick = function () {
+            modal.style.display = "block";
+        }
+    }
+
+    if (span) {
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+    }
+
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+});

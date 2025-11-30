@@ -1,4 +1,3 @@
-// /js/api/axios.js
 const API_URL = 'http://localhost:3004';
 
 const api = axios.create({
