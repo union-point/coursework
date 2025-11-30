@@ -28,7 +28,7 @@ body {
 /*Reusable Card Styles */
 .card {
     background-color: var(--card-background);
-    border-radius: 8px;
+    border-radius: 12px;
     padding: 16px;
     margin-bottom: 8px;
     border: 1px solid var(--border-color); /* Added for better visualization */
@@ -49,7 +49,7 @@ body {
 /* Banner Area */
 .profile-header {
     background-color: var(--card-background);
-    border-radius: 8px 8px 0 0;
+    border-radius: 12px 12px 0 0;
     position: relative;
     border: 1px solid var(--border-color);
     border-bottom: none;
@@ -57,7 +57,7 @@ body {
 
 .banner-photo {
     height: 200px; 
-    border-radius: 8px 8px 0 0;
+    border-radius: 12px 12px 0 0;
     position: relative;
     /* 1. Use background-image instead of an <img> tag for full coverage */
     background-image: url('https://images.unsplash.com/photo-1504805572947-34fad45aed93?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1470'); 
@@ -109,7 +109,7 @@ body {
 /* Content Section Styles  */
 .intro-card {
     background-color: var(--card-background);
-    border-radius: 0 0 8px 8px;
+    border-radius: 0 0 12px 12px;
     padding: 24px;
     padding-top: 96px; /* Push content down past the profile picture */
     margin-bottom: 8px;
@@ -278,7 +278,7 @@ body {
     position: relative;
 
     background-color: var(--card-background);
-    border-radius: 8px;
+    border-radius: 12px;
     border: 1px solid var(--border-color);
 }
 
