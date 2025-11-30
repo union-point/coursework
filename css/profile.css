@@ -146,7 +146,7 @@ body {
 }
 
 .secondary-btn:hover {
-  background-color: #cae0fd; 
+  background-color: #e2e8f0; 
 }
 .action-buttons button:active {
   transform: scale(0.98);
@@ -340,11 +340,12 @@ body {
   background-color: #004896; 
 }
 .comments-section .btn-delete {
-  background-color: #dc3545; 
-  color: white;
+    background-color: white;
+    color: var(--linkedin-blue);
+    border: 1px solid var(--linkedin-blue);
 }
 .comments-section .btn-delete:hover {
-  background-color: #c82333; 
+  background-color: #ffefef; 
 }
 .comments-section .btn:active {
   transform: scale(0.98);
