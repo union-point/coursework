@@ -15,7 +15,7 @@ body {
   margin: 0 auto;
   margin-top: 100px;
 }
-
+ 
 
 /* ================== Ֆորումի բովանդակություն ================== */
 .forum-intro {
@@ -63,6 +63,27 @@ body {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
   transition: transform 0.2s, box-shadow 0.2s;
 }
+.topic-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.topic-badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85em;
+    font-weight: 600;
+    color: white;
+    background-color: #3498db;
+
+    margin-left: auto;
+    /* Push to the right */
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
 
 .topic:hover {
   transform: translateY(-2px);
@@ -113,15 +134,3 @@ body {
   transform: translateY(-2px);
   box-shadow: 0 6px 14px rgba(26, 35, 126, 0.4);
 }
-
-/* FOOTER */
-footer {
-  background-color: #1a237e;
-  color: #fff;
-  text-align: center;
-  padding: 15px 0;
-  margin-top: 40px;
-  border-top: 3px solid #ffca28;
-}
-
-
