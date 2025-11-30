@@ -16,6 +16,7 @@
 }
 
 body {
+/*background-color: #f4f7fb;*/
 
     background:     
   linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
@@ -247,24 +248,14 @@ main {
     border-radius: 20px;
     font-size: 0.85em;
     font-weight: 600;
-    color: white;
+    color: var(--primary);
     margin-left: auto;
     /* Push to the right */
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    border: 1px solid var(--primary);
 }
 
-.category-badge.job {
-    background-color: #3498db;
-}
-
-.category-badge.internship {
-    background-color: #2ecc71;
-}
-
-.category-badge.training {
-    background-color: #f39c12;
-}
 
 
 /* ================== Create Post Button ================== */
@@ -272,7 +263,8 @@ main {
     background: white;
     border-radius: 10px;
     padding: 16px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
     align-items: center;
     width: 100%;
     max-width: 100%;
