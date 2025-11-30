@@ -22,8 +22,11 @@
         <input type="email" id="email" placeholder="օրինակ@polytech.am" required />
 
         <label for="password">Գաղտնաբառ</label>
-        <input type="password" id="password" placeholder="Մուտքագրեք Ձեր գաղտնաբառը" required />
 
+        <div class="password-wrapper">
+          <input type="password" id="password" placeholder="Մուտքագրեք Ձեր գաղտնաբառը" required />
+          <button type="button" class="toggle-password" id="toggle-new">👁️</button>
+        </div>
         <a href="forgot.html" class="forgot">Մոռացե՞լ եք գաղտնաբառը։</a>
 
         <button type="button" class="signin-btn" onclick="goToNextPage()">Մուտք</button>
@@ -34,10 +37,8 @@
       </form>
     </div>
   </div>
+  <script src="./js/login.js"></script>
 </body>
-<script>
-  function goToNextPage() {
-    window.location.href = "profile.html";
-  }</script>
+
 
 </html>

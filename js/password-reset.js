@@ -1,14 +1,14 @@
 //reset-password
-const PasswordInput = document.getElementById('password');
-const confirmPasswordInput = document.getElementById('confirm');
+const newPasswordInput = document.getElementById('new-password');
+const confirmPasswordInput = document.getElementById('confirm-password');
 const submitBtn = document.getElementById('submit-btn');
 const strengthBar = document.getElementById('strength-bar');
 const strengthText = document.getElementById('strength-text');
 
 // Toggle password visibility
 document.getElementById('toggle-new').addEventListener('click', function () {
-    const type = PasswordInput.type === 'password' ? 'text' : 'password';
-    PasswordInput.type = type;
+    const type = newPasswordInput.type === 'password' ? 'text' : 'password';
+    newPasswordInput.type = type;
     this.textContent = type === 'password' ? '👁️' : '🙈';
 });
 
@@ -60,17 +60,28 @@ function checkPasswordStrength(password) {
 }
 
 function validateForm() {
-    const Password = PasswordInput.value;
+    const newPassword = newPasswordInput.value;
     const confirmPassword = confirmPasswordInput.value;
 
-    const allRequirementsMet = checkPasswordStrength(Password);
-    const passwordsMatch = Password === confirmPassword && Password.length > 0;
+    const allRequirementsMet = checkPasswordStrength(newPassword);
+    const passwordsMatch = newPassword === confirmPassword && newPassword.length > 0;
 
-    //  submitBtn.disabled = !(allRequirementsMet && passwordsMatch);
+    //submitBtn.disabled = !(allRequirementsMet && passwordsMatch);
 }
-
-PasswordInput.addEventListener('input', validateForm);
+//validation
+newPasswordInput.addEventListener('input', validateForm);
 confirmPasswordInput.addEventListener('input', validateForm);
-function goToNextPage() {
-    window.location.href = "profile_info.html";
-}
+
+// Form submission
+document.getElementById('reset-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const newPassword = newPasswordInput.value;
+    // TODO: send new password to backend
+
+    // Here you would send the new password to your backend
+    console.log('New password set');
+
+    // Show success message and redirect
+    window.location.href = 'login.html';
+});
