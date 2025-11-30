@@ -68,13 +68,13 @@ main {
     padding: 24px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition:  box-shadow 0.3s ease, border-left 0.3s ease;
-    border-left: 4px solid #3498db;
+   /* border-left: 4px solid #3498db;*/
     position: relative;
 }
 
 .announcement-card:hover {
     box-shadow: 0 12px 25px rgba(52, 152, 219, 0.4);
-    border-left: 6px solid var(--primary);
+    /*border-left: 6px solid var(--primary);*/
 }
 
 /* Header */

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="hy">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Կարիերայի Ֆորում | Պոլիտեխնիկի Շրջանավարտներ</title>
+    <link rel="stylesheet" href="./css/forum.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="header-container">
+            <div class="logo-container">
+                <img class="logo-img" src="./image/logo.png" alt="Logo" class="logo-img">
+                <h3 class="logo-text">PolyLink</h3>
+            </div>
+            <nav>
+                <ul class="menu">
+                    <li><a href="profile.html">Պրոֆիլ</a></li>
+                    <li><a href="events.html">Իրադարձություններ</a></li>
+                    <li><a href="forum.html" class="active">Ֆոռում</a></li>
+                    <li><a href="message.html">Նամակագրություն</a></li>
+                    <li><a href="search.html">Որոնում</a></li>
+                </ul>
+                <!-- Dropdown menu -->
+                <div class="dropdown-container">
+                    <button class="dropdown-btn">☰</button>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Help</a></li>
+                        <li><a href="#">Կարգաորումներ</a></li>
+                        <li><a href="login.html">Դուրս գալ</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="forum-intro">
+            <h2>Աշխատանքի և Կարիերայի Ֆորում</h2>
+            <p>Այստեղ քննարկվում են միայն աշխատանքի, կարիերայի, համագործակցության և մասնագիտական զարգացման հետ կապված
+                թեմաները:
+            </p>
+        </section>
+
+        <section class="new-topic-container">
+            <h2>Ստեղծել նոր թեմա</h2>
+            <form class="new-topic-form" action="forum.html">
+                <div class="form-group">
+                    <label for="topic-title">Թեմայի վերնագիր</label>
+                    <input type="text" id="topic-title" name="title" placeholder="Օրինակ՝ Frontend աշխատանք..."
+                        required>
+                </div>
+
+                <div class="form-group">
+                    <label for="topic-major">Մասնագիտություն</label>
+                    <select id="topic-major" name="major" required>
+                        <option value="" disabled selected>Ընտրեք մասնագիտությունը</option>
+                        <option value="informatics">Ինֆորմատիկա և ծրագրավորում</option>
+                        <option value="mechanics">Մեքենաշինություն և ռոբոտաշինություն</option>
+                        <option value="electronics">Էլեկտրոնիկա և հեռահաղորդակցություն</option>
+                        <option value="civil">Շինարարություն և ճարտարապետություն</option>
+                        <option value="energy">Էներգետիկա և կայուն զարգացում</option>
+                        <option value="management">Տեխնիկական կառավարում և տնտեսագիտություն</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="topic-content">Նկարագրություն</label>
+                    <textarea id="topic-content" name="content" rows="8" placeholder="Գրեք թեմայի մանրամասները..."
+                        required></textarea>
+                </div>
+
+                <div class="form-actions">
+                    <a href="forum.html" class="btn cancel-btn">Չեղարկել</a>
+                    <button type="submit" class="btn submit-btn">Հրապարակել</button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+
+
+    <!-- JavaScript ֆիլտրման համար -->
+    <script>
+        function filterTopics() {
+            const filterValue = document.getElementById('major-filter').value;
+            const topics = document.querySelectorAll('.topic');
+
+            topics.forEach(topic => {
+                if (filterValue === 'all' || topic.dataset.major === filterValue) {
+                    topic.style.display = 'block';
+                } else {
+                    topic.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
