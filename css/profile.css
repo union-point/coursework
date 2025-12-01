@@ -11,16 +11,17 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: "Segoe UI",  sans-serif;
+    font-family: "Segoe UI", sans-serif;
 
 }
+
 body {
-    background-color: #f4f7fb;
+    background: #f4f7fb;
 }
 
 
 .profile-container {
-    max-width: 1128px; 
+    max-width: 1128px;
     margin: 114px auto;
 
 }
@@ -31,7 +32,8 @@ body {
     border-radius: 12px;
     padding: 16px;
     margin-bottom: 8px;
-    border: 1px solid var(--border-color); /* Added for better visualization */
+    border: 1px solid var(--border-color);
+    /* Added for better visualization */
 }
 
 .card-header {
@@ -56,12 +58,12 @@ body {
 }
 
 .banner-photo {
-    height: 200px; 
+    height: 200px;
     border-radius: 12px 12px 0 0;
     position: relative;
     /* 1. Use background-image instead of an <img> tag for full coverage */
-    background-image: url('https://images.unsplash.com/photo-1504805572947-34fad45aed93?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1470'); 
-    background-size: cover; 
+    background-image: url('https://images.unsplash.com/photo-1504805572947-34fad45aed93?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1470');
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
 }
@@ -79,12 +81,14 @@ body {
 
 .profile-photo-area {
     position: absolute;
-    top: 120px; /* Adjust based on banner height */
+    top: 120px;
+    /* Adjust based on banner height */
     left: 24px;
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    background-color: white; /* White border effect */
+    background-color: white;
+    /* White border effect */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -111,7 +115,8 @@ body {
     background-color: var(--card-background);
     border-radius: 0 0 12px 12px;
     padding: 24px;
-    padding-top: 96px; /* Push content down past the profile picture */
+    padding-top: 96px;
+    /* Push content down past the profile picture */
     margin-bottom: 8px;
     border: 1px solid var(--border-color);
 }
@@ -127,7 +132,8 @@ body {
     color: var(--font-color-secondary);
     margin: 0 0 16px 0;
 }
-.desc{
+
+.desc {
     padding-bottom: 20px
 }
 
@@ -138,19 +144,24 @@ body {
     font-weight: 600;
     cursor: pointer;
     margin-right: 8px;
-      transition: background-color 0.3s ease, transform 0.2s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 
 }
+
 .primary-btn:hover {
-  background-color: #004896; 
+    background-color: #004896;
 }
 
 .secondary-btn:hover {
-  background-color: #e2e8f0; 
+    box-shadow: inset 0 0 0 1px currentColor;
+    color: #004182;
+    background-color: rgb(55 143 233 / 0.1);
 }
+
 .action-buttons button:active {
-  transform: scale(0.98);
+    transform: scale(0.98);
 }
+
 .primary-btn {
     background-color: var(--linkedin-blue);
     color: white;
@@ -192,11 +203,13 @@ body {
 .item-entry {
     display: flex;
     padding: 12px 0;
-    border-bottom: 1px solid var(--border-color); /* Separator between entries */
+    border-bottom: 1px solid var(--border-color);
+    /* Separator between entries */
 }
 
 .item-entry:last-child {
-    border-bottom: none; /* No line under the last entry */
+    border-bottom: none;
+    /* No line under the last entry */
     padding-bottom: 0;
 }
 
@@ -238,14 +251,16 @@ body {
 
 /* Style for the Certification Logo Backgrounds */
 .cert-logo-bg {
-    background-color: #283e4a; /* Dark background for first cert */
+    background-color: #283e4a;
+    /* Dark background for first cert */
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .cert-logo-bg-alt {
-    background-color: #ededed; /* Light background for second cert */
+    background-color: #ededed;
+    /* Light background for second cert */
 }
 
 .cert-icon {
@@ -270,10 +285,11 @@ body {
     font-size: 10px;
     margin-left: 5px;
 }
+
 /* announcement card styles*/
 .announcement-card {
     padding: 24px;
-    box-shadow: 0  4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-left 0.3s ease;
     position: relative;
 
@@ -302,20 +318,20 @@ body {
 }
 
 .comments-section {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .comments-section .btn {
-  padding: 8px 15px;
-  border: none;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: 600;
-  margin: 0;
-  border-radius: 20px;
-  transition: background-color 0.3s ease, transform 0.1s ease;
+    padding: 8px 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0;
+    border-radius: 20px;
+    transition: background-color 0.3s ease, transform 0.1s ease;
 }
 
 .comments-section .btn-comments {
@@ -326,27 +342,36 @@ body {
     cursor: pointer;
 
 }
+
 .comments-section .btn-comments:hover {
     color: #004896;
 }
+
 .comments-section .btn-comments:active {
-  transform: scale(0.98);
+    transform: scale(0.98);
 }
+
 .comments-section .btn-edit {
     background-color: var(--linkedin-blue);
     color: white;
 }
+
 .comments-section .btn-edit:hover {
-  background-color: #004896; 
+    background-color: #004896;
 }
+
 .comments-section .btn-delete {
     background-color: white;
     color: var(--linkedin-blue);
     border: 1px solid var(--linkedin-blue);
 }
+
 .comments-section .btn-delete:hover {
-  background-color: #ffefef; 
+    box-shadow: inset 0 0 0 1px currentColor;
+    color: #004182;
+    background-color: rgb(55 143 233 / 0.1);
 }
+
 .comments-section .btn:active {
-  transform: scale(0.98);
+    transform: scale(0.98);
 }

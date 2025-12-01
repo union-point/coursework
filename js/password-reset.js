@@ -79,15 +79,12 @@ document.getElementById('reset-form').addEventListener('submit', (e) => {
     const newPassword = newPasswordInput.value;
     const confirmPassword = confirmPasswordInput.value;
 
-    if (newPassword !== confirmPassword) {
-        alert('Գաղտնաբառերը չեն համընկնում');
-        return;
-    }
+
 
     // Here you would send the new password to your backend
     console.log('New password set');
 
     // Show success message and redirect
-    alert('Գաղտնաբառը հաջողությամբ փոխվել է։ Խնդրում ենք մուտք գործել։');
+    // alert('Գաղտնաբառը հաջողությամբ փոխվել է։ Խնդրում ենք մուտք գործել։');
     window.location.href = 'login.html';
 });

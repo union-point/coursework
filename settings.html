@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="hy">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Կարգաորումներ - PolyLink</title>
+
+    <link rel="stylesheet" href="./css/settings.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="header-container">
+            <div class="logo-container">
+                <img class="logo-img" src="./image/logo.png" alt="Logo" class="logo-img">
+                <h3 class="logo-text">PolyLink</h3>
+            </div>
+            <nav>
+                <ul class="menu">
+                    <li><a href="profile.html">Պրոֆիլ</a></li>
+                    <li><a href="events.html">Իրադարձություններ</a></li>
+                    <li><a href="forum.html">Ֆոռում</a></li>
+                    <li><a href="message.html">Նամակագրություն</a></li>
+                    <li><a href="search.html">Որոնում</a></li>
+                </ul>
+
+                <!-- Dropdown menu -->
+                <div class="dropdown-container">
+                    <button class="dropdown-btn">☰</button>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Help</a></li>
+                        <li><a href="settings.html" class="active">Կարգաորումներ</a></li>
+                        <li><a href="login.html">Դուրս գալ</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="settings-container">
+        <div class="settings-header">
+            <h1>Կարգաորումներ</h1>
+            <p class="settings-subtitle">Կառավարեք ձեր հաշվի կարգաորումները և Տվյալները</p>
+        </div>
+
+        <div class="settings-content">
+
+            <!-- Account Settings Section -->
+            <section class="settings-section card">
+                <div class="section-header">
+                    <div class="section-title-group">
+                        <i class="fas fa-user-circle section-icon"></i>
+                        <h2>Հաշվի կարգաորումներ</h2>
+                    </div>
+                </div>
+
+                <div class="settings-item">
+                    <div class="settings-item-info">
+                        <h3>Էլ. փոստ</h3>
+                        <p class="settings-item-description">gayane.sargsyan@polytech.am</p>
+                    </div>
+                    <button class="btn-secondary">Փոփոխել</button>
+                </div>
+
+                <div class="settings-item">
+                    <div class="settings-item-info">
+                        <h3>Գաղտնաբառ</h3>
+                        <p class="settings-item-description">Վերջին փոփոխությունը՝ 3 ամիս առաջ</p>
+                    </div>
+                    <button class="btn-secondary">Փոփոխել</button>
+                </div>
+
+
+            </section>
+
+            <!-- Privacy Settings Section -->
+            <section class="settings-section card">
+                <div class="section-header">
+                    <div class="section-title-group">
+                        <i class="fas fa-lock section-icon"></i>
+                        <h2>Գաղտնիություն</h2>
+                    </div>
+                </div>
+
+                <div class="settings-item">
+                    <div class="settings-item-info">
+                        <h3>Պրոֆիլի տեսանելիություն</h3>
+                        <p class="settings-item-description">Ով կարող է տեսնել ձեր պրոֆիլը</p>
+                    </div>
+                    <div class="toggle-group">
+                        <select class="settings-select">
+                            <option value="public">Բոլորը</option>
+                            <option value="connections">Միայն կապերը</option>
+                            <option value="private">Անձնական</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="settings-item">
+                    <div class="settings-item-info">
+                        <h3>Ցուցադրել էլ. փոստը</h3>
+                        <p class="settings-item-description">Թույլ տալ ուրիշներին տեսնել ձեր էլ. փոստը</p>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" checked>
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+
+            </section>
+
+            <!-- Notification Settings Section -->
+            <section class="settings-section card">
+                <div class="section-header">
+                    <div class="section-title-group">
+                        <i class="fas fa-bell section-icon"></i>
+                        <h2>Ծանուցումներ</h2>
+                    </div>
+                </div>
+
+                <div class="settings-item">
+                    <div class="settings-item-info">
+                        <h3>Էլ. փոստի ծանուցումներ</h3>
+                        <p class="settings-item-description">Ստանալ ծանուցումներ էլ. փոստով</p>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" checked>
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+
+                <div class="settings-item">
+                    <div class="settings-item-info">
+                        <h3>Նոր հայտարարություններ</h3>
+                        <p class="settings-item-description">Ծանուցումներ նոր հայտարարությունների մասին</p>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" checked>
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+
+                <div class="settings-item">
+                    <div class="settings-item-info">
+                        <h3>Ֆորումի թարմացումներ</h3>
+                        <p class="settings-item-description">Ծանուցումներ ձեր թեմաների պատասխանների մասին</p>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" checked>
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+
+                <div class="settings-item">
+                    <div class="settings-item-info">
+                        <h3>Նամակագրության ծանուցումներ</h3>
+                        <p class="settings-item-description">Ծանուցումներ նոր հաղորդագրությունների մասին</p>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" checked>
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+            </section>
+
+            <!-- Appearance Settings Section -->
+            <section class="settings-section card">
+                <div class="section-header">
+                    <div class="section-title-group">
+                        <i class="fas fa-palette section-icon"></i>
+                        <h2>Տեսք</h2>
+                    </div>
+                </div>
+
+                <div class="settings-item">
+                    <div class="settings-item-info">
+                        <h3>Թեմա</h3>
+                        <p class="settings-item-description">Ընտրեք ձեր նախընտրած թեման</p>
+                    </div>
+                    <div class="theme-selector">
+                        <button class="theme-btn active" data-theme="light">
+                            <i class="fas fa-sun"></i>
+                            <span>Լուսավոր</span>
+                        </button>
+                        <button class="theme-btn" data-theme="dark">
+                            <i class="fas fa-moon"></i>
+                            <span>Մուգ</span>
+                        </button>
+                        <button class="theme-btn" data-theme="auto">
+                            <i class="fas fa-adjust"></i>
+                            <span>Ավտո</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="settings-item">
+                    <div class="settings-item-info">
+                        <h3>Լեզու</h3>
+                        <p class="settings-item-description">Ընտրեք ինտերֆեյսի լեզուն</p>
+                    </div>
+                    <div class="toggle-group">
+                        <select class="settings-select">
+                            <option value="hy" selected>Հայերեն</option>
+                            <option value="en">English</option>
+                            <option value="ru">Русский</option>
+                        </select>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Data & Storage Section -->
+            <section class="settings-section card">
+                <div class="section-header">
+                    <div class="section-title-group">
+                        <i class="fas fa-database section-icon"></i>
+                        <h2>Տվյալներ և պահեստ</h2>
+                    </div>
+                </div>
+
+                <div class="settings-item">
+                    <div class="settings-item-info">
+                        <h3>Ներբեռնել տվյալները</h3>
+                        <p class="settings-item-description">Ներբեռնել ձեր բոլոր տվյալների պատճենը</p>
+                    </div>
+                    <button class="btn-secondary">
+                        <i class="fas fa-download"></i> Ներբեռնել
+                    </button>
+                </div>
+
+                <div class="settings-item">
+                    <div class="settings-item-info">
+                        <h3>Մաքրել քեշը</h3>
+                        <p class="settings-item-description">Ազատել տեղ՝ ջնջելով քեշավորված տվյալները</p>
+                    </div>
+                    <button class="btn-secondary">
+                        <i class="fas fa-broom"></i> Մաքրել
+                    </button>
+                </div>
+            </section>
+
+            <!-- Danger Zone Section -->
+            <section class="settings-section card danger-zone">
+
+                <div class="settings-item">
+                    <div class="settings-item-info">
+                        <h3>Ապաակտիվացնել հաշիվը</h3>
+                        <p class="settings-item-description">Ժամանակավորապես ապաակտիվացնել ձեր հաշիվը</p>
+                    </div>
+                    <button class="btn-danger-outline">Ապաակտիվացնել</button>
+                </div>
+
+                <div class="settings-item">
+                    <div class="settings-item-info">
+                        <h3>Ջնջել հաշիվը</h3>
+                        <p class="settings-item-description">Մշտապես ջնջել ձեր հաշիվը և բոլոր տվյալները</p>
+                    </div>
+                    <button class="btn-danger">Ջնջել հաշիվը</button>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="js/settings.js"></script>
+</body>
+
+</html>
