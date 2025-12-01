@@ -1,15 +1,16 @@
 /* ================== Հիմնական Reset ================== */
 :root {
-    --primary: #0A66C2;
-    --primary-light: #004896;;
-    --card-bg: #ffffff;
-    --border: rgba(0,0,0,0.6);
-    --radius: 20px;
-    --input-radius: 8px;
-    --shadow: 0 6px 30px rgba(0,0,0,0.15);
-    --font-color-primary: rgba(0, 0, 0, 0.9);
-    --font-color-secondary: rgba(0, 0, 0, 0.6);
+  --primary: #0A66C2;
+  --primary-light: #004896;
+  --card-bg: #ffffff;
+  --border: rgba(0, 0, 0, 0.6);
+  --radius: 20px;
+  --input-radius: 8px;
+  --shadow: 0 6px 30px rgba(0, 0, 0, 0.15);
+  --font-color-primary: rgba(0, 0, 0, 0.9);
+  --font-color-secondary: rgba(0, 0, 0, 0.6);
 }
+
 * {
   margin: 0;
   padding: 0;
@@ -26,7 +27,7 @@ body {
   margin: 0 auto;
   margin-top: 114px;
 }
- 
+
 
 /* ================== Ֆորումի բովանդակություն ================== */
 .forum-intro {
@@ -47,6 +48,7 @@ body {
   align-items: center;
   gap: 10px;
   margin-bottom: 25px;
+  margin-left: 5px;
 }
 
 .filter-section label {
@@ -57,7 +59,19 @@ body {
   padding: 8px 12px;
   border-radius: 12px;
   border: 1px solid #ccc;
-  font-size: 0.95rem;
+  font-size: 1rem;
+  transition: 0.25s ease;
+  box-sizing: border-box;
+  background-color: white;
+}
+
+
+.filter-section select:hover {
+  border-color: rgba(0, 0, 0, 0.9);
+}
+
+.filter-section select:focus {
+  box-shadow: 0 0 0 2px var(--primary);
 }
 
 /* Թեմաների ցուցակ */
@@ -69,38 +83,42 @@ body {
 .topic {
   background-color: #fff;
   padding: 20px;
-  /*border-left: 5px solid var(--primary); */
+  border-left: 5px solid var(--primary);
   border-radius: 12px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
-  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: translate 0.9s, box-shadow 0.2s;
 }
+
+.topic:hover {
+  translate: 2px 0;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+
+}
+
 .topic-header {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
 }
 
 .topic-badge {
-    padding: 6px 12px;
-    border-radius: 20px;
-    font-size: 0.85em;
-    font-weight: 600;
-    color: var(--primary);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.85em;
+  font-weight: 600;
+  color: var(--primary);
 
-    margin-left: auto;
-    /* Push to the right */
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    border: 1px solid var(--primary);
-        color: #475569;
-    border: 1px solid #e2e8f0;
+  margin-left: auto;
+  /* Push to the right */
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: 1px solid var(--primary);
+  color: #475569;
+  border: 1px solid #e2e8f0;
 }
 
 
-.topic:hover {
-    border-color: #e2e8f0;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);}
 
 .topic h3 a {
   text-decoration: none;
@@ -119,7 +137,7 @@ body {
 
 .topic p {
   margin: 10px 0;
- /* color: #555;*/
+  /* color: #555;*/
 }
 
 .topic-meta {
@@ -159,93 +177,95 @@ body {
 /* Reuse basic styles from forum.css/style.css where possible, but define specific form styles here */
 
 .new-topic-container {
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-    max-width: 1124px;
-    margin: 0 auto;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  max-width: 1124px;
+  margin: 0 auto;
 }
 
 .new-topic-container h2 {
-    color: var(--font-color-primary);
-    margin-bottom: 25px;
-    border-bottom: 2px solid #e8eaf6;
-    padding-bottom: 15px;
+  color: var(--font-color-primary);
+  margin-bottom: 25px;
+  border-bottom: 2px solid #e8eaf6;
+  padding-bottom: 15px;
 }
 
 .form-group {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .form-group label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 600;
-    color: #333;
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #333;
 }
 
 .form-group input,
 .form-group select,
 .form-group textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 12px;
-    font-size: 1rem;
-    transition: border-color 0.3s;
-    box-sizing: border-box;
-    /* Ensure padding doesn't affect width */
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+  box-sizing: border-box;
+  /* Ensure padding doesn't affect width */
 }
 
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
-    outline: none;
-    border: 1px solid var(--primary);
+  outline: none;
+  border: 1px solid var(--primary);
 }
+
 .topic-select select {
-background-color: white;
-padding: 10px;
+  background-color: white;
+  padding: 10px;
 }
+
 .form-actions {
-    display: flex;
-    justify-content: flex-end;
-    gap: 15px;
-    margin-top: 30px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  margin-top: 30px;
 }
 
 .btn {
-    padding: 12px 25px;
-    border-radius: 20px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    text-decoration: none;
-    border: none;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+  padding: 12px 25px;
+  border-radius: 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .submit-btn {
-    background: var(--primary);
-    color: #fff;
+  background: var(--primary);
+  color: #fff;
 }
 
 .submit-btn:hover {
-    background: var(--primary-light);
+  background: var(--primary-light);
 }
+
 .btn:active {
   transform: scale(0.98);
 }
 
 .cancel-btn {
-    background-color: white;
-    color: var(--primary);
-    border: 1px solid #ddd;
+  background-color: white;
+  color: var(--primary);
+  border: 1px solid #ddd;
 }
 
 .cancel-btn:hover {
-  background-color: #e2e8f0; 
-  color:#083d75
-
+  background-color: #e2e8f0;
+  color: #083d75
 }

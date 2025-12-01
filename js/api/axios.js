@@ -31,7 +31,7 @@ api.interceptors.response.use(
 
             } catch {
                 localStorage.removeItem("accessToken");
-                window.location.href = "/pages/login.html";
+                window.location.href = "/login.html";
             }
         }
         throw error;

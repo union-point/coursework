@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Register | Polytech Alumni Network</title>
   <link rel="stylesheet" href="./css/auth.css" />
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
 </head>
 
 <body>
@@ -15,15 +17,15 @@
         <img class="pi-img" src="./image/logo.png" alt="Logo" class="logo-img">
         <h1 class="pi-logo-text">PolyLink</h1>
       </div>
-      <form>
+      <form id="register-form">
         <label for="fullname">Անուն Ազգանուն</label>
-        <input type="text" id="fullname" placeholder="Ձեր անունը և ազգանունը" required />
+        <input type="text" id="fullname" placeholder="Ձեր անունը և ազգանունը" />
 
         <label for="email">«Պոլիտեխնիկի» էլ. փոստ</label>
-        <input type="email" id="email" placeholder="օրինակ@polytech.am" required />
+        <input type="email" id="email" placeholder="օրինակ@polytech.am" />
         <label for="password"> Գաղտնաբառ</label>
         <div class="password-wrapper">
-          <input type="password" id="password" placeholder="Մուտքագրեք գաղտնաբառ" required />
+          <input type="password" id="password" placeholder="Մուտքագրեք գաղտնաբառ" />
           <button type="button" class="toggle-password" id="toggle-new">👁️</button>
         </div>
         <div class="password-strength">
@@ -33,7 +35,7 @@
 
         <label for="confirm-password">Հաստատեք գաղտնաբառը</label>
         <div class="password-wrapper">
-          <input type="password" id="confirm" placeholder="Կրկին մուտքագրեք գաղտնաբառը" required />
+          <input type="password" id="confirm" placeholder="Կրկին մուտքագրեք գաղտնաբառը" />
           <button type="button" class="toggle-password" id="toggle-confirm">👁️</button>
         </div>
 
@@ -46,15 +48,21 @@
           <div class="requirement" id="req-special">Առնվազն 1 հատուկ նիշ (!@#$%^&*)</div>
         </div>
 
-        <button type="button" class="signin-btn" id="submit-btn" onclick="goToNextPage()">Գրանցվել</button>
+        <button type="submit" class="signin-btn" id="submit-btn">Գրանցվել</button>
 
-        <p class="bottom-text">
+        <p class=" bottom-text">
           Արդեն ունե՞ք հաշիվ։ <a href="login.html">Մուտք</a>
         </p>
       </form>
     </div>
   </div>
+  <!-- add required in inputs after testing*/ 
+
+  ---!!!--- remove after testing   ---!!!---
+  -->
   <script src="./js/register.js"></script>
+
+  <script type="module" src="./js/register.js"></script>
 </body>
 
 

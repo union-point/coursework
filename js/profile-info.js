@@ -1,3 +1,6 @@
+//import { updateProfile } from "./api/auth-api.js"; //---!!!- for testing without  server
+
+
 function goToRg() {
     window.location.href = "register.html";
 }
@@ -84,5 +87,22 @@ photoInput.addEventListener("change", () => {
         };
 
         reader.readAsDataURL(photoInput.files[0]);
+    }
+});
+
+
+document.getElementById('profile-info-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+
+    try {
+        await updateProfile({});
+        await login(email, password);
+        window.location.href = "profile_info.html";
+
+    } catch (error) {
+        window.location.href = "profile.html"; //  ---!!!- for testing purposes
+        console.error(error);
+        //alert(error.response?.data?.message || "Registration failed");  TODO: better error display
     }
 });

@@ -7,6 +7,8 @@
   <title>PolyLink</title>
 
   <link rel="stylesheet" href="./css/auth.css" />
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
 </head>
 
 <body>
@@ -17,27 +19,35 @@
         <h1 class="logo-text">PolyLink</h1>
       </div>
 
-      <form>
+      <form id="login-form">
         <label for="email">Էլ. փոստ</label>
-        <input type="email" id="email" placeholder="օրինակ@polytech.am" required />
+        <input type="email" id="email" placeholder="օրինակ@polytech.am" />
 
         <label for="password">Գաղտնաբառ</label>
 
         <div class="password-wrapper">
-          <input type="password" id="password" placeholder="Մուտքագրեք Ձեր գաղտնաբառը" required />
+          <input type="password" id="password" placeholder="Մուտքագրեք Ձեր գաղտնաբառը" />
           <button type="button" class="toggle-password" id="toggle-new">👁️</button>
         </div>
         <a href="forgot.html" class="forgot">Մոռացե՞լ եք գաղտնաբառը։</a>
 
-        <button type="button" class="signin-btn" onclick="goToNextPage()">Մուտք</button>
-        <p class="bottom-text">
+        <button type="submit" class="signin-btn">Մուտք</button>
+        <p class=" bottom-text">
           Հաշիվ չունե՞ք։ <a href="register.html">Գրանցվել</a>
         </p>
 
       </form>
     </div>
   </div>
+  <!-- add required in inputs after testing*/ 
+
+  ---!!!--- remove after testing   ---!!!---
+  -->
   <script src="./js/login.js"></script>
+
+  <script type="module" src="./js/login.js"></script>
+
+
 </body>
 
 

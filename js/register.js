@@ -1,4 +1,5 @@
-//reset-password
+// import { registerUser, login } from "./api/auth-api.js"; ---!!!- for testing without  server
+
 const PasswordInput = document.getElementById('password');
 const confirmPasswordInput = document.getElementById('confirm');
 const submitBtn = document.getElementById('submit-btn');
@@ -66,11 +67,34 @@ function validateForm() {
     const allRequirementsMet = checkPasswordStrength(Password);
     const passwordsMatch = Password === confirmPassword && Password.length > 0;
 
+    // ---!!!--- disabled ony for testing  ---!!!---
+
+    //  if (!passwordsMatch) {
+    //      alert("Գաղտնաբառերը չեն համընկնում"); // TODO: better error display
+    //  }
     //  submitBtn.disabled = !(allRequirementsMet && passwordsMatch);
 }
 
 PasswordInput.addEventListener('input', validateForm);
 confirmPasswordInput.addEventListener('input', validateForm);
-function goToNextPage() {
-    window.location.href = "profile_info.html";
-}
+
+
+
+document.getElementById('register-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const password = PasswordInput.value;
+    const email = document.getElementById('email').value;
+    const fullname = document.getElementById('fullname').value;
+
+    try {
+        await registerUser({ email, password, fullname });
+        await login(email, password);
+        window.location.href = "profile_info.html";
+
+    } catch (error) {
+        window.location.href = "profile_info.html"; //  ---!!!- for testing purposes
+        console.error(error);
+        //alert(error.response?.data?.message || "Registration failed");  TODO: better error display
+    }
+});

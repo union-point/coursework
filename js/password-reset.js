@@ -66,9 +66,9 @@ function validateForm() {
     const allRequirementsMet = checkPasswordStrength(newPassword);
     const passwordsMatch = newPassword === confirmPassword && newPassword.length > 0;
 
-    //submitBtn.disabled = !(allRequirementsMet && passwordsMatch);
+    //  submitBtn.disabled = !(allRequirementsMet && passwordsMatch);
 }
-//validation
+
 newPasswordInput.addEventListener('input', validateForm);
 confirmPasswordInput.addEventListener('input', validateForm);
 
@@ -77,11 +77,17 @@ document.getElementById('reset-form').addEventListener('submit', (e) => {
     e.preventDefault();
 
     const newPassword = newPasswordInput.value;
-    // TODO: send new password to backend
+    const confirmPassword = confirmPasswordInput.value;
+
+    if (newPassword !== confirmPassword) {
+        alert('Գաղտնաբառերը չեն համընկնում');
+        return;
+    }
 
     // Here you would send the new password to your backend
     console.log('New password set');
 
     // Show success message and redirect
+    alert('Գաղտնաբառը հաջողությամբ փոխվել է։ Խնդրում ենք մուտք գործել։');
     window.location.href = 'login.html';
 });
