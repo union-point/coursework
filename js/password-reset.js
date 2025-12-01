@@ -22,7 +22,6 @@ document.getElementById('toggle-confirm').addEventListener('click', function () 
 const requirements = {
     length: { regex: /.{8,}/, element: document.getElementById('req-length') },
     uppercase: { regex: /[A-Z]/, element: document.getElementById('req-uppercase') },
-    lowercase: { regex: /[a-z]/, element: document.getElementById('req-lowercase') },
     number: { regex: /[0-9]/, element: document.getElementById('req-number') },
     special: { regex: /[!@#$%^&*(),.?":{}|<>]/, element: document.getElementById('req-special') }
 };
@@ -44,7 +43,7 @@ function checkPasswordStrength(password) {
     if (metRequirements <= 2) {
         strength = 'weak';
         strengthText.textContent = 'Թույլ';
-    } else if (metRequirements <= 4) {
+    } else if (metRequirements <= 3) {
         strength = 'medium';
         strengthText.textContent = 'Միջին';
     } else {
@@ -56,7 +55,7 @@ function checkPasswordStrength(password) {
     strengthBar.className = 'password-strength-bar ' + strength;
     strengthText.className = 'strength-text ' + strength;
 
-    return metRequirements === 5;
+    return metRequirements === 4;
 }
 
 function validateForm() {
@@ -86,5 +85,5 @@ document.getElementById('reset-form').addEventListener('submit', (e) => {
 
     // Show success message and redirect
     // alert('Գաղտնաբառը հաջողությամբ փոխվել է։ Խնդրում ենք մուտք գործել։');
-    window.location.href = 'login.html';
+    window.location.href = 'profile.html';
 });

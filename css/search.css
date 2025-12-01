@@ -54,7 +54,7 @@ body {
 .search-bar button {
   border: none;
   border-radius: 12px;
-  background-color: var(--linkedin-blue);
+  background-color: var(--primary);
   color: white;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;

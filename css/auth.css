@@ -12,7 +12,6 @@
 * {
     box-sizing: border-box;
     font-family: "Segoe UI", sans-serif;
-
 }
 
 body {
@@ -35,7 +34,6 @@ body {
     box-shadow: var(--shadow);
     margin: 10px;
     animation: fadeIn 0.4s ease;
-
 }
 
 @keyframes fadeIn {
@@ -93,10 +91,12 @@ label {
     margin-bottom: 5px;
     margin-top: 16px;
     color: #333;
+    margin-left: 4px;
 }
 
 input,
-textarea {
+textarea,
+select {
     width: 100%;
     padding: 10px;
     font-size: 14px;
@@ -104,15 +104,12 @@ textarea {
     border: 1px solid #d7dde7;
     transition: 0.25s;
     background-color: white;
-
 }
 
 input:hover,
 textarea:hover,
 select:hover {
-
     border: 1px solid rgba(0, 0, 0, 0.9);
-
 }
 
 input:focus,
@@ -123,15 +120,35 @@ select:focus {
     outline: none;
 }
 
-select {
-    width: 100%;
-    padding: 10px;
-    border-radius: var(--input-radius);
-    border: 1px solid #d7dde7;
-    font-size: 14px;
-    transition: 0.25s;
-    background-color: white;
+input.error,
+textarea.error,
+select.error {
+    border: 1px solid #d11124;
+    box-shadow: 0 0 0 1px #d11124;
+}
 
+input.error:hover,
+textarea.error:hover,
+select.error:hover {
+    border-color: #d11124;
+}
+
+input.error:focus,
+textarea.error:focus,
+select.error:focus {
+    background: #fff;
+    box-shadow: 0 0 0 1px #d11124;
+    outline: none;
+}
+
+.error-message {
+    color: #d11124;
+    font-size: 0.85rem;
+    margin: 5px 0 0 4px;
+    font-weight: 500;
+    text-align: left;
+    line-height: 1.42;
+    display: none;
 }
 
 /* Links and buttons */
@@ -139,13 +156,37 @@ select {
     display: block;
     text-align: left;
     margin: 8px 0 10px;
-    font-size: 13px;
-    color: #0078ff;
+    font-size: 0.9rem;
+    color: var(--primary);
     text-decoration: none;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 28px;
+    padding: 6px 8px;
+    width: 240px;
+    transition: all 0.3s ease;
+
+
+}
+
+.bottom-text a {
+    text-decoration: none;
+    color: var(--primary);
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 28px;
+    padding: 6px 8px;
+}
+
+.bottom-text a:hover {
+    text-decoration: underline;
+    background: #d0e8ff;
+
 }
 
 .forgot:hover {
     text-decoration: underline;
+    background: #d0e8ff;
 }
 
 
@@ -166,7 +207,6 @@ select {
 
     background-color: var(--primary);
     color: white;
-    box-shadow: 0 2px 5px rgba(0, 120, 255, 0.3);
 }
 
 .signin-btn:hover {
@@ -498,9 +538,13 @@ select {
 }
 
 .strength-text {
-    font-size: 12px;
+    font-size: 13px;
     margin-top: 4px;
     text-align: right;
+    order: 1;
+    margin-left: auto;
+    margin-top: 5px;
+    margin-bottom: auto;
 }
 
 .strength-text.weak {

@@ -93,6 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (deactivateBtn) {
         deactivateBtn.addEventListener('click', () => {
+
             handleDeactivateAccount();
         });
     }
@@ -238,6 +239,7 @@ function handleDeactivateAccount() {
 }
 
 function handleDeleteAccount() {
+    console.log("CONFIRM CALLED");
     const confirmation = confirm(
         '⚠️ ԶԳՈՒՇԱՑՈՒՄ ⚠️\n\n' +
         'Վստա՞հ եք, որ ցանկանում եք մշտապես ջնջել ձեր հաշիվը:\n\n' +

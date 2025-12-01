@@ -18,11 +18,14 @@
         <h1 class="pi-logo-text">PolyLink</h1>
       </div>
       <form id="register-form">
+        <p class="error-message"></p>
+
         <label for="fullname">Անուն Ազգանուն</label>
         <input type="text" id="fullname" placeholder="Ձեր անունը և ազգանունը" />
 
         <label for="email">«Պոլիտեխնիկի» էլ. փոստ</label>
-        <input type="email" id="email" placeholder="օրինակ@polytech.am" />
+        <input type="text" id="email" placeholder="օրինակ@polytech.am" />
+
         <label for="password"> Գաղտնաբառ</label>
         <div class="password-wrapper">
           <input type="password" id="password" placeholder="Մուտքագրեք գաղտնաբառ" />
@@ -31,9 +34,13 @@
         <div class="password-strength">
           <div class="password-strength-bar" id="strength-bar"></div>
         </div>
-        <div class="strength-text" id="strength-text"></div>
+        <div class="logo-container-horizontal">
 
-        <label for="confirm-password">Հաստատեք գաղտնաբառը</label>
+          <div class="strength-text" id="strength-text"></div>
+
+          <label for="confirm-password">Հաստատեք գաղտնաբառը</label>
+        </div>
+
         <div class="password-wrapper">
           <input type="password" id="confirm" placeholder="Կրկին մուտքագրեք գաղտնաբառը" />
           <button type="button" class="toggle-password" id="toggle-confirm">👁️</button>
@@ -43,7 +50,6 @@
           <h4>Գաղտնաբառի պահանջներ՝</h4>
           <div class="requirement" id="req-length">Նվազագույնը 8 նիշ</div>
           <div class="requirement" id="req-uppercase">Առնվազն 1 մեծատառ</div>
-          <div class="requirement" id="req-lowercase">Առնվազն 1 փոքրատառ</div>
           <div class="requirement" id="req-number">Առնվազն 1 թիվ</div>
           <div class="requirement" id="req-special">Առնվազն 1 հատուկ նիշ (!@#$%^&*)</div>
         </div>
