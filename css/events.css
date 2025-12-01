@@ -1,12 +1,14 @@
 :root {
     --primary: #0A66C2;
-    --primary-light: #004896;;
+    --primary-light: #004896;
+    ;
     --card-bg: #ffffff;
-    --border: rgba(0,0,0,0.6);
+    --border: rgba(0, 0, 0, 0.6);
     --radius: 20px;
     --input-radius: 8px;
-    --shadow: 0 6px 30px rgba(0,0,0,0.15);
+    --shadow: 0 6px 30px rgba(0, 0, 0, 0.15);
 }
+
 /* ================== Գլոբալ ================== */
 * {
     margin: 0;
@@ -16,11 +18,11 @@
 }
 
 body {
-/*background-color: #f4f7fb;*/
+    /*background-color: #f4f7fb;*/
 
-    background:     
-  linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-  url('../image/background1.jpg') center/cover no-repeat;
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+        url('../image/background1.jpg') center/cover no-repeat;
     background-position: center;
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -40,9 +42,9 @@ body::before {
 }
 
 .container {
-  width: 90%;
-  max-width: 1128px;
-  margin: 0 auto;
+    width: 90%;
+    max-width: 1128px;
+    margin: 0 auto;
 }
 
 
@@ -68,8 +70,8 @@ main {
     border-radius: 12px;
     padding: 24px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition:  box-shadow 0.3s ease, border-left 0.3s ease;
-   /* border-left: 4px solid #3498db;*/
+    transition: box-shadow 0.3s ease, border-left 0.3s ease;
+    /* border-left: 4px solid #3498db;*/
     position: relative;
 }
 
@@ -214,7 +216,10 @@ main {
 .filters {
     display: flex;
     gap: 12px;
+    padding-top: 15px;
+    border-top: 1px solid #dcdcdc;
 }
+
 .tag-selector {
     padding: 6px 12px;
     font-size: 1em;
@@ -232,13 +237,13 @@ main {
 
 .tag-selector:hover {
     border-color: var(--primary);
-    box-shadow: 0 0 0 1px  var(--primary);
+    box-shadow: 0 0 0 1px var(--primary);
 
 }
 
 .tag-selector:focus {
-    border-color:  var(--primary-light);
-    box-shadow: 0 0 0 1px  var(--primary-light);
+    border-color: var(--primary-light);
+    box-shadow: 0 0 0 1px var(--primary-light);
 
 }
 
@@ -263,12 +268,13 @@ main {
     background: white;
     border-radius: 10px;
     padding: 16px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
     align-items: center;
     width: 100%;
     max-width: 100%;
 }
+
 .create-post-container {
     width: 100%;
     max-width: 100%;
@@ -276,6 +282,7 @@ main {
     gap: 12px;
     margin-bottom: 15px;
 }
+
 .create-post-btn {
     width: 100%;
     text-align: left;
