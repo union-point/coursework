@@ -187,26 +187,38 @@ main {
 .comment-input input {
     flex: 1;
     padding: 12px 16px;
-    border: 2px solid #ecf0f1;
-    border-radius: 8px;
+    border: 1px solid #ecf0f1;
+    border-radius: 12px;
     font-size: 1em;
     transition: border-color 0.3s ease;
 }
 
+.comment-input input:hover {
+    border-color: rgba(0, 0, 0, 0.9);
+
+}
+
 .comment-input input:focus {
     outline: none;
-    border-color: var(--primary);
+    box-shadow: 0 0 0 2px var(--primary);
 }
+
+
+
+.comment-input button:active {
+    transform: scale(0.98);
+}
+
 
 .comment-input button {
     background: var(--primary);
     color: white;
     border: none;
     padding: 12px 24px;
-    border-radius: 20px;
+    border-radius: 12px;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .comment-input button:hover {
@@ -223,7 +235,7 @@ main {
 .tag-selector {
     padding: 6px 12px;
     font-size: 1em;
-    border: 1px solid var(--border);
+    border: 1px solid #dcdcdc;
     border-radius: 20px;
     background-color: white;
     color: #2c3e50;
@@ -236,14 +248,12 @@ main {
 }
 
 .tag-selector:hover {
-    border-color: var(--primary);
-    box-shadow: 0 0 0 1px var(--primary);
+    border-color: rgba(0, 0, 0, 0.9);
 
 }
 
 .tag-selector:focus {
-    border-color: var(--primary-light);
-    box-shadow: 0 0 0 1px var(--primary-light);
+    box-shadow: 0 0 0 2px var(--primary);
 
 }
 
@@ -267,7 +277,7 @@ main {
 .upper-container {
     background: white;
     border-radius: 10px;
-    padding: 16px;
+    padding: 24px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
     align-items: center;
@@ -301,6 +311,7 @@ main {
     background: #f0f0f0;
     border-color: #cfcfcf;
 }
+
 
 /* ================== Modal ================== */
 .modal {
