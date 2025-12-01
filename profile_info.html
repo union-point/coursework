@@ -25,13 +25,27 @@
 
       <input type="hidden" id="role" value="graduate">
 
-      <label for="faculty">Ֆակուլտետ</label>
-      <input type="text" id="faculty" placeholder="օրինակ՝ Ճարտարագիտության ֆակուլտետ" required>
+      <label for="faculty" id="faculty-label">Ֆակուլտետ/Ինստիտուտ</label>
+      <select id="faculty">
+        <option>ՏՀՏԷ</option>
+        <option>ՄՄՏՀԴ</option>
+        <option>ԷԷ</option>
+        <option>ԼՔՏ</option>
+        <option>ԿՄ</option>
+        <option>ԻՔՏ</option>
+
+      </select>
 
       <label for="specialization">Մասնագիտացում</label>
-      <input type="text" id="specialization" placeholder="օրինակ՝ Ինֆորմատիկա և հաշվողական տեխնիկա" required>
+      <select id="specialization">
+        <option>Ծրագրայի ճարտարագիտություն</option>
+        <option>Համակարգչային ճարտարագիտություն </option>
+        <option>Տեղեկատվական տեխնոլոգիաներ </option>
+        <option>Արհեստական բանականություն </option>
 
-      <label>Ուսման տարիներ</label>
+      </select>
+
+      <label id="years-label">Ուսման տարիներ</label>
       <div class="year-range-box">
         <div class="year-item">
           <span>Սկիզբ</span>
@@ -65,40 +79,8 @@
       </div>
     </form>
   </div>
-
+  <script src="./js/profile-info.js"></script>
 </body>
-<script>function goToRg() {
-    window.location.href = "register.html";
-  }
-  function goToNextPage() {
-    window.location.href = "profile.html";
-  }</script>
-<script>
-  document.querySelectorAll(".role-btn").forEach(btn => {
-    btn.addEventListener("click", () => {
-      document.querySelectorAll(".role-btn").forEach(b => b.classList.remove("active"));
-      btn.classList.add("active");
-      document.getElementById("role").value = btn.dataset.role;
-    });
-  });
-
-
-  const photoInput = document.getElementById("photo");
-  const box = document.querySelector(".upload-box");
-
-  photoInput.addEventListener("change", () => {
-    if (photoInput.files && photoInput.files[0]) {
-      const reader = new FileReader();
-
-      reader.onload = e => {
-        box.innerHTML = `<img src="${e.target.result}" class="preview-photo">`;
-      };
-
-      reader.readAsDataURL(photoInput.files[0]);
-    }
-  });
-
-</script>
 
 
 </html>

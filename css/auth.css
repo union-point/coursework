@@ -101,17 +101,37 @@ textarea {
     padding: 10px;
     font-size: 14px;
     border-radius: var(--input-radius);
-    border: 1px solid var(--border);
+    border: 1px solid #d7dde7;
     transition: 0.25s;
+    background-color: white;
+
+}
+
+input:hover,
+textarea:hover,
+select:hover {
+
+    border: 1px solid rgba(0, 0, 0, 0.9);
+
 }
 
 input:focus,
-textarea:focus {
-
-    border-color: var(--primary);
+textarea:focus,
+select:focus {
     background: #fff;
-    box-shadow: 0 0 0 1px var(--primary);
+    box-shadow: 0 0 0 2px var(--primary);
     outline: none;
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    border-radius: var(--input-radius);
+    border: 1px solid #d7dde7;
+    font-size: 14px;
+    transition: 0.25s;
+    background-color: white;
+
 }
 
 /* Links and buttons */
@@ -246,7 +266,7 @@ textarea:focus {
     gap: 14px;
     background: #f3f6fa;
     padding: 14px 18px;
-    border-radius: 14px;
+    border-radius: 12px;
     border: 1px solid #d7dde7;
     transition: .2s ease;
 
@@ -275,7 +295,7 @@ textarea:focus {
     padding: 10px 12px;
     font-size: 15px;
     border: 1px solid #ccc;
-    border-radius: 10px;
+    border-radius: 12px;
     background: white;
     transition: .2s;
 }
@@ -297,7 +317,7 @@ textarea:focus {
     width: 100%;
     background: #f3f6fa;
     border: 2px dashed #c8d0dc;
-    border-radius: 16px;
+    border-radius: 12px;
     padding: 25px;
     text-align: center;
     cursor: pointer;
