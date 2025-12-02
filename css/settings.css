@@ -1,13 +1,6 @@
 :root {
-    --gray-background: #f4f7fb;
-    --card-background: #ffffff;
-    --border-color: #e6e6e6;
-    --font-color-primary: rgba(0, 0, 0, 0.9);
-    --font-color-secondary: rgba(0, 0, 0, 0.6);
-    --primary-color: #0a66c2;
     --danger-color: #dc3545;
     --danger-light: #f8d7da;
-    --success-color: #28a745;
 }
 
 * {
@@ -17,24 +10,23 @@
 }
 
 body {
-    background: var(--gray-background);
+    background: var(--window-background);
     min-height: 100vh;
 }
 
 .settings-container {
     max-width: 1124px;
     margin: 114px auto 40px;
-    padding: 0 20px;
 }
 
 /* Settings Header */
 .settings-header {
     background: white;
-    color: var(--navbar-blue);
+    color: var(--title-blue);
     padding: 40px;
     border-radius: 16px;
     margin-bottom: 30px;
-    box-shadow: 0 10px 30px rgba(0, 0, 170 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 170, 0.1);
     position: relative;
     overflow: hidden;
 }
@@ -83,7 +75,7 @@ body {
 .section-header {
     margin-bottom: 25px;
     padding-bottom: 15px;
-    border-bottom: 2px solid var(--gray-background);
+    border-bottom: 2px solid var(--border-color);
 }
 
 .section-title-group {
@@ -95,7 +87,7 @@ body {
 .section-icon {
     font-size: 24px;
     color: var(--card-background);
-    background: var(--primary-color);
+    background: var(--primary-blue);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -145,8 +137,8 @@ body {
 /* Buttons */
 .btn-secondary {
     background-color: white;
-    color: var(--primary-color);
-    border: 2px solid var(--primary-color);
+    color: var(--primary-blue);
+    border: 2px solid var(--primary-blue);
     padding: 10px 24px;
     border-radius: 25px;
     font-weight: 600;
@@ -160,7 +152,7 @@ body {
 
 .btn-secondary:hover {
     box-shadow: inset 0 0 0 1px currentColor;
-    color: #004182;
+    color: var(--secoundary-blue);
     background-color: rgb(55 143 233 / 0.1);
 }
 
@@ -244,7 +236,7 @@ body {
 }
 
 .toggle-switch input:checked+.toggle-slider {
-    background: var(--primary-color);
+    background: var(--primary-blue);
 }
 
 .toggle-switch input:checked+.toggle-slider:before {
@@ -270,13 +262,13 @@ body {
 }
 
 .settings-select:hover {
-    border-color: var(--primary-color);
+    border-color: var(--primary-blue);
     box-shadow: 0 2px 8px rgba(25, 49, 172, 0.1);
 }
 
 .settings-select:focus {
     outline: none;
-    border-color: var(--primary-color);
+    border-color: var(--primary-blue);
     box-shadow: 0 0 0 3px rgba(25, 49, 172, 0.1);
 }
 
@@ -307,14 +299,14 @@ body {
 }
 
 .theme-btn:hover {
-    border-color: var(--primary-color);
+    border-color: var(--primary-blue);
     box-shadow: 0 2px 8px rgba(25, 49, 172, 0.15);
 }
 
 .theme-btn.active {
-    background: var(--primary-color);
+    background: var(--primary-blue);
     color: white;
-    border-color: var(--primary-color);
+    border-color: var(--primary-blue);
     box-shadow: 0 2px 8px rgba(25, 49, 172, 0.3);
 }
 

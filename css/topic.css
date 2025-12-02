@@ -1,18 +1,4 @@
 /* ================== Reset & Base Styles ================== */
-:root {
-    --primary: #0A66C2;
-    --primary-light: #004896;
-    ;
-    --card-bg: #ffffff;
-    --border: rgba(0, 0, 0, 0.6);
-    --radius: 20px;
-    --input-radius: 8px;
-    --shadow: 0 6px 30px rgba(0, 0, 0, 0.15);
-    --font-color-primary: rgba(0, 0, 0, 0.9);
-    --font-color-secondary: rgba(0, 0, 0, 0.6);
-    --border-color: #e6e6e6;
-}
-
 * {
     margin: 0;
     padding: 0;
@@ -41,12 +27,12 @@ body {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    color: var(--linkedin-blue);
+    color: var(--primary-blue);
     text-decoration: none;
     font-weight: 600;
     font-size: 0.95rem;
     padding: 8px 16px;
-    border: 1px solid var(--linkedin-blue);
+    border: 1px solid var(--primary-blue);
 
     border-radius: 8px;
     background-color: white;
@@ -64,7 +50,7 @@ body {
 
 /* ================== Topic Header ================== */
 .topic-header {
-    background: var(--card-bg);
+    background: var(--card-background);
     border-radius: 20px;
     padding: 35px;
     margin-bottom: 12px;
@@ -105,7 +91,7 @@ body {
     height: 56px;
     border-radius: 50%;
     overflow: hidden;
-    border: 3px solid var(--primary);
+    border: 3px solid var(--primary-blue);
     box-shadow: 0 4px 12px rgba(92, 106, 196, 0.3);
 }
 
@@ -236,12 +222,12 @@ body {
 }
 
 .sort-select:hover {
-    border-color: var(--primary);
+    border-color: var(--primary-blue);
 }
 
 .sort-select:focus {
     outline: none;
-    border-color: var(--primary-light);
+    border-color: var(--secoundary-blue);
     box-shadow: 0 0 0 3px rgba(92, 106, 196, 0.1);
 }
 
@@ -315,7 +301,7 @@ body {
 
 .author-badge {
     background: white;
-    color: var(--primary);
+    color: var(--primary-blue);
     padding: 4px 12px;
     border-radius: 12px;
     font-size: 0.75rem;
@@ -361,11 +347,11 @@ body {
 
 .reply-action-btn:hover {
     background: #e2e8f0;
-    color: var(--primary);
+    color: var(--primary-blue);
 }
 
 .reply-action-btn.active {
-    color: var(--primary-light);
+    color: var(--secoundary-blue);
 }
 
 .reply-action-btn svg {
@@ -403,7 +389,7 @@ body {
     border-radius: 50%;
     overflow: hidden;
     flex-shrink: 0;
-    border: 2px solid var(--primary);
+    border: 2px solid var(--primary-blue);
 }
 
 .form-avatar img {
@@ -431,7 +417,7 @@ body {
 
 .reply-textarea:focus {
     outline: none;
-    border-color: var(--primary);
+    border-color: var(--primary-blue);
     box-shadow: 0 0 0 4px rgba(92, 106, 196, 0.1);
 }
 
@@ -468,8 +454,8 @@ body {
 }
 
 .format-btn:hover {
-    border-color: var(--primary);
-    color: var(--primary);
+    border-color: var(--primary-blue);
+    color: var(--primary-blue);
     background: #f8fafc;
 }
 
@@ -479,13 +465,13 @@ body {
 }
 
 .format-btn.active {
-    border-color: var(--primary);
-    color: var(--primary-light);
+    border-color: var(--primary-blue);
+    color: var(--secoundary-blue);
 }
 
 .submit-btn {
     padding: 12px 32px;
-    background: var(--primary);
+    background: var(--primary-blue);
     color: white;
     border: none;
     border-radius: 20px;
@@ -497,7 +483,7 @@ body {
 
 .submit-btn:hover {
     transform: scale(1.01);
-    background-color: var(--primary-light);
+    background-color: var(--secoundary-blue);
 }
 
 .submit-btn:active {

@@ -1,13 +1,3 @@
-:root {
-    --linkedin-blue: #0a66c2;
-    --gray-background: #e8eaf6;
-    --card-background: #ffffff;
-    --border-color: #e6e6e6;
-    --font-color-primary: rgba(0, 0, 0, 0.9);
-    --font-color-secondary: rgba(0, 0, 0, 0.6);
-    --primary-color: rgb(25, 49, 172);
-}
-
 * {
     margin: 0;
     padding: 0;
@@ -163,15 +153,15 @@ body {
 }
 
 .primary-btn {
-    background-color: var(--linkedin-blue);
+    background-color: var(--primary-blue);
     color: white;
     border: none;
 }
 
 .secondary-btn {
     background-color: white;
-    color: var(--linkedin-blue);
-    border: 1px solid var(--linkedin-blue);
+    color: var(--primary-blue);
+    border: 1px solid var(--primary-blue);
 }
 
 
@@ -310,6 +300,16 @@ body {
     line-height: 1.7;
 }
 
+.announcement-content a {
+    color: var(--primary-blue);
+    text-decoration: none;
+}
+
+.announcement-content a:hover {
+    text-decoration: underline;
+
+}
+
 .announcement-content strong {
     color: #2c3e50;
     font-size: 1.15em;
@@ -340,11 +340,16 @@ body {
     background-color: var(--card-background);
     border: none;
     cursor: pointer;
-
+    font-weight: 600;
+    border-radius: 28px;
+    padding: 6px 8px;
+    transition: background-color 0.3s ease, transform 0.1s ease;
 }
 
 .comments-section .btn-comments:hover {
     color: #004896;
+    background: #f4f7fb;
+
 }
 
 .comments-section .btn-comments:active {
@@ -352,7 +357,7 @@ body {
 }
 
 .comments-section .btn-edit {
-    background-color: var(--linkedin-blue);
+    background-color: var(--primary-blue);
     color: white;
 }
 
@@ -362,8 +367,8 @@ body {
 
 .comments-section .btn-delete {
     background-color: white;
-    color: var(--linkedin-blue);
-    border: 1px solid var(--linkedin-blue);
+    color: var(--primary-blue);
+    border: 1px solid var(--primary-blue);
 }
 
 .comments-section .btn-delete:hover {

@@ -1,12 +1,16 @@
 /*header*/
 :root {
-  --primary-color: #0a66c2;
+  --primary-blue: #0A66C2;
+  --secoundary-blue: #004896;
   --gray-background: #e8eaf6;
   --card-background: #ffffff;
+  --window-background: #f4f7fb;
   --border-color: #e6e6e6;
   --font-color-primary: rgba(0, 0, 0, 0.9);
   --font-color-secondary: rgba(0, 0, 0, 0.6);
   --navbar-blue: rgb(25, 49, 172);
+  --title-blue: rgb(25, 49, 172);
+
 }
 
 .header {

@@ -1,8 +1,7 @@
 :root {
-    --primary: #0A66C2;
-    --primary-light: #004896;
-    ;
-    --card-bg: #ffffff;
+    --primary-blue: #0A66C2;
+    --secoundary-blue: #004896;
+    --card-background: #ffffff;
     --border: rgba(0, 0, 0, 0.6);
     --radius: 20px;
     --input-radius: 8px;
@@ -28,7 +27,7 @@ body {
 /* Centered box */
 .container {
     width: 430px;
-    background: var(--card-bg);
+    background: var(--card-background);
     padding: 40px 45px;
     border-radius: var(--radius);
     box-shadow: var(--shadow);
@@ -116,7 +115,7 @@ input:focus,
 textarea:focus,
 select:focus {
     background: #fff;
-    box-shadow: 0 0 0 2px var(--primary);
+    box-shadow: 0 0 0 2px var(--primary-blue);
     outline: none;
 }
 
@@ -157,7 +156,7 @@ select.error:focus {
     text-align: left;
     margin: 8px 0 10px;
     font-size: 0.9rem;
-    color: var(--primary);
+    color: var(--primary-blue);
     text-decoration: none;
     font-weight: 600;
     cursor: pointer;
@@ -171,7 +170,7 @@ select.error:focus {
 
 .bottom-text a {
     text-decoration: none;
-    color: var(--primary);
+    color: var(--primary-blue);
     font-weight: 600;
     cursor: pointer;
     border-radius: 28px;
@@ -205,12 +204,12 @@ select.error:focus {
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
 
-    background-color: var(--primary);
+    background-color: var(--primary-blue);
     color: white;
 }
 
 .signin-btn:hover {
-    background-color: var(--primary-light);
+    background-color: var(--secoundary-blue);
 }
 
 
@@ -246,14 +245,14 @@ select.error:focus {
 }
 
 .role-btn.active {
-    background: var(--primary);
+    background: var(--primary-blue);
     color: white;
-    border-color: var(--primary);
+    border-color: var(--primary-blue);
     box-shadow: 0 0 0 3px rgba(10, 102, 194, 0.2);
 }
 
 .role-btn:hover {
-    background: var(--primary-light);
+    background: var(--secoundary-blue);
     color: white;
 }
 
@@ -292,12 +291,12 @@ select.error:focus {
 }
 
 .forward-btn {
-    background: var(--primary);
+    background: var(--primary-blue);
     color: white;
 }
 
 .forward-btn:hover {
-    background: var(--primary-light);
+    background: var(--secoundary-blue);
 }
 
 .year-range-box {
@@ -313,8 +312,8 @@ select.error:focus {
 }
 
 .year-range-box:hover {
-    border-color: #0a66c2;
-    box-shadow: 0 0 0 1px var(--primary);
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 1px var(--primary-blue);
 
 }
 
@@ -341,8 +340,8 @@ select.error:focus {
 }
 
 .year-item input:focus {
-    border-color: #0a66c2;
-    box-shadow: 0 0 0 1px var(--primary);
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 1px var(--primary-blue);
     outline: none;
 }
 
@@ -365,7 +364,7 @@ select.error:focus {
 }
 
 .upload-box:hover {
-    border-color: #0a66c2;
+    border-color: var(--primary-blue);
     background: #eef5ff;
 }
 
@@ -382,7 +381,7 @@ select.error:focus {
 }
 
 .upload-box p span {
-    color: #0a66c2;
+    color: var(--primary-blue);
     font-weight: bold;
 }
 
@@ -414,7 +413,7 @@ select.error:focus {
 }
 
 .code-input:focus {
-    border-color: var(--primary);
+    border-color: var(--primary-blue);
     background: #fff;
     box-shadow: 0 0 0 3px rgba(10, 102, 194, 0.2);
     outline: none;
@@ -429,7 +428,7 @@ select.error:focus {
 }
 
 .resend-link {
-    color: var(--primary);
+    color: var(--primary-blue);
     text-decoration: none;
     font-weight: 600;
     cursor: pointer;
@@ -440,7 +439,7 @@ select.error:focus {
 }
 
 .timer {
-    color: var(--primary);
+    color: var(--primary-blue);
     font-weight: 600;
 }
 
@@ -504,7 +503,7 @@ select.error:focus {
 }
 
 .toggle-password:hover {
-    color: var(--primary);
+    color: var(--primary-blue);
 }
 
 .password-strength {

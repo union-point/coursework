@@ -4,29 +4,25 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Segoe UI", sans-serif;
-
 }
 
 body {
-    background-color: #f4f7fb;
-    color: #222;
+    background-color: var(--window-background);
 }
 
 .help-container {
     max-width: 1124px;
     margin: 114px auto 40px;
-    padding: 0 20px;
 }
 
 /* Help Header */
 .help-header {
     background: white;
-    color: var(--navbar-blue);
+    color: var(--title-blue);
     padding: 40px;
     border-radius: 16px;
     margin-bottom: 30px;
     box-shadow: 0 10px 30px rgba(0, 0, 170, 0.1);
-    text-align: center;
 }
 
 .help-header h1 {
@@ -57,64 +53,31 @@ body {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
-/* Search Section */
-.search-card {
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-}
-
-.search-box {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    max-width: 600px;
-    background: var(--gray-background);
-    border-radius: 30px;
-    padding: 5px 20px;
-    border: 2px solid transparent;
-    transition: all 0.3s ease;
-}
-
-.search-box:focus-within {
-    border-color: var(--primary-color);
-    background: white;
-}
-
-.search-icon {
-    color: var(--font-color-secondary);
-    margin-right: 10px;
-}
-
-.search-input {
-    flex: 1;
-    border: none;
-    background: transparent;
-    padding: 10px;
-    font-size: 16px;
-    outline: none;
-    color: var(--font-color-primary);
-}
-
 .btn-primary {
-    background: var(--primary-color);
+    background: var(--primary-blue);
     color: white;
     border: none;
     padding: 8px 20px;
     border-radius: 20px;
     cursor: pointer;
     font-weight: 600;
-    transition: background 0.3s;
+    transition: 0.3s;
 }
 
 .btn-primary:hover {
-    background: #004182;
+    background: var(--secoundary-blue);
+}
+
+.btn-primary:active {
+    translate: scale(0.98);
 }
 
 /* FAQ Section */
 .faq-item {
     border-bottom: 1px solid var(--border-color);
     padding: 15px 0;
+    transition: 0.3s;
+
 }
 
 .faq-item:last-child {
@@ -186,14 +149,12 @@ textarea {
 
 .form-select:hover,
 textarea:hover {
-
     border: 1px solid rgba(0, 0, 0, 0.9);
-
 }
 
 .form-select:focus,
 textarea:focus {
-    box-shadow: 0 0 0 2px var(--primary-color);
+    box-shadow: 0 0 0 2px var(--primary-blue);
     outline: none;
 }
 
@@ -226,12 +187,11 @@ textarea {
 .resource-card:hover {
     background: white;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transform: translateY(-2px);
 }
 
 .resource-card i {
     font-size: 24px;
-    color: var(--primary-color);
+    color: var(--primary-blue);
 }
 
 .resource-card span {
@@ -242,7 +202,7 @@ textarea {
 .section-header {
     margin-bottom: 25px;
     padding-bottom: 15px;
-    border-bottom: 2px solid var(--gray-background);
+    border-bottom: 2px solid var(--border-color);
 }
 
 .section-title-group {
@@ -253,7 +213,7 @@ textarea {
 
 .section-icon {
     font-size: 24px;
-    color: var(--primary-color);
+    color: var(--primary-blue);
 }
 
 .section-header h2 {
