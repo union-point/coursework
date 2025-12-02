@@ -58,20 +58,60 @@
                     </div>
                 </div>
 
-                <div class="settings-item">
+                <div class="settings-item" id="email-setting">
                     <div class="settings-item-info">
                         <h3>Էլ. փոստ</h3>
-                        <p class="settings-item-description">gayane.sargsyan@polytech.am</p>
+                        <p class="settings-item-description" id="current-email">gayane.sargsyan@polytech.am</p>
                     </div>
-                    <button class="btn-secondary">Փոփոխել</button>
+                    <button class="btn-secondary" id="edit-email-btn">Փոփոխել</button>
                 </div>
 
-                <div class="settings-item">
+                <!-- Email Edit Form (Hidden by default) -->
+                <div class="edit-form" id="email-edit-form" style="display: none;">
+                    <div class="form-group">
+                        <label for="new-email">Նոր էլ. փոստ</label>
+                        <input type="email" id="new-email" class="form-input" placeholder="Մուտքագրեք նոր էլ. փոստ">
+                    </div>
+                    <div class="form-group">
+                        <label for="email-old-password">գաղտնաբառ</label>
+                        <input type="password" id="email-old-password" class="form-input"
+                            placeholder="Մուտքագրեք հին գաղտնաբառը">
+                    </div>
+                    <div class="form-actions">
+                        <button class="btn-primary" id="save-email-btn">Պահպանել</button>
+                        <button class="btn-cancel" id="cancel-email-btn">Չեղարկել</button>
+                    </div>
+                </div>
+
+                <div class="settings-item" id="password-setting">
                     <div class="settings-item-info">
                         <h3>Գաղտնաբառ</h3>
                         <p class="settings-item-description">Վերջին փոփոխությունը՝ 3 ամիս առաջ</p>
                     </div>
-                    <button class="btn-secondary">Փոփոխել</button>
+                    <button class="btn-secondary" id="edit-password-btn">Փոփոխել</button>
+                </div>
+
+                <!-- Password Edit Form (Hidden by default) -->
+                <div class="edit-form" id="password-edit-form" style="display: none;">
+                    <div class="form-group">
+                        <label for="old-password">Հին գաղտնաբառ</label>
+                        <input type="password" id="old-password" class="form-input"
+                            placeholder="Մուտքագրեք հին գաղտնաբառը">
+                    </div>
+                    <div class="form-group">
+                        <label for="new-password">Նոր գաղտնաբառ</label>
+                        <input type="password" id="new-password" class="form-input"
+                            placeholder="Մուտքագրեք նոր գաղտնաբառը">
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm-password">Հաստատել գաղտնաբառը</label>
+                        <input type="password" id="confirm-password" class="form-input"
+                            placeholder="Կրկնեք նոր գաղտնաբառը">
+                    </div>
+                    <div class="form-actions">
+                        <button class="btn-primary" id="save-password-btn">Պահպանել</button>
+                        <button class="btn-cancel" id="cancel-password-btn">Չեղարկել</button>
+                    </div>
                 </div>
 
 

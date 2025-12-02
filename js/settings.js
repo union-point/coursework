@@ -69,10 +69,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Secondary buttons (Edit buttons)
+    // Secondary buttons (Edit buttons) - excluding email and password
     const secondaryButtons = document.querySelectorAll('.btn-secondary');
 
     secondaryButtons.forEach(button => {
+        // Skip email and password edit buttons as they have their own handlers
+        if (button.id === 'edit-email-btn' || button.id === 'edit-password-btn') {
+            return;
+        }
+
         button.addEventListener('click', (e) => {
             const settingName = e.target.closest('.settings-item').querySelector('h3').textContent;
 
@@ -86,6 +91,126 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // Email Edit Handlers
+    const editEmailBtn = document.getElementById('edit-email-btn');
+    const emailEditForm = document.getElementById('email-edit-form');
+    const emailSetting = document.getElementById('email-setting');
+    const saveEmailBtn = document.getElementById('save-email-btn');
+    const cancelEmailBtn = document.getElementById('cancel-email-btn');
+
+    if (editEmailBtn) {
+        editEmailBtn.addEventListener('click', () => {
+            emailSetting.style.display = 'none';
+            emailEditForm.style.display = 'block';
+        });
+    }
+
+    if (cancelEmailBtn) {
+        cancelEmailBtn.addEventListener('click', () => {
+            emailEditForm.style.display = 'none';
+            emailSetting.style.display = 'flex';
+            // Clear form fields
+            document.getElementById('new-email').value = '';
+            document.getElementById('email-old-password').value = '';
+        });
+    }
+
+    if (saveEmailBtn) {
+        saveEmailBtn.addEventListener('click', () => {
+            const newEmail = document.getElementById('new-email').value;
+            const oldPassword = document.getElementById('email-old-password').value;
+
+            if (!newEmail || !oldPassword) {
+                showNotification('Խնդրում ենք լրացնել բոլոր դաշտերը');
+                return;
+            }
+
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(newEmail)) {
+                showNotification('Խնդրում ենք մուտքագրել վավեր էլ. փոստ');
+                return;
+            }
+
+            // Here you would normally verify the old password with the backend
+            // For now, we'll simulate a successful update
+            showNotification('Էլ. փոստը հաջողությամբ թարմացվել է');
+
+            // Update the displayed email
+            document.getElementById('current-email').textContent = newEmail;
+
+            // Hide form and show setting item
+            emailEditForm.style.display = 'none';
+            emailSetting.style.display = 'flex';
+
+            // Clear form fields
+            document.getElementById('new-email').value = '';
+            document.getElementById('email-old-password').value = '';
+        });
+    }
+
+    // Password Edit Handlers
+    const editPasswordBtn = document.getElementById('edit-password-btn');
+    const passwordEditForm = document.getElementById('password-edit-form');
+    const passwordSetting = document.getElementById('password-setting');
+    const savePasswordBtn = document.getElementById('save-password-btn');
+    const cancelPasswordBtn = document.getElementById('cancel-password-btn');
+
+    if (editPasswordBtn) {
+        editPasswordBtn.addEventListener('click', () => {
+            passwordSetting.style.display = 'none';
+            passwordEditForm.style.display = 'block';
+        });
+    }
+
+    if (cancelPasswordBtn) {
+        cancelPasswordBtn.addEventListener('click', () => {
+            passwordEditForm.style.display = 'none';
+            passwordSetting.style.display = 'flex';
+            // Clear form fields
+            document.getElementById('old-password').value = '';
+            document.getElementById('new-password').value = '';
+            document.getElementById('confirm-password').value = '';
+        });
+    }
+
+    if (savePasswordBtn) {
+        savePasswordBtn.addEventListener('click', () => {
+            const oldPassword = document.getElementById('old-password').value;
+            const newPassword = document.getElementById('new-password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+
+            if (!oldPassword || !newPassword || !confirmPassword) {
+                showNotification('Խնդրում ենք լրացնել բոլոր դաշտերը');
+                return;
+            }
+
+            // Password validation
+            if (newPassword.length < 8) {
+                showNotification('Գաղտնաբառը պետք է լինի առնվազն 8 նիշ');
+                return;
+            }
+
+            if (newPassword !== confirmPassword) {
+                showNotification('Գաղտնաբառերը չեն համընկնում');
+                return;
+            }
+
+            // Here you would normally verify the old password with the backend
+            // For now, we'll simulate a successful update
+            showNotification('Գաղտնաբառը հաջողությամբ թարմացվել է');
+
+            // Hide form and show setting item
+            passwordEditForm.style.display = 'none';
+            passwordSetting.style.display = 'flex';
+
+            // Clear form fields
+            document.getElementById('old-password').value = '';
+            document.getElementById('new-password').value = '';
+            document.getElementById('confirm-password').value = '';
+        });
+    }
 
     // Danger buttons
     const deactivateBtn = document.querySelector('.btn-danger-outline');

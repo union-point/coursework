@@ -63,7 +63,7 @@ body {
 
 .card button:hover,
 .search-bar button:hover {
-  background-color: var(--secondary-blue);
+  background-color: var(--secoundary-blue);
 }
 
 .search-bar button {
