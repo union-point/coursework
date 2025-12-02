@@ -1,0 +1,263 @@
+/* Help Container */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+
+}
+
+body {
+    background-color: #f4f7fb;
+    color: #222;
+}
+
+.help-container {
+    max-width: 1124px;
+    margin: 114px auto 40px;
+    padding: 0 20px;
+}
+
+/* Help Header */
+.help-header {
+    background: white;
+    color: var(--navbar-blue);
+    padding: 40px;
+    border-radius: 16px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 170, 0.1);
+    text-align: center;
+}
+
+.help-header h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.help-subtitle {
+    opacity: 0.9;
+    color: var(--font-color-secondary);
+    line-height: 1.6;
+    font-size: 1.05rem;
+}
+
+/* Help Content */
+.help-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Card Styles */
+.card {
+    background-color: var(--card-background);
+    border-radius: 16px;
+    padding: 30px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* Search Section */
+.search-card {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+    background: var(--gray-background);
+    border-radius: 30px;
+    padding: 5px 20px;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.search-box:focus-within {
+    border-color: var(--primary-color);
+    background: white;
+}
+
+.search-icon {
+    color: var(--font-color-secondary);
+    margin-right: 10px;
+}
+
+.search-input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 10px;
+    font-size: 16px;
+    outline: none;
+    color: var(--font-color-primary);
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+.btn-primary:hover {
+    background: #004182;
+}
+
+/* FAQ Section */
+.faq-item {
+    border-bottom: 1px solid var(--border-color);
+    padding: 15px 0;
+}
+
+.faq-item:last-child {
+    border-bottom: none;
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px 0;
+}
+
+.faq-question h3 {
+    font-size: 16px;
+    color: var(--font-color-primary);
+    margin: 0;
+}
+
+.faq-question i {
+    color: var(--font-color-secondary);
+    transition: transform 0.3s;
+}
+
+.faq-item.active .faq-question i {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    color: var(--font-color-secondary);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 200px;
+    /* Adjust as needed */
+    padding-top: 10px;
+}
+
+/* Contact Form */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--font-color-primary);
+    font-weight: 500;
+}
+
+.form-select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: inherit;
+    transition: border-color 0.3s;
+    box-sizing: border-box;
+    background: white;
+}
+
+.form-select:hover,
+textarea:hover {
+
+    border: 1px solid rgba(0, 0, 0, 0.9);
+
+}
+
+.form-select:focus,
+textarea:focus {
+    box-shadow: 0 0 0 2px var(--primary-color);
+    outline: none;
+}
+
+textarea {
+    resize: vertical;
+}
+
+/* Resources Section */
+.resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.resource-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: var(--gray-background);
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--font-color-primary);
+    transition: all 0.3s;
+    text-align: center;
+    gap: 10px;
+}
+
+.resource-card:hover {
+    background: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.resource-card i {
+    font-size: 24px;
+    color: var(--primary-color);
+}
+
+.resource-card span {
+    font-weight: 500;
+}
+
+/* Section Header */
+.section-header {
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid var(--gray-background);
+}
+
+.section-title-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.section-icon {
+    font-size: 24px;
+    color: var(--primary-color);
+}
+
+.section-header h2 {
+    font-size: 22px;
+    color: var(--font-color-primary);
+    margin: 0;
+}
