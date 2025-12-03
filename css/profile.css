@@ -6,7 +6,7 @@
 }
 
 body {
-    background: #f4f7fb;
+    background: var(--window-background);
 }
 
 
@@ -124,7 +124,8 @@ body {
 }
 
 .desc {
-    padding-bottom: 20px
+    padding-bottom: 20px;
+    color: var(--font-color-primary);
 }
 
 /* action Buttons*/
@@ -159,7 +160,7 @@ body {
 }
 
 .secondary-btn {
-    background-color: white;
+    background-color: transparent;
     color: var(--primary-blue);
     border: 1px solid var(--primary-blue);
 }
@@ -295,7 +296,7 @@ body {
 }
 
 .announcement-content p {
-    color: #34495e;
+    color: var(--font-color-primary);
     font-size: 1.05em;
     line-height: 1.7;
 }
@@ -311,7 +312,7 @@ body {
 }
 
 .announcement-content strong {
-    color: #2c3e50;
+    color: var(--font-color-primary);
     font-size: 1.15em;
     display: block;
     margin-bottom: 8px;
@@ -366,7 +367,7 @@ body {
 }
 
 .comments-section .btn-delete {
-    background-color: white;
+    background-color: transparent;
     color: var(--primary-blue);
     border: 1px solid var(--primary-blue);
 }

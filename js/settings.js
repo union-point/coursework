@@ -54,6 +54,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // 2FA Toggle Handler
+    const twoFaToggle = document.getElementById('2fa-toggle');
+    if (twoFaToggle) {
+        // Load saved state
+        const is2FAEnabled = localStorage.getItem('is2FAEnabled') === 'true';
+        twoFaToggle.checked = is2FAEnabled;
+
+        twoFaToggle.addEventListener('change', (e) => {
+            const isEnabled = e.target.checked;
+            localStorage.setItem('is2FAEnabled', isEnabled);
+        });
+    }
     // Select dropdowns
     const selects = document.querySelectorAll('.settings-select');
 

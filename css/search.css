@@ -13,7 +13,7 @@
 }
 
 body {
-  background-color: #f4f7fb;
+  background-color: var(--window-background);
   color: #222;
   overflow: hidden;
 }

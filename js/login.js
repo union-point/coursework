@@ -44,15 +44,24 @@ document.addEventListener('DOMContentLoaded', () => {
         if (1) {//if (isValid) {     --!!!--for testing
             try {
                 await login(email, password);
-                window.location.href = "profile.html";
+                const is2FAEnabled = localStorage.getItem('is2FAEnabled') === 'true';
+                if (is2FAEnabled) {
+                    window.location.href = "2fa-verify.html";
+                } else {
+                    window.location.href = "profile.html";
+                }
             } catch (error) {
                 errorMessage.style.display = 'block';
                 passwordInput.classList.add('error');
                 emailInput.classList.add('error');
 
                 console.error(error);
-                window.location.href = "profile.html";
-
+                const is2FAEnabled = localStorage.getItem('is2FAEnabled') === 'true';
+                if (is2FAEnabled) {
+                    window.location.href = "2fa-verify.html";
+                } else {
+                    window.location.href = "profile.html";
+                }
 
             }
         }
