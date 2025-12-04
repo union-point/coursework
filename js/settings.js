@@ -1,34 +1,47 @@
 // Settings Page JavaScript
 
 // Theme Selector
-document.addEventListener('DOMContentLoaded', () => {
-    // Theme buttons
-    const themeButtons = document.querySelectorAll('.theme-btn');
+// Theme handling with applyTheme function
+function applyTheme(theme) {
+    const root = document.documentElement;
+    // Remove existing theme classes
+    root.classList.remove('theme-light', 'theme-dark', 'theme-auto');
+    // Add the selected theme class
+    if (theme === 'light') {
+        root.classList.add('theme-light');
+    } else if (theme === 'dark') {
+        root.classList.add('theme-dark');
+    } else {
+        // Auto: follow system preference
+        root.classList.add('theme-auto');
+    }
+    // Persist selection
+    localStorage.setItem('theme', theme);
+}
 
+document.addEventListener('DOMContentLoaded', () => {
+    const themeButtons = document.querySelectorAll('.theme-btn');
     themeButtons.forEach(button => {
         button.addEventListener('click', () => {
-            // Remove active class from all buttons
+            // Update active button UI
             themeButtons.forEach(btn => btn.classList.remove('active'));
-
-            // Add active class to clicked button
             button.classList.add('active');
-
-            // Get selected theme
             const theme = button.dataset.theme;
-
-            // Save to localStorage
-            localStorage.setItem('theme', theme);
-
-            // Apply theme (you can expand this to actually change the theme)
-            console.log(`Theme changed to: ${theme}`);
-
-            // Show confirmation
-            showNotification(`Թեման փոխվել է ${getThemeName(theme)}-ի`);
+            applyTheme(theme);
+            console.log(`Թեման փոխվել է ${getThemeName(theme)}-ի`);
         });
     });
+    // Load saved theme or default to light
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    themeButtons.forEach(btn => {
+        if (btn.dataset.theme === savedTheme) {
+            btn.classList.add('active');
+        } else {
+            btn.classList.remove('active');
+        }
+    });
+    applyTheme(savedTheme);
 
-    // Load saved theme
-    const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
         themeButtons.forEach(btn => {
             if (btn.dataset.theme === savedTheme) {
@@ -50,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log(`${settingName}: ${isEnabled ? 'Միացված' : 'Անջատված'}`);
 
             // Show notification
-            showNotification(`${settingName} ${isEnabled ? 'միացված է' : 'անջատված է'}`);
+            console.log(`${settingName} ${isEnabled ? 'միացված է' : 'անջատված է'}`);
         });
     });
 
@@ -77,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log(`${settingName}: ${selectedValue}`);
 
             // Show notification
-            showNotification(`${settingName} փոխվել է ${selectedValue}-ի`);
+            console.log(`${settingName} փոխվել է ${selectedValue}-ի`);
         });
     });
 
@@ -134,20 +147,20 @@ document.addEventListener('DOMContentLoaded', () => {
             const oldPassword = document.getElementById('email-old-password').value;
 
             if (!newEmail || !oldPassword) {
-                showNotification('Խնդրում ենք լրացնել բոլոր դաշտերը');
+                console.log('Խնդրում ենք լրացնել բոլոր դաշտերը');
                 return;
             }
 
             // Email validation
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(newEmail)) {
-                showNotification('Խնդրում ենք մուտքագրել վավեր էլ. փոստ');
+                console.log('Խնդրում ենք մուտքագրել վավեր էլ. փոստ');
                 return;
             }
 
             // Here you would normally verify the old password with the backend
             // For now, we'll simulate a successful update
-            showNotification('Էլ. փոստը հաջողությամբ թարմացվել է');
+            console.log('Էլ. փոստը հաջողությամբ թարմացվել է');
 
             // Update the displayed email
             document.getElementById('current-email').textContent = newEmail;
@@ -194,24 +207,24 @@ document.addEventListener('DOMContentLoaded', () => {
             const confirmPassword = document.getElementById('confirm-password').value;
 
             if (!oldPassword || !newPassword || !confirmPassword) {
-                showNotification('Խնդրում ենք լրացնել բոլոր դաշտերը');
+                console.log('Խնդրում ենք լրացնել բոլոր դաշտերը');
                 return;
             }
 
             // Password validation
             if (newPassword.length < 8) {
-                showNotification('Գաղտնաբառը պետք է լինի առնվազն 8 նիշ');
+                console.log('Գաղտնաբառը պետք է լինի առնվազն 8 նիշ');
                 return;
             }
 
             if (newPassword !== confirmPassword) {
-                showNotification('Գաղտնաբառերը չեն համընկնում');
+                console.log('Գաղտնաբառերը չեն համընկնում');
                 return;
             }
 
             // Here you would normally verify the old password with the backend
             // For now, we'll simulate a successful update
-            showNotification('Գաղտնաբառը հաջողությամբ թարմացվել է');
+            console.log('Գաղտնաբառը հաջողությամբ թարմացվել է');
 
             // Hide form and show setting item
             passwordEditForm.style.display = 'none';
@@ -319,7 +332,7 @@ function handleEditSetting(settingName) {
     const newValue = prompt(`Մուտքագրեք նոր արժեքը ${settingName}-ի համար:`);
 
     if (newValue !== null && newValue.trim() !== '') {
-        showNotification(`${settingName} հաջողությամբ թարմացվել է`);
+        console.log(`${settingName} հաջողությամբ թարմացվել է`);
 
         // Update the display value
         const settingItem = Array.from(document.querySelectorAll('.settings-item')).find(
@@ -336,21 +349,21 @@ function handleEditSetting(settingName) {
 }
 
 function handleDownloadData() {
-    showNotification('Տվյալների ներբեռնումը սկսվել է...');
+    console.log('Տվյալների ներբեռնումը սկսվել է...');
 
     // Simulate download
     setTimeout(() => {
-        showNotification('Տվյալները հաջողությամբ ներբեռնվել են');
+        console.log('Տվյալները հաջողությամբ ներբեռնվել են');
     }, 2000);
 }
 
 function handleClearCache() {
     if (confirm('Վստա՞հ եք, որ ցանկանում եք մաքրել քեշը:')) {
-        showNotification('Քեշը մաքրվում է...');
+        console.log('Քեշը մաքրվում է...');
 
         // Simulate cache clearing
         setTimeout(() => {
-            showNotification('Քեշը հաջողությամբ մաքրվել է');
+            console.log('Քեշը հաջողությամբ մաքրվել է');
         }, 1500);
     }
 }
@@ -362,11 +375,11 @@ function handleDeactivateAccount() {
     );
 
     if (confirmation) {
-        showNotification('Հաշիվը ապաակտիվացվում է...');
+        console.log('Հաշիվը ապաակտիվացվում է...');
 
         // Simulate deactivation
         setTimeout(() => {
-            showNotification('Հաշիվը հաջողությամբ ապաակտիվացվել է');
+            console.log('Հաշիվը հաջողությամբ ապաակտիվացվել է');
             // Redirect to login page after 2 seconds
             setTimeout(() => {
                 window.location.href = 'login.html';
@@ -390,18 +403,18 @@ function handleDeleteAccount() {
         );
 
         if (finalConfirmation === 'ՋՆՋԵԼ') {
-            showNotification('Հաշիվը ջնջվում է...');
+            console.log('Հաշիվը ջնջվում է...');
 
             // Simulate deletion
             setTimeout(() => {
-                showNotification('Հաշիվը հաջողությամբ ջնջվել է');
+                console.log('Հաշիվը հաջողությամբ ջնջվել է');
                 // Redirect to login page after 2 seconds
                 setTimeout(() => {
                     window.location.href = 'login.html';
                 }, 2000);
             }, 1500);
         } else if (finalConfirmation !== null) {
-            showNotification('Սխալ հաստատում: Հաշիվը չի ջնջվել');
+            console.log('Սխալ հաստատում: Հաշիվը չի ջնջվել');
         }
     }
 }

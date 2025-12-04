@@ -1,4 +1,18 @@
-/* Help Container */
+:root {
+    /* Resource Card Colors */
+    --resource-bg: var(--gray-background);
+    --resource-hover-bg: #ffffff;
+    --resource-icon: var(--primary-blue);
+}
+
+/* Dark Theme */
+.theme-dark {
+    /* Dark Theme Resource Card Colors */
+    --resource-bg: var(--gray-background);
+    --resource-hover-bg: var(--window-background);
+    --resource-icon: var(--primary-blue);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -8,6 +22,8 @@
 
 body {
     background-color: var(--window-background);
+    color: var(--font-color-primary);
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .help-container {
@@ -17,12 +33,13 @@ body {
 
 /* Help Header */
 .help-header {
-    background: white;
+    background: var(--card-background);
     color: var(--title-blue);
     padding: 40px;
     border-radius: 16px;
     margin-bottom: 30px;
-    box-shadow: 0 10px 30px rgba(0, 0, 170, 0.1);
+    box-shadow: 0 10px 30px var(--header-shadow);
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .help-header h1 {
@@ -50,26 +67,27 @@ body {
     border-radius: 16px;
     padding: 30px;
     border: 1px solid var(--border-color);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 15px var(--card-shadow);
+    transition: background-color 0.3s, border-color 0.3s;
 }
 
 .btn-primary {
-    background: var(--primary-blue);
-    color: white;
+    background: var(--button-bg);
+    color: var(--button-text);
     border: none;
     padding: 8px 20px;
     border-radius: 20px;
     cursor: pointer;
     font-weight: 600;
-    transition: 0.3s;
+    transition: background-color 0.3s;
 }
 
 .btn-primary:hover {
-    background: var(--secoundary-blue);
+    background: var(--button-bg-hover);
 }
 
 .btn-primary:active {
-    translate: scale(0.98);
+    transform: scale(0.98);
 }
 
 /* FAQ Section */
@@ -77,7 +95,6 @@ body {
     border-bottom: 1px solid var(--border-color);
     padding: 15px 0;
     transition: 0.3s;
-
 }
 
 .faq-item:last-child {
@@ -118,7 +135,6 @@ body {
 
 .faq-item.active .faq-answer {
     max-height: 200px;
-    /* Adjust as needed */
     padding-top: 10px;
 }
 
@@ -138,23 +154,24 @@ body {
 textarea {
     width: 100%;
     padding: 12px;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--form-border);
     border-radius: 8px;
     font-size: 14px;
     font-family: inherit;
     transition: border-color 0.3s;
     box-sizing: border-box;
-    background: white;
+    background: var(--form-bg);
+    color: var(--font-color-primary);
 }
 
 .form-select:hover,
 textarea:hover {
-    border: 1px solid rgba(0, 0, 0, 0.9);
+    border: 1px solid var(--form-border-hover);
 }
 
 .form-select:focus,
 textarea:focus {
-    box-shadow: 0 0 0 2px var(--primary-blue);
+    box-shadow: var(--form-focus-shadow);
     outline: none;
 }
 
@@ -175,7 +192,7 @@ textarea {
     align-items: center;
     justify-content: center;
     padding: 20px;
-    background: var(--gray-background);
+    background: var(--resource-bg);
     border-radius: 12px;
     text-decoration: none;
     color: var(--font-color-primary);
@@ -185,13 +202,13 @@ textarea {
 }
 
 .resource-card:hover {
-    background: white;
+    background: var(--resource-hover-bg);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .resource-card i {
     font-size: 24px;
-    color: var(--primary-blue);
+    color: var(--resource-icon);
 }
 
 .resource-card span {

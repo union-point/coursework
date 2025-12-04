@@ -148,15 +148,16 @@ class Modal {
     const modal = document.createElement('div');
     modal.className = 'modal-container';
     modal.style.cssText = `
-      background: white;
+      background: var(--card-background);
       border-radius: 12px;
       padding: 24px;
       max-width: 600px;
       width: 90%;
       max-height: 80vh;
       overflow-y: auto;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 1px 4px var(--font-color-primary);
       animation: slideUp 0.3s ease;
+      color: var(--font-color-primary);
     `;
 
     // Modal header
@@ -167,7 +168,7 @@ class Modal {
       align-items: center;
       margin-bottom: 20px;
       padding-bottom: 16px;
-      border-bottom: 1px solid #e0e0e0;
+      border-bottom: 1px solid var(--border-color);
     `;
 
     const titleEl = document.createElement('h2');
@@ -175,7 +176,7 @@ class Modal {
     titleEl.style.cssText = `
       margin: 0;
       font-size: 24px;
-      color: #2c3e50;
+      color: var(--font-color-primary);
     `;
 
     const closeBtn = document.createElement('button');
@@ -185,7 +186,7 @@ class Modal {
       border: none;
       font-size: 32px;
       cursor: pointer;
-      color: #7f8c8d;
+      color: var(--font-color-secondary);
       line-height: 1;
       padding: 0;
       width: 32px;
@@ -209,18 +210,15 @@ class Modal {
       justify-content: flex-end;
       gap: 12px;
       padding-top: 16px;
-      border-top: 1px solid #e0e0e0;
+      border-top: 1px solid var(--border-color);
     `;
 
     const saveBtn = document.createElement('button');
+    saveBtn.className = 'primary-btn';
     saveBtn.textContent = 'Պահպանել';
     saveBtn.style.cssText = `
       padding: 10px 24px;
-      background: #0073b1;
-      color: white;
-      border: none;
       border-radius: 20px;
-      cursor: pointer;
       font-weight: 600;
       font-size: 14px;
     `;
@@ -233,14 +231,11 @@ class Modal {
     };
 
     const cancelBtn = document.createElement('button');
+    cancelBtn.className = 'secondary-btn';
     cancelBtn.textContent = 'Չեղարկել';
     cancelBtn.style.cssText = `
       padding: 10px 24px;
-      background: white;
-      color: #0073b1;
-      border: 1px solid #0073b1;
       border-radius: 20px;
-      cursor: pointer;
       font-weight: 600;
       font-size: 14px;
     `;
@@ -379,27 +374,27 @@ function showAddEducationModal() {
   const form = document.createElement('div');
   form.innerHTML = `
     <div style="margin-bottom: 16px;">
-      <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #2c3e50;">Ուսումնական հաստատություն</label>
+      <label style="display: block; margin-bottom: 8px; font-weight: 600; color: var(--font-color-primary);">Ուսումնական հաստատություն</label>
       <input type="text" id="edu-institution" name="institution" 
-        style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;"
+        style="width: 100%; padding: 10px; border-radius: 8px; font-size: 14px; background: var(--card-background); color: var(--font-color-primary);"
         placeholder="Օրինակ՝ Հայաստանի ազգային պոլիտեխնիկական համալսարան">
     </div>
     <div style="margin-bottom: 16px;">
-      <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #2c3e50;">Աստիճան և մասնագիտություն</label>
+      <label style="display: block; margin-bottom: 8px; font-weight: 600; color: var(--font-color-primary);">Աստիճան և մասնագիտություն</label>
       <input type="text" id="edu-degree" name="degree" 
-        style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;"
+        style="width: 100%; padding: 10px; border-radius: 8px; font-size: 14px; background: var(--card-background); color: var(--font-color-primary);"
         placeholder="Օրինակ՝ Բակալավրի աստիճան, Ծրագրային ինժեներություն">
     </div>
     <div style="display: flex; gap: 12px;">
       <div style="flex: 1;">
-        <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #2c3e50;">Սկիզբ</label>
+        <label style="display: block; margin-bottom: 8px; font-weight: 600; color: var(--font-color-primary);">Սկիզբ</label>
         <input type="month" id="edu-start" name="startDate" 
-          style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;">
+          style="width: 100%; padding: 10px; border-radius: 8px; font-size: 14px; background: var(--card-background); color: var(--font-color-primary);">
       </div>
       <div style="flex: 1;">
-        <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #2c3e50;">Ավարտ</label>
+        <label style="display: block; margin-bottom: 8px; font-weight: 600; color: var(--font-color-primary);">Ավարտ</label>
         <input type="month" id="edu-end" name="endDate" 
-          style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;">
+          style="width: 100%; padding: 10px; border-radius: 8px; font-size: 14px; background: var(--card-background); color: var(--font-color-primary);">
       </div>
     </div>
   `;
@@ -437,26 +432,26 @@ function showAddLicenseModal() {
   const form = document.createElement('div');
   form.innerHTML = `
     <div style="margin-bottom: 16px;">
-      <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #2c3e50;">Հավաստագրի անվանում</label>
+      <label style="display: block; margin-bottom: 8px; font-weight: 600; color: var(--font-color-primary);">Հավաստագրի անվանում</label>
       <input type="text" id="cert-name" name="name" 
-        style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;"
+        style="width: 100%; padding: 10px; border-radius: 8px; font-size: 14px; background: var(--card-background); color: var(--font-color-primary);"
         placeholder="Օրինակ՝ Python Ծրագրավորում">
     </div>
     <div style="margin-bottom: 16px;">
-      <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #2c3e50;">Կազմակերպություն</label>
+      <label style="display: block; margin-bottom: 8px; font-weight: 600; color: var(--font-color-primary);">Կազմակերպություն</label>
       <input type="text" id="cert-org" name="organization" 
-        style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;"
+        style="width: 100%; padding: 10px; border-radius: 8px; font-size: 14px; background: var(--card-background); color: var(--font-color-primary);"
         placeholder="Օրինակ՝ Armenian Code Academy">
     </div>
     <div style="margin-bottom: 16px;">
-      <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #2c3e50;">Տրման ամսաթիվ</label>
+      <label style="display: block; margin-bottom: 8px; font-weight: 600; color: var(--font-color-primary);">Տրման ամսաթիվ</label>
       <input type="month" id="cert-date" name="issueDate" 
-        style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;">
+        style="width: 100%; padding: 10px; border-radius: 8px; font-size: 14px; background: var(--card-background); color: var(--font-color-primary);">
     </div>
     <div style="margin-bottom: 16px;">
-      <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #2c3e50;">Հավաստագրի հղում (ոչ պարտադիր)</label>
+      <label style="display: block; margin-bottom: 8px; font-weight: 600; color: var(--font-color-primary);">Հավաստագրի հղում (ոչ պարտադիր)</label>
       <input type="url" id="cert-url" name="credentialUrl" 
-        style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;"
+        style="width: 100%; padding: 10px; border-radius: 8px; font-size: 14px; background: var(--card-background); color: var(--font-color-primary);"
         placeholder="https://...">
     </div>
   `;
@@ -499,15 +494,15 @@ function showAddAnnouncementModal() {
   const form = document.createElement('div');
   form.innerHTML = `
     <div style="margin-bottom: 16px;">
-      <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #2c3e50;">Վերնագիր</label>
+      <label style="display: block; margin-bottom: 8px; font-weight: 600; color: var(--font-color-primary);">Վերնագիր</label>
       <input type="text" id="announcement-title" name="title" 
-        style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;"
+        style="width: 100%; padding: 10px; border-radius: 8px; font-size: 14px; background: var(--card-background); color: var(--font-color-primary);"
         placeholder="Օրինակ՝ Աշխատանքային հնարավորություն">
     </div>
     <div style="margin-bottom: 16px;">
-      <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #2c3e50;">Բովանդակություն</label>
+      <label style="display: block; margin-bottom: 8px; font-weight: 600; color: var(--font-color-primary);">Բովանդակություն</label>
       <textarea id="announcement-content" name="content" rows="6"
-        style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px; resize: vertical;"
+        style="width: 100%; padding: 10px; border: 1px solid var(--border-color); border-radius: 8px; font-size: 14px; resize: vertical; background: var(--card-background); color: var(--font-color-primary);"
         placeholder="Մուտքագրեք հայտարարության բովանդակությունը..."></textarea>
     </div>
   `;
@@ -553,14 +548,14 @@ function editAnnouncement(announcementCard) {
   const form = document.createElement('div');
   form.innerHTML = `
     <div style="margin-bottom: 16px;">
-      <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #2c3e50;">Վերնագիր</label>
+      <label style="display: block; margin-bottom: 8px; font-weight: 600; color: var(--font-color-primary);">Վերնագիր</label>
       <input type="text" id="announcement-title" name="title" value="${currentTitle}"
-        style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;">
+        style="width: 100%; padding: 10px; border-radius: 8px; font-size: 14px; background: var(--card-background); color: var(--font-color-primary);">
     </div>
     <div style="margin-bottom: 16px;">
-      <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #2c3e50;">Բովանդակություն</label>
+      <label style="display: block; margin-bottom: 8px; font-weight: 600; color: var(--font-color-primary);">Բովանդակություն</label>
       <textarea id="announcement-content" name="content" rows="6"
-        style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px; resize: vertical;">${currentContent}</textarea>
+        style="width: 100%; padding: 10px; border-radius: 8px; font-size: 14px; resize: vertical; background: var(--card-background); color: var(--font-color-primary);">${currentContent}</textarea>
     </div>
   `;
 
@@ -640,7 +635,7 @@ function toggleComments(announcementCard, btnComments) {
     commentsContainer.style.cssText = `
       margin-top: 16px;
       padding-top: 16px;
-      border-top: 1px solid #eee;
+      border-top: 1px solid var(--border-color);
       animation: fadeIn 0.3s ease;
     `;
 
@@ -650,19 +645,19 @@ function toggleComments(announcementCard, btnComments) {
     commentsList.innerHTML = `
       <div class="comment" style="margin-bottom: 12px;">
         <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
-          <div style="width: 24px; height: 24px; background: #ddd; border-radius: 50%;"></div>
-          <span style="font-weight: 600; font-size: 13px;">Արմեն Պետրոսյան</span>
-          <span style="font-size: 12px; color: #888;">2 ժամ առաջ</span>
+          <div style="width: 32px; height: 32px; background: var(--border-color); border-radius: 50%;"></div>
+          <span style="font-weight: 600; font-size: 14px; color: var(--font-color-primary)">Արմեն Պետրոսյան</span>
+          <span style="font-size: 12px; color: var(--font-color-secondary);">2 ժամ առաջ</span>
         </div>
-        <p style="font-size: 14px; margin: 0; padding-left: 32px;">Շնորհակալություն տեղեկության համար:</p>
+        <p style="font-size: 14px; margin: 0; padding-left: 32px; color: var(--font-color-primary)">Շնորհակալություն տեղեկության համար:</p>
       </div>
       <div class="comment" style="margin-bottom: 12px;">
         <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
-          <div style="width: 24px; height: 24px; background: #ddd; border-radius: 50%;"></div>
-          <span style="font-weight: 600; font-size: 13px;">Անի Գրիգորյան</span>
-          <span style="font-size: 12px; color: #888;">1 ժամ առաջ</span>
+          <div style="width: 32px; height: 32px; background: var(--border-color); border-radius: 50%;"></div>
+          <span style="font-weight: 600; font-size: 14px; color: var(--font-color-primary)">Անի Գրիգորյան</span>
+          <span style="font-size: 12px; color: var(--font-color-secondary);">1 ժամ առաջ</span>
         </div>
-        <p style="font-size: 14px; margin: 0; padding-left: 32px;">CV-ն ուղարկել եմ:</p>
+        <p style="font-size: 14px; margin: 0; padding-left: 32px; color: var(--font-color-primary)">CV-ն ուղարկել եմ:</p>
       </div>
     `;
 
@@ -675,7 +670,7 @@ function toggleComments(announcementCard, btnComments) {
     `;
     commentForm.innerHTML = `
       <input type="text" placeholder="Գրել մեկնաբանություն..." 
-        style="flex: 1; padding: 8px 12px; border: 1px solid #ddd; border-radius: 12px; font-size: 14px;">
+        style="flex: 1; padding: 8px 12px; border-radius: 12px; font-size: 14px; background: var(--card-background); color: var(--font-color-primary);">
       <button class = "primary-btn" style="  color: white; border: none; padding: 8px 16px; border-radius: 20px; cursor: pointer;">
         <i class="fas fa-paper-plane"></i>
       </button>
@@ -695,7 +690,7 @@ function toggleComments(announcementCard, btnComments) {
           <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
             <div style="width: 24px; height: 24px; background: #0A66C2; border-radius: 6px;"></div>
             <span style="font-weight: 600; font-size: 13px;">Դուք</span>
-            <span style="font-size: 12px; color: #888;">Հենց հիմա</span>
+            <span style="font-size: 12px; color: var(--font-color-secondary);">Հենց հիմա</span>
           </div>
           <p style="font-size: 14px; margin: 0; padding-left: 32px;">${text}</p>
         `;
@@ -863,10 +858,44 @@ function showNotification(message) {
 }
 
 // ============================================
+// THEME HANDLING
+// ============================================
+
+function applyTheme(theme) {
+  const root = document.documentElement;
+  // Remove existing theme classes
+  root.classList.remove('theme-light', 'theme-dark', 'theme-auto');
+
+  if (theme === 'dark') {
+    root.classList.add('theme-dark');
+  } else if (theme === 'light') {
+    root.classList.add('theme-light');
+  } else {
+    // Auto: follow system preference
+    root.classList.add('theme-auto');
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      root.classList.add('theme-dark');
+    }
+  }
+}
+
+// ============================================
 // EVENT LISTENERS
 // ============================================
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Load saved theme
+  const savedTheme = localStorage.getItem('theme') || 'light';
+  applyTheme(savedTheme);
+
+  // Listen for system theme changes if auto
+  if (savedTheme === 'auto') {
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+      if (localStorage.getItem('theme') === 'auto') {
+        applyTheme('auto');
+      }
+    });
+  }
   // Banner edit icon
   const bannerEditIcon = document.querySelector('.banner-edit-icon');
   if (bannerEditIcon) {

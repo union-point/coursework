@@ -19,12 +19,12 @@ body {
 
 /* Header */
 .privacy-header {
-    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secoundary-blue) 100%);
+    background: var(--header-gradient);
     color: white;
     padding: 40px;
     border-radius: 16px;
     margin-bottom: 30px;
-    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+    box-shadow: 0 10px 30px var(--header-shadow);
 }
 
 .back-link {
@@ -66,10 +66,10 @@ body {
 
 /* Content */
 .privacy-content {
-    background: white;
+    background: var(--card-background);
     border-radius: 16px;
     padding: 40px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 20px var(--header-shadow);
 }
 
 .intro-section {

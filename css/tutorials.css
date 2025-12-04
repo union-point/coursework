@@ -19,12 +19,17 @@ body {
 
 /* Header */
 .tutorials-header {
-    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secoundary-blue) 100%);
+    background: var(--header-gradient);
     color: white;
     padding: 40px;
     border-radius: 16px;
     margin-bottom: 30px;
     box-shadow: 0 10px 30px rgba(var(--primary-blue), 0.3);
+}
+
+.theme-dark .tutorials-header {
+    background: linear-gradient(135deg, var(--navbar-blue) 0%, var(--window-background) 100%);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .back-link {
@@ -66,10 +71,10 @@ body {
 
 /* Content */
 .tutorials-content {
-    background: white;
+    background: var(--card-background);
     border-radius: 16px;
     padding: 30px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 20px var(--header-shadow);
 }
 
 /* Filter Section */
@@ -96,7 +101,7 @@ body {
 .filter-btn {
     padding: 10px 20px;
     border: 2px solid var(--border-color);
-    background: white;
+    background: var(--card-background);
     color: var(--font-color-primary);
     border-radius: 25px;
     cursor: pointer;
@@ -150,12 +155,14 @@ body {
 
 /* Tutorial Card */
 .tutorial-card {
-    background: white;
+    background: var(--card-background);
     border-radius: 12px;
     overflow: hidden;
     border: 1px solid var(--border-color);
     transition: all 0.3s;
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
 }
 
 .tutorial-card:hover {
@@ -202,6 +209,9 @@ body {
 /* Tutorial Info */
 .tutorial-info {
     padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .tutorial-info h3 {
@@ -225,6 +235,7 @@ body {
     align-items: center;
     padding-top: 15px;
     border-top: 1px solid var(--border-color);
+    margin-top: auto;
 }
 
 .views {

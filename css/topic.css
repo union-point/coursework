@@ -24,7 +24,7 @@ body {
 }
 
 .breadcrumb a {
-    display: inline-flex;
+    display: inliwhitene-flex;
     align-items: center;
     gap: 8px;
     color: var(--primary-blue);
@@ -35,13 +35,13 @@ body {
     border: 1px solid var(--primary-blue);
 
     border-radius: 8px;
-    background-color: white;
+    background-color: var(--window-background);
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .breadcrumb a:hover {
-    background-color: #e2e8f0;
-    color: #083d75
+    background-color: var(--card-background);
+    color: var(--secoundary-blue);
 }
 
 .breadcrumb a:active {
@@ -54,8 +54,8 @@ body {
     border-radius: 20px;
     padding: 35px;
     margin-bottom: 12px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-    border: 1px solid rgba(92, 106, 196, 0.1);
+    box-shadow: 0 10px 40px var(--card-shadow);
+    border: 1px solid var(--border-color);
     position: relative;
     overflow: hidden;
 }
@@ -63,9 +63,9 @@ body {
 
 .topic-badge {
     display: inline-block;
-    background: white;
-    color: #475569;
-    border: 1px solid #e2e8f0;
+    background: var(--card-background);
+    color: var(--secoundary-blue);
+    border: 1px solid var(--border-color);
     padding: 8px 18px;
     border-radius: 20px;
     font-size: 0.85rem;
@@ -126,17 +126,17 @@ body {
 
 /* ================== Original Post ================== */
 .original-post {
-    background: white;
+    background: var(--card-background);
     border-radius: 20px;
     padding: 40px;
     padding-bottom: 20px;
     margin-bottom: 12px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 40px var(--card-shadow);
+    border: 1px solid var(--border-color);
 }
 
 .post-content {
-    color: #334155;
+    color: var(--font-color-primary);
     font-size: 1.05rem;
 }
 
@@ -159,7 +159,7 @@ body {
 
 .post-content li {
     margin-bottom: 10px;
-    color: #475569;
+    color: var(--font-color-secondary);
     position: relative;
     padding-left: 8px;
 }
@@ -181,12 +181,12 @@ body {
 
 /* ================== Replies Section ================== */
 .replies-section {
-    background: white;
+    background: var(--card-background);
     border-radius: 20px;
     padding: 20px 40px;
     margin-bottom: 12px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 40px var(--card-shadow);
+    border: 1px solid var(--border-color);
 }
 
 .replies-header {
@@ -195,7 +195,7 @@ body {
     align-items: center;
     margin-bottom: 20px;
     padding-bottom: 15px;
-    border-bottom: 2px solid #f1f5f9;
+    border-bottom: 2px solid var(--border-color);
 }
 
 .replies-header h2 {
@@ -211,24 +211,23 @@ body {
 
 .sort-select {
     padding: 10px 16px;
-    border: 2px solid #e2e8f0;
+    border: 2px solid var(--form-border);
     border-radius: 10px;
     font-size: 0.9rem;
     font-weight: 500;
     color: #475569;
-    background: white;
+    background: var(--card-background);
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
 .sort-select:hover {
-    border-color: var(--primary-blue);
+    border-color: var(--form-border-hover);
 }
 
 .sort-select:focus {
     outline: none;
-    border-color: var(--secoundary-blue);
-    box-shadow: 0 0 0 3px rgba(92, 106, 196, 0.1);
+    box-shadow: var(--form-focus-shadow);
 }
 
 /* ================== Reply Item ================== */
@@ -243,8 +242,8 @@ body {
 }
 
 .reply-item:hover {
-    background: white;
-    border-color: #e2e8f0;
+    background: var(--card-background);
+    border-color: var(--border-color);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
@@ -287,20 +286,20 @@ body {
 
 .reply-author .author-name {
     font-weight: 600;
-    color: #1e293b;
+    color: var(--font-color-primary);
     font-size: 1rem;
 }
 
 .reply-author {
     font-size: 0.85rem;
-    color: #64748b;
-    background: #e2e8f0;
+    color: var(--font-color-secondary);
+    background: var(--window-background);
     padding: 4px 12px;
     border-radius: 12px;
 }
 
 .author-badge {
-    background: white;
+    background: var(--card-background);
     color: var(--primary-blue);
     padding: 4px 12px;
     border-radius: 12px;
@@ -310,11 +309,11 @@ body {
 
 .reply-date {
     font-size: 0.85rem;
-    color: #94a3b8;
+    color: var(--font-color-secondary);
 }
 
 .reply-text {
-    color: #475569;
+    color: var(--font-color-primary);
 
     margin-bottom: 15px;
 }
@@ -346,7 +345,7 @@ body {
 }
 
 .reply-action-btn:hover {
-    background: #e2e8f0;
+    background: var(--window-background);
     color: var(--primary-blue);
 }
 
@@ -364,7 +363,7 @@ body {
 
 /* ================== Reply Form ================== */
 .reply-form-section {
-    background: white;
+    background: var(--card-background);
     border-radius: 20px;
     padding: 20px 40px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
@@ -405,20 +404,25 @@ body {
 .reply-textarea {
     width: 100%;
     padding: 16px 20px;
-    border: 2px solid #e2e8f0;
+    border: 2px solid var(--form-border);
     border-radius: 12px;
     font-family: 'Inter', 'Segoe UI', sans-serif;
     font-size: 1rem;
-    color: #334155;
+    color: var(--font-color-primary);
     resize: vertical;
     min-height: 120px;
     transition: all 0.3s ease;
+    cursor: pointer;
+    background: var(--window-background);
+}
+
+.reply-textarea:hover {
+    border-color: var(--form-border-hover);
 }
 
 .reply-textarea:focus {
     outline: none;
-    border-color: var(--primary-blue);
-    box-shadow: 0 0 0 4px rgba(92, 106, 196, 0.1);
+    box-shadow: var(--form-focus-shadow);
 }
 
 .reply-textarea::placeholder {
@@ -445,10 +449,10 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 2px solid #e2e8f0;
-    background: white;
+    border: 2px solid var(--form-border);
+    background: var(--window-background);
     border-radius: 8px;
-    color: #64748b;
+    color: var(--font-color-secondary);
     cursor: pointer;
     transition: all 0.3s ease;
 }
@@ -456,7 +460,7 @@ body {
 .format-btn:hover {
     border-color: var(--primary-blue);
     color: var(--primary-blue);
-    background: #f8fafc;
+    background: var(--card-background);
 }
 
 .format-btn:active {

@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const resendBtn = document.getElementById('resend-btn');
 
     function startTimer() {
-        timeLeft = 10;
+        timeLeft = 60;
         resendBtn.style.pointerEvents = 'none';
         resendBtn.style.opacity = '0.5';
 

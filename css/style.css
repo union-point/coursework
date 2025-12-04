@@ -8,9 +8,61 @@
   --border-color: #e6e6e6;
   --font-color-primary: rgba(0, 0, 0, 0.9);
   --font-color-secondary: rgba(0, 0, 0, 0.6);
+  --font-color-middle: rgba(0, 0, 0, 0.8);
   --navbar-blue: rgb(25, 49, 172);
   --title-blue: rgb(25, 49, 172);
+  /* Button Colors */
+  --button-bg: var(--primary-blue);
+  --button-bg-hover: var(--secoundary-blue);
+  --button-text: #ffffff;
+  --cancel-bg: #ffffff;
+  --cancel-hover-bg: rgba(0, 0, 0, 0.05);
+  --secondary-hover-bg: rgba(55, 143, 233, 0.1);
 
+  /* Form Colors */
+  --form-bg: #ffffff;
+  --form-border: var(--border-color);
+  --form-border-hover: rgba(0, 0, 0, 0.9);
+  --form-focus-shadow: 0 0 0 2px var(--primary-blue);
+  --form-bg-hover: var(--card-background);
+  /* Shadow Colors */
+  --card-shadow: rgba(0, 0, 0, 0.1);
+  --header-shadow: rgba(0, 0, 0, 0.1);
+  /* Success/Active Colors */
+  --active-shadow-color: rgba(25, 49, 172, 0.3);
+  --hover-shadow-color: rgba(25, 49, 172, 0.15);
+  --focus-shadow-color: rgba(25, 49, 172, 0.1);
+  /*header-gradient*/
+  --header-gradient: linear-gradient(135deg, var(--primary-blue) 0%, var(--secoundary-blue) 100%);
+
+}
+
+/* Dark Mode Styles */
+.theme-dark {
+  --primary-blue: #4a9eff;
+  --secondary-blue: #2a7bff;
+  --gray-background: #2d3748;
+  --card-background: #1a202c;
+  --window-background: #121826;
+  --border-color: #4a5568;
+  --font-color-primary: rgba(255, 255, 255, 0.9);
+  --font-color-secondary: rgba(255, 255, 255, 0.7);
+  --font-color-middle: rgba(255, 255, 255, 0.8);
+
+  --navbar-blue: #1a202c;
+  --title-blue: #4a9eff;
+  /* Dark Theme Form Colors */
+  --form-bg: #2d3748;
+  --form-border: #4a5568;
+  --form-border-hover: rgba(255, 255, 255, 0.5);
+  --form-focus-shadow: 0 0 0 2px var(--primary-blue);
+  /* Button Colors */
+
+  --cancel-bg: #2d3748;
+  /* Shadow Colors */
+
+  --card-shadow: rgba(255, 255, 255, 0.05);
+  --header-gradient: linear-gradient(135deg, var(--navbar-blue) 0%, var(--window-background) 100%);
 }
 
 .header {
@@ -202,4 +254,29 @@ nav {
   cursor: pointer;
   font-size: 15px;
   transition: 0.2s;
+}
+
+
+
+.theme-dark .header {
+  background: var(--navbar-blue);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.theme-dark .dropdown-menu {
+  background-color: var(--card-background);
+  border: 1px solid var(--border-color);
+}
+
+.theme-dark .dropdown-menu li a {
+  color: var(--font-color-primary);
+}
+
+.theme-dark .dropdown-menu li a:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.theme-dark .custom-confirm {
+  background: var(--card-background);
+  color: var(--font-color-primary);
 }

@@ -1,6 +1,13 @@
 :root {
+    /* Danger Colors */
     --danger-color: #dc3545;
+    --danger-hover: #c82333;
+    --danger-active: #c83333;
     --danger-light: #f8d7da;
+    /* Neutral Colors */
+    --toggle-bg-off: #ccc;
+    --toggle-shadow: rgba(0, 0, 0, 0.2);
+    --toggle-hover-shadow: rgba(208, 213, 238, 0.3);
 }
 
 * {
@@ -21,12 +28,12 @@ body {
 
 /* Settings Header */
 .settings-header {
-    background: white;
+    background: var(--card-background);
     color: var(--title-blue);
     padding: 40px;
     border-radius: 16px;
     margin-bottom: 30px;
-    box-shadow: 0 10px 30px rgba(0, 0, 170, 0.1);
+    box-shadow: 0 10px 30px var(--header-shadow);
     position: relative;
     overflow: hidden;
 }
@@ -63,12 +70,8 @@ body {
     border-radius: 16px;
     padding: 30px;
     border: 1px solid var(--border-color);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 15px var(--card-shadow);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card:hover {
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
 /* Section Header */
@@ -114,8 +117,6 @@ body {
     padding-bottom: 0;
 }
 
-
-
 .settings-item-info {
     flex: 1;
 }
@@ -133,10 +134,9 @@ body {
     margin: 0;
 }
 
-
 /* Buttons */
 .btn-secondary {
-    background-color: white;
+    background-color: transparent;
     color: var(--primary-blue);
     border: 2px solid var(--primary-blue);
     padding: 10px 24px;
@@ -152,8 +152,8 @@ body {
 
 .btn-secondary:hover {
     box-shadow: inset 0 0 0 1px currentColor;
-    color: var(--secoundary-blue);
-    background-color: rgb(55 143 233 / 0.1);
+    color: var(--secondary-blue);
+    background-color: var(--secondary-hover-bg);
 }
 
 .btn-danger:active,
@@ -175,11 +175,11 @@ body {
 }
 
 .btn-danger:hover {
-    background: #c82333;
+    background: var(--danger-hover);
 }
 
 .btn-danger-outline {
-    background-color: white;
+    background-color: transparent;
     color: var(--danger-color);
     border: 2px solid var(--danger-color);
     padding: 10px 24px;
@@ -192,7 +192,7 @@ body {
 
 .btn-danger-outline:hover {
     box-shadow: inset 0 0 0 1px currentColor;
-    color: #c83333;
+    color: var(--danger-active);
     background-color: var(--danger-light);
 }
 
@@ -217,7 +217,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #ccc;
+    background-color: var(--toggle-bg-off);
     transition: 0.4s;
     border-radius: 30px;
 }
@@ -229,10 +229,10 @@ body {
     width: 22px;
     left: 4px;
     bottom: 4px;
-    background-color: white;
+    background-color: var(--card-background);
     transition: 0.4s;
     border-radius: 50%;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 4px var(--toggle-shadow);
 }
 
 .toggle-switch input:checked+.toggle-slider {
@@ -244,7 +244,7 @@ body {
 }
 
 .toggle-slider:hover {
-    box-shadow: 0 0 8px rgba(25, 49, 172, 0.3);
+    box-shadow: 0 0 8px var(--toggle-hover-shadow);
 }
 
 /* Select Dropdown */
@@ -254,7 +254,7 @@ body {
     border-radius: 25px;
     font-size: 14px;
     color: var(--font-color-primary);
-    background-color: white;
+    background-color: transparent;
     cursor: pointer;
     transition: all 0.3s ease;
     min-width: 150px;
@@ -263,13 +263,17 @@ body {
 
 .settings-select:hover {
     border-color: var(--primary-blue);
-    box-shadow: 0 2px 8px rgba(25, 49, 172, 0.1);
+    box-shadow: 0 2px 8px var(--hover-shadow-color);
 }
 
 .settings-select:focus {
     outline: none;
     border-color: var(--primary-blue);
-    box-shadow: 0 0 0 3px rgba(25, 49, 172, 0.1);
+    box-shadow: 0 0 0 3px var(--focus-shadow-color);
+}
+
+.settings-select option {
+    background: var(--card-background);
 }
 
 /* Theme Selector */
@@ -286,7 +290,7 @@ body {
     padding: 15px 20px;
     border: 2px solid var(--border-color);
     border-radius: 12px;
-    background-color: white;
+    background-color: var(--card-background);
     cursor: pointer;
     transition: all 0.3s ease;
     font-size: 14px;
@@ -300,14 +304,14 @@ body {
 
 .theme-btn:hover {
     border-color: var(--primary-blue);
-    box-shadow: 0 2px 8px rgba(25, 49, 172, 0.15);
+    box-shadow: 0 2px 8px var(--hover-shadow-color);
 }
 
 .theme-btn.active {
     background: var(--primary-blue);
     color: white;
     border-color: var(--primary-blue);
-    box-shadow: 0 2px 8px rgba(25, 49, 172, 0.3);
+    box-shadow: 0 2px 8px var(--active-shadow-color);
 }
 
 .theme-btn span {
@@ -318,6 +322,7 @@ body {
 .edit-form {
     padding: 25px;
     background: linear-gradient(135deg, rgba(25, 49, 172, 0.02) 0%, rgba(55, 143, 233, 0.02) 100%);
+    ;
     border-radius: 12px;
     border: 2px solid var(--border-color);
     margin-top: 15px;
@@ -355,19 +360,22 @@ body {
 .form-input {
     width: 100%;
     padding: 12px 16px;
-    border: 2px solid var(--border-color);
+    border: 2px solid var(--form-border);
     border-radius: 10px;
     font-size: 14px;
     color: var(--font-color-primary);
-    background-color: white;
+    background-color: var(--form-bg);
     transition: all 0.3s ease;
     box-sizing: border-box;
 }
 
-.form-input:focus {
+.form-input:active {
     outline: none;
-    border-color: var(--primary-blue);
-    box-shadow: 0 0 0 3px rgba(25, 49, 172, 0.1);
+    box-shadow: 0 0 0 3px var(--form-focus-shadow);
+}
+
+.form-input:hover {
+    border-color: var(--form-border-hover);
 }
 
 .form-input::placeholder {
@@ -382,20 +390,18 @@ body {
 }
 
 .btn-primary {
-    background: var(--primary-blue);
-    color: white;
+    background: var(--button-bg);
+    color: var(--button-text);
     border: none;
-    padding: 10px 24px;
-    border-radius: 25px;
-    font-weight: 600;
+    padding: 8px 20px;
+    border-radius: 20px;
     cursor: pointer;
-    font-size: 14px;
-    transition: all 0.3s ease;
+    font-weight: 600;
+    transition: background-color 0.3s;
 }
 
 .btn-primary:hover {
-    background: var(--secoundary-blue);
-    box-shadow: 0 4px 12px rgba(25, 49, 172, 0.3);
+    background: var(--button-bg-hover);
 }
 
 .btn-primary:active {
@@ -403,7 +409,7 @@ body {
 }
 
 .btn-cancel {
-    background-color: white;
+    background-color: var(--cancel-bg);
     color: var(--font-color-secondary);
     border: 2px solid var(--border-color);
     padding: 10px 24px;
@@ -416,7 +422,7 @@ body {
 
 .btn-cancel:hover {
     border-color: var(--font-color-secondary);
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: var(--cancel-hover-bg);
 }
 
 .btn-cancel:active {
@@ -426,20 +432,8 @@ body {
 /* Danger Zone */
 .danger-zone {
     border: 2px solid var(--danger-light);
-    background: linear-gradient(135deg, #fff5f5 0%, #ffffff 100%);
+    background: transparent;
     padding-top: 10px;
-}
-
-.danger-zone .section-icon {
-    color: var(--danger-color);
-    background: linear-gradient(135deg, var(--danger-color), #c82333);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.danger-zone .section-header {
-    border-bottom-color: var(--danger-light);
 }
 
 /* Responsive Design */
