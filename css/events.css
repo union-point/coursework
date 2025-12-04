@@ -171,13 +171,13 @@ main {
     font-size: 0.85em;
 }
 
-.comment-input {
+.comment-field {
     display: flex;
     gap: 12px;
     margin-top: 16px;
 }
 
-.comment-input input {
+.comment-field input {
     flex: 1;
     padding: 12px 16px;
     border: 1px solid var(--form-border);
@@ -188,25 +188,25 @@ main {
     color: var(--font-color-middle);
 }
 
-.comment-input input:hover {
+.comment-field input:hover {
     border-color: var(--form-border-hover);
     background: var(--window-background);
 
 }
 
-.comment-input input:focus {
+.comment-field input:focus {
     outline: none;
     box-shadow: var(--form-focus-shadow);
 }
 
 
 
-.comment-input button:active {
+.comment-field button:active {
     transform: scale(0.98);
 }
 
 
-.comment-input button {
+.comment-field button {
     background: var(--primary-blue);
     color: white;
     border: none;
@@ -217,8 +217,27 @@ main {
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.comment-input button:hover {
+.comment-field button:hover {
     background: var(--secoundary-blue);
+}
+
+.comments {
+    max-height: 220px;
+    overflow-y: auto;
+    padding-right: 6px;
+}
+
+.comments::-webkit-scrollbar {
+    width: 6px;
+}
+
+.comments::-webkit-scrollbar-thumb {
+    background: var(--primary-blue);
+    border-radius: 6px;
+}
+
+.comments::-webkit-scrollbar-track {
+    background: transparent;
 }
 
 .filters {

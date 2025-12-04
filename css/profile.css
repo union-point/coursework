@@ -385,3 +385,22 @@ button {
     outline: none;
     box-shadow: 0 0 0 1px var(--primary-blue);
 }
+
+.comments-list {
+    max-height: 220px;
+    overflow-y: auto;
+    padding-right: 6px;
+}
+
+.comments-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.comments-list::-webkit-scrollbar-thumb {
+    background: var(--primary-blue);
+    border-radius: 6px;
+}
+
+.comments-list::-webkit-scrollbar-track {
+    background: transparent;
+}

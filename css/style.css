@@ -202,7 +202,7 @@ nav {
   vertical-align: middle;
 }
 
-
+/*confirm menu*/
 #custom-confirm-backdrop {
   position: fixed;
   top: 0;
@@ -279,4 +279,9 @@ nav {
 .theme-dark .custom-confirm {
   background: var(--card-background);
   color: var(--font-color-primary);
+}
+
+.error {
+  border: 1px solid #d11124;
+  box-shadow: 0 0 0 1px #d11124;
 }
