@@ -13,11 +13,57 @@
     --text-color: #333;
     --accent-color: #008cff;
     --chat-bg-color: rgba(0, 140, 255, 0.05);
+
+    /* Message page specific colors */
+    --msg-body-bg: #f9fbfd;
+    --msg-sidebar-bg: rgba(255, 255, 255, 0.9);
+    --msg-chat-area-bg: rgba(255, 255, 255, 0.95);
+    --msg-header-bg: #f8fafc;
+    --msg-border-color: #edf2f7;
+    --msg-search-border: #cbd5e0;
+    --msg-chat-name: #2d3748;
+    --msg-chat-time: #718096;
+    --msg-chat-preview: #718096;
+    --msg-received-bg: #f1f5f9;
+    --msg-received-text: #2d3748;
+    --msg-sent-bg: #008cff;
+    --msg-sent-text: #ffffff;
+    --msg-time-color: #a0aec0;
+    --msg-input-border: #cbd5e0;
+    --msg-icon-color: #718096;
+    --msg-status-online: #38a169;
+    --msg-shadow: rgba(0, 0, 0, 0.08);
+    --msg-overlay: rgba(0, 49, 172, 0.1);
+}
+
+/* ================== Dark Theme ================== */
+.theme-dark {
+    --msg-body-bg: #121826;
+    --msg-sidebar-bg: rgba(26, 32, 44, 0.95);
+    --msg-chat-area-bg: rgba(45, 55, 72, 0.95);
+    --msg-header-bg: #1a202c;
+    --msg-border-color: #4a5568;
+    --msg-search-border: #4a5568;
+    --msg-chat-name: rgba(255, 255, 255, 0.9);
+    --msg-chat-time: rgba(255, 255, 255, 0.6);
+    --msg-chat-preview: rgba(255, 255, 255, 0.7);
+    --msg-received-bg: #2d3748;
+    --msg-received-text: rgba(255, 255, 255, 0.9);
+    --msg-sent-bg: #4a9eff;
+    --msg-sent-text: #ffffff;
+    --msg-time-color: rgba(255, 255, 255, 0.5);
+    --msg-input-border: #4a5568;
+    --msg-icon-color: rgba(255, 255, 255, 0.6);
+    --msg-status-online: #48bb78;
+    --msg-shadow: rgba(0, 0, 0, 0.3);
+    --msg-overlay: rgba(0, 0, 0, 0.3);
+    --chat-bg-color: rgba(74, 158, 255, 0.1);
+    --accent-color: #4a9eff;
 }
 
 /* ================== Body ================== */
 body {
-    background-color: #f9fbfd;
+    background-color: var(--msg-body-bg);
     color: var(--text-color);
     position: relative;
 }
@@ -27,9 +73,9 @@ body {
     display: flex;
     margin-top: 90px;
     height: calc(100vh - 90px);
-    background:     
-  linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-  url('../image/background.jpg') center/cover no-repeat;
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+        url('../image/background.jpg') center/cover no-repeat;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -39,7 +85,7 @@ body {
     content: '';
     position: absolute;
     inset: 0;
-    background: rgba(0, 49, 172, 0.1);
+    background: var(--msg-overlay);
     z-index: 0;
 }
 
@@ -57,9 +103,9 @@ body {
 
 .sidebar {
     width: 300px;
-    background: rgba(255,255,255,0.9);
+    background: var(--msg-sidebar-bg);
     border-radius: 0 0 0 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 12px var(--msg-shadow);
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -67,16 +113,18 @@ body {
 
 .sidebar-header {
     padding: 1.2rem;
-    border-bottom: 1px solid #edf2f7;
+    border-bottom: 1px solid var(--msg-border-color);
 }
 
 .search-box input {
     width: 100%;
     padding: 0.6rem 1rem;
-    border: 1px solid #cbd5e0;
+    border: 1px solid var(--msg-search-border);
     border-radius: 20px;
     font-size: 0.95rem;
     outline: none;
+    background: var(--msg-header-bg);
+    color: var(--msg-chat-name);
 }
 
 .chat-list {
@@ -98,7 +146,7 @@ body {
 }
 
 .chat-item.active {
-    background-color: rgba(0,140,255,0.1);
+    background-color: var(--chat-bg-color);
     border-left: 4px solid var(--accent-color);
 }
 
@@ -129,17 +177,17 @@ body {
 
 .chat-name {
     font-weight: 600;
-    color: #2d3748;
+    color: var(--msg-chat-name);
 }
 
 .chat-time {
     font-size: 0.8rem;
-    color: #718096;
+    color: var(--msg-chat-time);
 }
 
 .chat-preview {
     font-size: 0.9rem;
-    color: #718096;
+    color: var(--msg-chat-preview);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -150,9 +198,9 @@ body {
     flex: 1;
     display: flex;
     flex-direction: column;
-    background: rgba(255,255,255,0.95);
+    background: var(--msg-chat-area-bg);
     border-radius: 0 0 12px 0;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 12px var(--msg-shadow);
     overflow: hidden;
 }
 
@@ -161,8 +209,8 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 1rem 1.4rem;
-    background-color: #f8fafc;
-    border-bottom: 1px solid #edf2f7;
+    background-color: var(--msg-header-bg);
+    border-bottom: 1px solid var(--msg-border-color);
 }
 
 .contact-info {
@@ -178,19 +226,19 @@ body {
 
 .contact-name {
     font-weight: 600;
-    color: #2d3748;
+    color: var(--msg-chat-name);
 }
 
 .contact-status {
     font-size: 0.85rem;
-    color: #38a169;
+    color: var(--msg-status-online);
 }
 
 .chat-actions .action-icon {
     margin-left: 1rem;
     font-size: 1.2rem;
     cursor: pointer;
-    color: #718096;
+    color: var(--msg-icon-color);
 }
 
 /* ================== Messages ================== */
@@ -231,14 +279,14 @@ body {
 }
 
 .message.received .message-text {
-    background-color: #f1f5f9;
-    color: #2d3748;
+    background-color: var(--msg-received-bg);
+    color: var(--msg-received-text);
     border-bottom-left-radius: 4px;
 }
 
 .message.sent .message-text {
-    background-color: var(--accent-color);
-    color: white;
+    background-color: var(--msg-sent-bg);
+    color: var(--msg-sent-text);
     border-bottom-right-radius: 4px;
 }
 
@@ -260,7 +308,7 @@ body {
 
 .message-time {
     font-size: 0.75rem;
-    color: #a0aec0;
+    color: var(--msg-time-color);
     text-align: right;
     margin-top: 0.3rem;
 }
@@ -270,23 +318,25 @@ body {
     display: flex;
     align-items: center;
     padding: 1rem 1.4rem;
-    background-color: #f8fafc;
-    border-top: 1px solid #edf2f7;
+    background-color: var(--msg-header-bg);
+    border-top: 1px solid var(--msg-border-color);
 }
 
 .message-input input {
     flex: 1;
     padding: 0.8rem 1rem;
-    border: 1px solid #cbd5e0;
+    border: 1px solid var(--msg-input-border);
     border-radius: 24px;
     font-size: 1rem;
     outline: none;
+    background: var(--msg-chat-area-bg);
+    color: var(--msg-chat-name);
 }
 
 .input-icon {
     margin: 0 0.8rem;
     font-size: 1.3rem;
-    color: #718096;
+    color: var(--msg-icon-color);
     cursor: pointer;
 }
 
