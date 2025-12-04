@@ -7,6 +7,8 @@
   <title>Պոլիտեխնիկ - Աշխատանքային Հայտարարություններ</title>
   <link rel="stylesheet" href="./css/events.css">
   <link rel="stylesheet" href="./css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
 </head>
 
 <body>
@@ -57,7 +59,7 @@
             <option value="marketing">Մարկետինգ</option>
           </select>
 
-          <select class="tag-selector" id="category-selector">
+          <select class="tag-selector category-selector">
             <option value="">Բոլոր կատեգորիաները</option>
             <option value="job">Աշխատանք</option>
             <option value="internship">Պրակտիկա</option>
@@ -69,151 +71,7 @@
       <div class="announcements-list">
 
         <!-- Հայտարարություն 1 -->
-        <div class="announcement-card" data-category="job">
-          <div class="announcement-header">
-            <img
-              src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=100&h=100"
-              alt="Օգտատեր" class="user-icon">
-            <div class="announcement-info">
-              <h3 class="user-name">Ծրագրավորման ամբիոն</h3>
-              <p class="announcement-date">26 Հոկտեմբեր 2025, 11:20</p>
-            </div>
-            <span class="category-badge job">Աշխատանք</span>
 
-          </div>
-          <div class="announcement-content">
-            <p><strong>Աշխատանքային հնարավորություն</strong><br>
-              Հարգելի շրջանավարտներ, “Armenian Tech Solutions” ընկերությունը փնտրում է
-              <b>Junior Frontend Developer</b>՝ React և JavaScript գիտելիքներով:
-              Բոլոր հետաքրքրված շրջանավարտները կարող են ուղարկել CV ամբիոնի էլ. հասցեին՝ <a
-                href="mailto:programming@polytech.am">programming@polytech.am</a>։
-            </p>
-          </div>
-          <div class="comments-section">
-            <h4>Մեկնաբանություններ</h4>
-            <div class="comment">
-              <img
-                src="https://images.pexels.com/photos/3777943/pexels-photo-3777943.jpeg?auto=compress&cs=tinysrgb&w=50&h=50"
-                alt="Օգտատեր" class="comment-icon">
-              <div class="comment-content">
-                <p class="comment-author">Շրջանավարտ Անի Կարապետյան</p>
-                <p class="comment-text">Շատ հետաքրքիր է, ինչ ժամկետում կարելի է դիմել՞</p>
-                <p class="comment-time">26 Հոկտեմբեր 2025, 11:45</p>
-              </div>
-            </div>
-            <div class="comment">
-              <img
-                src="https://images.pexels.com/photos/3763188/pexels-photo-3763188.jpeg?auto=compress&cs=tinysrgb&w=50&h=50"
-                alt="Օգտատեր" class="comment-icon">
-              <div class="comment-content">
-                <p class="comment-author">Դասախոս Նարե Հովհաննիսյան</p>
-                <p class="comment-text">Դիմել կարելի է մինչև նոյեմբերի 5-ը։</p>
-                <p class="comment-time">26 Հոկտեմբեր 2025, 12:00</p>
-              </div>
-            </div>
-            <div class="comment-input">
-              <input type="text" placeholder="Գրեք մեկնաբանություն...">
-              <button>Ուղարկել</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Հայտարարություն 2 -->
-        <div class="announcement-card" data-category="internship">
-          <div class="announcement-header">
-            <img
-              src="https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=100&h=100"
-              alt="Օգտատեր" class="user-icon">
-            <div class="announcement-info">
-              <h3 class="user-name">Էլեկտրոնիկայի ամբիոն</h3>
-              <p class="announcement-date">25 Հոկտեմբեր 2025, 09:00</p>
-            </div>
-            <span class="category-badge internship">Պրակտիկա</span>
-
-          </div>
-          <div class="announcement-content">
-            <p><strong>Աշխատանքային առաջարկ՝ ինժեներների համար</strong><br>
-              “Synopsys Armenia” ընկերությունը հայտարարում է մրցույթ <b>Hardware Engineer Intern</b> պաշտոնի համար։
-              Դիմել կարող են Պոլիտեխնիկի Էլեկտրոնիկայի բաժնի շրջանավարտները։
-            </p>
-          </div>
-          <div class="comments-section">
-            <h4>Մեկնաբանություններ</h4>
-            <div class="comment">
-              <img
-                src="https://images.pexels.com/photos/3777943/pexels-photo-3777943.jpeg?auto=compress&cs=tinysrgb&w=50&h=50"
-                alt="Օգտատեր" class="comment-icon">
-              <div class="comment-content">
-                <p class="comment-author">Շրջանավարտ Դավիթ Ավագյան</p>
-                <p class="comment-text">Կարելի՞ է դիմել առանց նախնական փորձի։</p>
-                <p class="comment-time">25 Հոկտեմբեր 2025, 09:30</p>
-              </div>
-            </div>
-            <div class="comment">
-              <img
-                src="https://images.pexels.com/photos/3763188/pexels-photo-3763188.jpeg?auto=compress&cs=tinysrgb&w=50&h=50"
-                alt="Օգտատեր" class="comment-icon">
-              <div class="comment-content">
-                <p class="comment-author">Դասախոս Անի Սարգսյան</p>
-                <p class="comment-text">Այո, սա ուսուցողական ծրագիր է, փորձը պարտադիր չէ։</p>
-                <p class="comment-time">25 Հոկտեմբեր 2025, 09:50</p>
-              </div>
-            </div>
-            <div class="comment-input">
-              <input type="text" placeholder="Գրեք մեկնաբանություն...">
-              <button>Ուղարկել</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Հայտարարություն 3 -->
-        <div class="announcement-card" data-category="training">
-          <div class="announcement-header">
-            <img
-              src="https://images.pexels.com/photos/3785079/pexels-photo-3785079.jpeg?auto=compress&cs=tinysrgb&w=100&h=100"
-              alt="Օգտատեր" class="user-icon">
-            <div class="announcement-info">
-              <h3 class="user-name">Տվյալների գիտության ամբիոն</h3>
-              <p class="announcement-date">24 Հոկտեմբեր 2025, 15:00</p>
-            </div>
-            <span class="category-badge training">Դասընթաց</span>
-
-          </div>
-          <div class="announcement-content">
-            <p><strong>Data Analyst Internship</strong><br>
-              “Ameriabank” առաջարկում է պրակտիկա տվյալների վերլուծության ոլորտում։
-              Հիմնական պահանջներ՝ Python, SQL և Excel-ի հիմունքներ։
-              Լավագույն մասնակիցներին կառաջարկվի մշտական աշխատանք։
-            </p>
-          </div>
-          <div class="comments-section">
-            <h4>Մեկնաբանություններ</h4>
-            <div class="comment">
-              <img
-                src="https://images.pexels.com/photos/3763188/pexels-photo-3763188.jpeg?auto=compress&cs=tinysrgb&w=50&h=50"
-                alt="Օգտատեր" class="comment-icon">
-              <div class="comment-content">
-                <p class="comment-author">Շրջանավարտ Նարեկ Մաթևոսյան</p>
-                <p class="comment-text">Կապը ինչպես հաստատենք բանկի HR-ի հետ՞</p>
-                <p class="comment-time">24 Հոկտեմբեր 2025, 15:30</p>
-              </div>
-            </div>
-            <div class="comment">
-              <img
-                src="https://images.pexels.com/photos/3777943/pexels-photo-3777943.jpeg?auto=compress&cs=tinysrgb&w=50&h=50"
-                alt="Օգտատեր" class="comment-icon">
-              <div class="comment-content">
-                <p class="comment-author">Դասախոս Կարեն Մարկոսյան</p>
-                <p class="comment-text">HR-ի կոնտակտները կտեղադրենք ամբիոնի կայքում։</p>
-                <p class="comment-time">24 Հոկտեմբեր 2025, 15:45</p>
-              </div>
-            </div>
-            <div class="comment-input">
-              <input type="text" placeholder="Գրեք մեկնաբանություն...">
-              <button>Ուղարկել</button>
-            </div>
-          </div>
-        </div>
 
       </div>
     </main>
@@ -231,6 +89,7 @@
             <div class="user-meta">
               <span class="modal-user-name">Գայանե Սարգսյան</span>
               <select class="visibility-selector" id="category-selector">
+
                 <option value="job">Աշխատանք</option>
                 <option value="internship">Պրակտիկա</option>
                 <option value="training">Դասընթաց</option>
@@ -277,7 +136,7 @@
     </div>
   </div>
 
-
+  <script src="./js/api/posts-api.js"></script>
   <script src="./js/posts.js"></script>
 </body>
 

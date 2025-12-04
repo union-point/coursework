@@ -603,7 +603,7 @@ function deleteAnnouncement(announcementEntry) {
     })
 }
 
-// Make entry editable on double-click
+// Make entry editable on double-click 
 function makeEntryEditable(entry) {
   const titleEl = entry.querySelector('.item-title');
   const subtitleEl = entry.querySelector('.item-subtitle');
@@ -688,11 +688,11 @@ function toggleComments(announcementCard, btnComments) {
         newComment.style.marginBottom = '12px';
         newComment.innerHTML = `
           <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
-            <div style="width: 24px; height: 24px; background: #0A66C2; border-radius: 6px;"></div>
-            <span style="font-weight: 600; font-size: 13px;">Դուք</span>
+            <div style="width: 32px; height: 32px; background: var(--border-color); border-radius: 50%;"></div>
+            <span style="font-weight: 600; font-size: 14px; color: var(--font-color-primary);">Դուք</span>
             <span style="font-size: 12px; color: var(--font-color-secondary);">Հենց հիմա</span>
           </div>
-          <p style="font-size: 14px; margin: 0; padding-left: 32px;">${text}</p>
+          <p style="font-size: 14px; margin: 0; padding-left: 32px; color: var(--font-color-primary);">${text}</p>
         `;
         commentsList.appendChild(newComment);
         input.value = '';
