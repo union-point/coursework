@@ -123,7 +123,7 @@ class Modal {
     this.modal = null;
   }
 
-  create(title, content, onSave) {
+  create(title, content, onSave, options = {}) {
     // Remove existing modal if any
     this.close();
 
@@ -205,13 +205,24 @@ class Modal {
 
     // Modal footer
     const footer = document.createElement('div');
+    footer.className = 'modal-footer';
     footer.style.cssText = `
       display: flex;
       justify-content: flex-end;
       gap: 12px;
       padding-top: 16px;
       border-top: 1px solid var(--border-color);
+      align-items: center;
     `;
+
+    // Add custom footer content if provided (e.g., formatting toolbar)
+    if (options.customFooterLeft) {
+      footer.style.justifyContent = 'space-between';
+      footer.appendChild(options.customFooterLeft);
+    }
+
+    const buttonContainer = document.createElement('div');
+    buttonContainer.style.cssText = 'display: flex; gap: 12px;';
 
     const saveBtn = document.createElement('button');
     saveBtn.className = 'primary-btn';
@@ -241,8 +252,9 @@ class Modal {
     `;
     cancelBtn.onclick = () => this.close();
 
-    footer.appendChild(cancelBtn);
-    footer.appendChild(saveBtn);
+    buttonContainer.appendChild(cancelBtn);
+    buttonContainer.appendChild(saveBtn);
+    footer.appendChild(buttonContainer);
 
     modal.appendChild(header);
     modal.appendChild(contentEl);
@@ -261,6 +273,11 @@ class Modal {
 
     // Add animations
     this.addAnimations();
+
+    // Setup formatting toolbar if provided
+    if (options.setupFormatting) {
+      options.setupFormatting(modal);
+    }
   }
 
   getFormData(contentEl) {
@@ -268,6 +285,11 @@ class Modal {
     const inputs = contentEl.querySelectorAll('input, textarea, select');
     inputs.forEach(input => {
       formData[input.name || input.id] = input.value;
+    });
+    // Handle contenteditable elements
+    const editables = contentEl.querySelectorAll('[contenteditable="true"]');
+    editables.forEach(editable => {
+      formData[editable.dataset.name || editable.id] = editable.innerHTML;
     });
     return formData;
   }
@@ -493,24 +515,116 @@ function addLicenseEntry(data) {
 function showAddAnnouncementModal() {
   const form = document.createElement('div');
   form.innerHTML = `
+    <div style=" margin-bottom: 16px;">
+      <label style="display: block; margin-bottom: 8px; font-weight: 600; color: var(--font-color-primary);">Կատեգորիա</label>
+      <select class="visibility-selector" id="category-selector">
+        <option value="job">Աշխատանք</option>
+        <option value="internship">Պրակտիկա</option>
+        <option value="training">Դասընթաց</option>
+      </select>
+    </div>
     <div style="margin-bottom: 16px;">
       <label style="display: block; margin-bottom: 8px; font-weight: 600; color: var(--font-color-primary);">Վերնագիր</label>
       <input type="text" id="announcement-title" name="title" 
-        style="width: 100%; padding: 10px; border-radius: 8px; font-size: 14px; background: var(--card-background); color: var(--font-color-primary);"
+        style="box-sizing:border-box; width: 100%; padding: 10px; border-radius: 8px; font-size: 14px; background: var(--card-background); color: var(--font-color-primary); border: 1px solid var(--border-color);"
         placeholder="Օրինակ՝ Աշխատանքային հնարավորություն">
     </div>
     <div style="margin-bottom: 16px;">
       <label style="display: block; margin-bottom: 8px; font-weight: 600; color: var(--font-color-primary);">Բովանդակություն</label>
-      <textarea id="announcement-content" name="content" rows="6"
-        style="width: 100%; padding: 10px; border: 1px solid var(--border-color); border-radius: 8px; font-size: 14px; resize: vertical; background: var(--card-background); color: var(--font-color-primary);"
-        placeholder="Մուտքագրեք հայտարարության բովանդակությունը..."></textarea>
+      <div id="announcement-content" data-name="content" contenteditable="true"
+        style="box-sizing:border-box; width: 100%; min-height: 150px; padding: 10px; border: 1px solid var(--border-color); border-radius: 8px; font-size: 14px; background: var(--card-background); color: var(--font-color-primary);"
+        data-placeholder="Մուտքագրեք հայտարարության բովանդակությունը..."></div>
     </div>
   `;
+
+  // Create formatting toolbar
+  const toolbar = document.createElement('div');
+  toolbar.className = 'post-formatting-toolbar';
+  toolbar.style.cssText = 'display: flex; gap: 10px;';
+  toolbar.innerHTML = `
+    <button type="button" class="format-btn bold-btn" title="Թավ" data-command="bold">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M15.6 10.79c.97-.67 1.65-1.77 1.65-2.79 0-2.26-1.75-4-4-4H7v14h7.04c2.09 0 3.71-1.7 3.71-3.79 0-1.52-.86-2.82-2.15-3.42zM10 6.5h3c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5h-3v-3zm3.5 9H10v-3h3.5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5z" />
+      </svg>
+    </button>
+    <button type="button" class="format-btn italic-btn" title="Շեղ" data-command="italic">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M10 4v3h2.21l-3.42 8H6v3h8v-3h-2.21l3.42-8H18V4z" />
+      </svg>
+    </button>
+  `;
+
+  // Setup formatting functionality
+  const setupFormatting = (modalElement) => {
+    const editor = modalElement.querySelector('#announcement-content');
+    const buttons = modalElement.querySelectorAll('.format-btn');
+
+    // Add placeholder styling
+    const style = document.createElement('style');
+    style.textContent = `
+      #announcement-content:empty:before {
+        content: attr(data-placeholder);
+        color: var(--font-color-secondary);
+        pointer-events: none;
+      }
+      .format-btn {
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid var(--border-color);
+        background: var(--card-background);
+        border-radius: 8px;
+        color: var(--font-color-secondary);
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      .format-btn:hover {
+        border-color: var(--primary-blue);
+        color: var(--primary-blue);
+      }
+      .format-btn.active {
+        border-color: var(--primary-blue);
+        color: var(--primary-blue);
+        background: var(--window-background);
+      }
+    `;
+    document.head.appendChild(style);
+
+    function applyCommand(cmd) {
+      editor.focus();
+      document.execCommand(cmd, false, null);
+      updateActiveButtons();
+    }
+
+    function updateActiveButtons() {
+      buttons.forEach(btn => {
+        const cmd = btn.dataset.command;
+        btn.classList.toggle('active', document.queryCommandState(cmd));
+      });
+    }
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        applyCommand(btn.dataset.command);
+      });
+    });
+
+    if (editor) {
+      editor.addEventListener('keyup', updateActiveButtons);
+      editor.addEventListener('mouseup', updateActiveButtons);
+    }
+  };
 
   modal.create('Ավելացնել հայտարարություն', form, (data) => {
     console.log('Announcement added:', data);
     addAnnouncementEntry(data);
     showNotification('Հայտարարությունը ավելացվել է');
+  }, {
+    customFooterLeft: toolbar,
+    setupFormatting: setupFormatting
   });
 }
 
@@ -519,7 +633,7 @@ function addAnnouncementEntry(data) {
   const newEntry = document.createElement('div');
   newEntry.className = 'item-entry';
   newEntry.innerHTML = `
-    <div class="announcement-card">
+    <div class="announcement-card" data-post-id="${data.id || 0}">
       <div class="announcement-content">
         <p><strong>${data.title || 'Նոր հայտարարություն'}</strong>
         ${data.content || 'Բովանդակություն'}
@@ -528,8 +642,8 @@ function addAnnouncementEntry(data) {
       <div class="comments-section">
         <button class="btn-comments">Մեկնաբանություններ (0)</button>
         <div class="edit-icons">
-          <button class="btn btn-edit">Փոփոխել</button>
-          <button class="btn btn-delete">Հեռացնել</button>
+          <button class="btn btn-edit primary-btn">Փոփոխել</button>
+          <button class="btn btn-delete secondary-btn">Հեռացնել</button>
         </div>
       </div>
     </div>
@@ -538,6 +652,7 @@ function addAnnouncementEntry(data) {
   announcementSection.appendChild(newEntry);
   attachAnnouncementHandlers(newEntry);
 }
+
 
 // Edit Announcement
 function editAnnouncement(announcementCard) {
@@ -550,18 +665,69 @@ function editAnnouncement(announcementCard) {
     <div style="margin-bottom: 16px;">
       <label style="display: block; margin-bottom: 8px; font-weight: 600; color: var(--font-color-primary);">Վերնագիր</label>
       <input type="text" id="announcement-title" name="title" value="${currentTitle}"
-        style="width: 100%; padding: 10px; border-radius: 8px; font-size: 14px; background: var(--card-background); color: var(--font-color-primary);">
+        style="width: 100%; padding: 10px; border-radius: 8px; font-size: 14px; background: var(--card-background); color: var(--font-color-primary); border: 1px solid var(--border-color);">
     </div>
     <div style="margin-bottom: 16px;">
       <label style="display: block; margin-bottom: 8px; font-weight: 600; color: var(--font-color-primary);">Բովանդակություն</label>
-      <textarea id="announcement-content" name="content" rows="6"
-        style="width: 100%; padding: 10px; border-radius: 8px; font-size: 14px; resize: vertical; background: var(--card-background); color: var(--font-color-primary);">${currentContent}</textarea>
+      <div id="announcement-content" data-name="content" contenteditable="true"
+        style="box-sizing:border-box; width: 100%; min-height: 150px; padding: 10px; border: 1px solid var(--border-color); border-radius: 8px; font-size: 14px; background: var(--card-background); color: var(--font-color-primary);">${currentContent}</div>
     </div>
   `;
 
+  // Create formatting toolbar
+  const toolbar = document.createElement('div');
+  toolbar.className = 'post-formatting-toolbar';
+  toolbar.style.cssText = 'display: flex; gap: 10px;';
+  toolbar.innerHTML = `
+    <button type="button" class="format-btn bold-btn" title="Թավ" data-command="bold">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M15.6 10.79c.97-.67 1.65-1.77 1.65-2.79 0-2.26-1.75-4-4-4H7v14h7.04c2.09 0 3.71-1.7 3.71-3.79 0-1.52-.86-2.82-2.15-3.42zM10 6.5h3c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5h-3v-3zm3.5 9H10v-3h3.5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5z" />
+      </svg>
+    </button>
+    <button type="button" class="format-btn italic-btn" title="Շեղ" data-command="italic">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M10 4v3h2.21l-3.42 8H6v3h8v-3h-2.21l3.42-8H18V4z" />
+      </svg>
+    </button>
+  `;
+
+  // Setup formatting functionality
+  const setupFormatting = (modalElement) => {
+    const editor = modalElement.querySelector('#announcement-content');
+    const buttons = modalElement.querySelectorAll('.format-btn');
+
+    function applyCommand(cmd) {
+      editor.focus();
+      document.execCommand(cmd, false, null);
+      updateActiveButtons();
+    }
+
+    function updateActiveButtons() {
+      buttons.forEach(btn => {
+        const cmd = btn.dataset.command;
+        btn.classList.toggle('active', document.queryCommandState(cmd));
+      });
+    }
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        applyCommand(btn.dataset.command);
+      });
+    });
+
+    if (editor) {
+      editor.addEventListener('keyup', updateActiveButtons);
+      editor.addEventListener('mouseup', updateActiveButtons);
+    }
+  };
+
   modal.create('Փոփոխել հայտարարությունը', form, (data) => {
+    console.log(data);
     contentEl.innerHTML = `<strong>${data.title}</strong> ${data.content}`;
-    showNotification('Հայտարարությունը թարմացվել է');
+  }, {
+    customFooterLeft: toolbar,
+    setupFormatting: setupFormatting
   });
 }
 function customConfirm(message) {
@@ -680,9 +846,12 @@ function toggleComments(announcementCard, btnComments) {
     const input = commentForm.querySelector('input');
     const sendBtn = commentForm.querySelector('button');
 
-    const addComment = () => {
+    const addComment = async () => {
+      const postId = announcementCard.dataset.postId;
       const text = input.value.trim();
-      if (text) {
+      const response = await createComment(postId, { text });
+      const commentText = response.data.text
+      if (commentText) {
         const newComment = document.createElement('div');
         newComment.className = 'comment';
         newComment.style.marginBottom = '12px';
@@ -692,7 +861,7 @@ function toggleComments(announcementCard, btnComments) {
             <span style="font-weight: 600; font-size: 14px; color: var(--font-color-primary);">Դուք</span>
             <span style="font-size: 12px; color: var(--font-color-secondary);">Հենց հիմա</span>
           </div>
-          <p style="font-size: 14px; margin: 0; padding-left: 32px; color: var(--font-color-primary);">${text}</p>
+          <p style="font-size: 14px; margin: 0; padding-left: 32px; color: var(--font-color-primary);">${commentText}</p>
         `;
         commentsList.appendChild(newComment);
         input.value = '';
@@ -702,8 +871,7 @@ function toggleComments(announcementCard, btnComments) {
         btnComments.textContent = `Մեկնաբանություններ (${currentCount + 1})`;
       }
     };
-
-    sendBtn.onclick = addComment;
+    sendBtn.addEventListener('click', () => addComment());
     input.onkeypress = (e) => {
       if (e.key === 'Enter') addComment();
     };

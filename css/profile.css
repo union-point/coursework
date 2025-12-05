@@ -404,3 +404,58 @@ button {
 .comments-list::-webkit-scrollbar-track {
     background: transparent;
 }
+
+/* modal styles*/
+
+.visibility-selector {
+    font-size: 0.9em;
+    color: var(--font-color-secondary);
+    border: 1px solid var(--form-border);
+    border-radius: 8px;
+    padding: 10px 8px;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.2s;
+    background: var(--form-bg);
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.visibility-selector:hover {
+    border-color: var(--form-border-hover);
+}
+
+.visibility-selector:focus {
+    box-shadow: var(--form-focus-shadow);
+}
+
+.dropdown-arrow {
+    font-size: 0.7em;
+}
+
+.format-btn {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--border-color);
+    background: var(--card-background);
+    border-radius: 8px;
+    color: var(--font-color-secondary);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.format-btn:hover {
+    border-color: var(--primary-blue);
+    color: var(--primary-blue);
+}
+
+.format-btn.active {
+    border-color: var(--primary-blue);
+    color: var(--primary-blue);
+    background: var(--window-background);
+}
