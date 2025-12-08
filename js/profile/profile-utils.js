@@ -25,6 +25,68 @@ function formatDateRange(start, end) {
   const endDate = end ? formatDate(end) : 'Ներկա';
   return `${startDate} – ${endDate}`;
 }
+/**
+ * Parse Armenian formatted date like "օգ. 2025 թ." → "2025-08"
+ * Works even if the string contains extra words, like:
+ * "Տրման ամսաթիվը՝ օգ. 2025 թ."
+ */
+function parseDate(text) {
+  const months = {
+    'հուն.': '01',
+    'փետր.': '02',
+    'մարտ.': '03',
+    'ապր.': '04',
+    'մայ.': '05',
+    'հուն.': '06',
+    'հուլ.': '07',
+    'օգ.': '08',
+    'սեպտ.': '09',
+    'հոկտ.': '10',
+    'նոյ.': '11',
+    'դեկ.': '12'
+  };
+
+  // 1) Найти кусок "օգ. 2025"
+  const regex = /(հուն\.|փետր\.|մարտ\.|ապր\.|մայ\.|հուն\.|հուլ\.|օգ\.|սեպտ\.|հոկտ\.|նոյ\.|դեկ\.)\s+(\d{4})/;
+  const match = text.match(regex);
+
+  if (!match) return null;
+
+  const month = months[match[1]];
+  const year = match[2];
+
+  return `${year}-${month}`;
+}
+
+/**
+ * Parse formatted Armenian date range back to ISO-like YYYY-MM
+ * @param {string} rangeString - e.g. "սեպտ. 2021 թ. – մայիս 2027 թ."
+ * @returns {{ startDate: string, endDate: string | null }}
+ */
+function parseDateRange(rangeString) {
+  const months = {
+    'հուն.': '01',
+    'փետր.': '02',
+    'մարտ.': '03',
+    'ապր.': '04',
+    'մայ.': '05',
+    'հուն.': '06',
+    'հուլ.': '07',
+    'օգ.': '08',
+    'սեպտ.': '09',
+    'հոկտ.': '10',
+    'նոյ.': '11',
+    'դեկ.': '12'
+  };
+
+  // Split start and end
+  const [rawStart, rawEnd] = rangeString.split('–').map(p => p.trim());
+
+  return {
+    startDate: parseDate(rawStart),
+    endDate: parseDate(rawEnd),
+  };
+}
 
 /**
  * Format a timestamp to relative time (e.g., "2 hours ago")

@@ -29,18 +29,25 @@ function initializeEducationSection() {
     const editIcon = educationSection.querySelector('.fa-pencil-alt');
 
     if (addIcon) {
+        addIcon.style.cursor = 'pointer';
         addIcon.addEventListener('click', showAddEducationModal);
     }
-
-    if (editIcon) {
-        editIcon.addEventListener('click', () => {
-            showNotification('Կրկնակի սեղմեք տարրի վրա՝ խմբագրելու համար');
-        });
-    }
-
     // Make existing entries editable
     const entries = educationSection.querySelectorAll('.item-entry');
-    entries.forEach(entry => makeEntryEditable(entry));
+    entries.forEach(entry => {
+        // Extract data from existing entry
+        const titleEl = entry.querySelector('.item-title');
+        const subtitleEl = entry.querySelector('.item-subtitle');
+        const dateEl = entry.querySelector('.item-date');
+        const data = {
+            institution: titleEl ? titleEl.textContent : '',
+            degree: subtitleEl ? subtitleEl.textContent : '',
+            startDate: parseDateRange(dateEl.textContent).startDate, // Would need to parse from dateEl
+            endDate: parseDateRange(dateEl.textContent).endDate
+        };
+
+        attachEducationHandlers(entry, data);
+    });
 }
 
 /**
@@ -58,16 +65,24 @@ function initializeLicensesSection() {
         addIcon.addEventListener('click', showAddLicenseModal);
     }
 
-    if (editIcon) {
-        editIcon.style.cursor = 'pointer';
-        editIcon.addEventListener('click', () => {
-            showNotification('Կրկնակի սեղմեք տարրի վրա՝ խմբագրելու համար');
-        });
-    }
 
     // Make existing entries editable
     const entries = licensesSection.querySelectorAll('.item-entry');
-    entries.forEach(entry => makeEntryEditable(entry));
+    entries.forEach(entry => {
+        // Extract data from existing entry
+        const titleEl = entry.querySelector('.item-title');
+        const subtitleEl = entry.querySelector('.item-subtitle');
+        const dateEl = entry.querySelector('.item-date');
+        const credBtn = entry.querySelector('.show-cred-btn');
+        const data = {
+            name: titleEl ? titleEl.textContent : '',
+            organization: subtitleEl ? subtitleEl.textContent : '',
+            issueDate: parseDate(dateEl.textContent),
+            credentialUrl: credBtn ? credBtn.getAttribute('onclick')?.match(/'([^']+)'/)?.[1] : ''
+        };
+
+        attachLicenseHandlers(entry, data);
+    });
 }
 
 /**
