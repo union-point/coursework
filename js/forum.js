@@ -15,6 +15,7 @@ function applyTheme(theme) {
     }
   }
 }
+
 document.addEventListener('DOMContentLoaded', () => {
 
   // Load saved theme
@@ -30,3 +31,58 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+// Topic filtering functionality
+function filterTopics() {
+  const filterValue = document.getElementById('major-filter').value;
+  const topics = document.querySelectorAll('.topic');
+
+  topics.forEach(topic => {
+    if (filterValue === 'all' || topic.dataset.major === filterValue) {
+      topic.style.display = 'block';
+    } else {
+      topic.style.display = 'none';
+    }
+  });
+}
+// ============================================
+// Topic page specific JS
+// ============================================
+
+// Like button functionality
+document.querySelectorAll('.like-btn, .reply-action-btn').forEach(btn => {
+  btn.addEventListener('click', function () {
+    this.classList.toggle('active');
+  });
+});
+
+// Reply button functionality
+document.querySelectorAll('.reply-action-btn').forEach(btn => {
+  if (btn.textContent.includes('Պատասխանել')) {
+    btn.addEventListener('click', function () {
+      document.querySelector('.reply-textarea').focus();
+    });
+  }
+});
+// format buttons functionality
+document.querySelectorAll('.format-btn').forEach(btn => {
+  btn.addEventListener('click', function () {
+    this.classList.toggle('active');
+  });
+});
+// Form submission
+document.querySelector('.reply-form').addEventListener('submit', function (e) {
+  e.preventDefault();
+  const textarea = this.querySelector('.reply-textarea');
+  if (textarea.value.trim()) {
+    alert('Ձեր պատասխանը հրապարակվել է։');
+    textarea.value = '';
+  }
+});
+
+
+// ============================================
+// new-topic page specific JS
+// ============================================
+
+
+

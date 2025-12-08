@@ -93,6 +93,12 @@ label {
     margin-left: 4px;
 }
 
+.required::after {
+    content: " *";
+    color: #d11124;
+    font-weight: bold;
+}
+
 input,
 textarea,
 select {

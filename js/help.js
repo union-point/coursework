@@ -15,6 +15,7 @@ function applyTheme(theme) {
         }
     }
 }
+
 document.addEventListener('DOMContentLoaded', () => {
     const faqItems = document.querySelectorAll('.faq-item');
 

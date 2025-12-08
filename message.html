@@ -18,7 +18,7 @@
       </div>
       <nav>
         <ul class="menu">
-          <li><a href="profile.html">Պրոֆիլ</a></li>
+          <li><a href="profile.html">Անձնական էջ</a></li>
           <li><a href="events.html">Իրադարձություններ</a></li>
           <li><a href="forum.html">Ֆոռում</a></li>
           <li><a href="message.html" class="active">Նամակագրություն</a></li>
@@ -29,7 +29,7 @@
           <button class="dropdown-btn">☰</button>
           <ul class="dropdown-menu">
             <li><a href="help.html">Help</a></li>
-            <li><a href="settings.html">Կարգաորումներ</a></li>
+            <li><a href="settings.html">Կարգավորումներ</a></li>
             <li><a href="login.html">Դուրս գալ</a></li>
           </ul>
         </div>
@@ -189,50 +189,8 @@
       </div>
     </div>
   </section>
+  <script src="./js/chat.js"></script>
 
-  <script>
-    function copyText(button) {
-      const messageText = button.parentElement.childNodes[0].textContent.trim();
-      navigator.clipboard.writeText(messageText).then(() => {
-        button.textContent = '✓';
-        setTimeout(() => {
-          button.textContent = '📋';
-        }, 1000);
-      });
-    }
-    function applyTheme(theme) {
-      const root = document.documentElement;
-      // Remove existing theme classes
-      root.classList.remove('theme-light', 'theme-dark', 'theme-auto');
-
-      if (theme === 'dark') {
-        root.classList.add('theme-dark');
-      } else if (theme === 'light') {
-        root.classList.add('theme-light');
-      } else {
-        // Auto: follow system preference
-        root.classList.add('theme-auto');
-        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-          root.classList.add('theme-dark');
-        }
-      }
-    }
-    document.addEventListener('DOMContentLoaded', () => {
-
-      // Load saved theme
-      const savedTheme = localStorage.getItem('theme') || 'light';
-      applyTheme(savedTheme);
-
-      // Listen for system theme changes if auto
-      if (savedTheme === 'auto') {
-        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-          if (localStorage.getItem('theme') === 'auto') {
-            applyTheme('auto');
-          }
-        });
-      }
-    });
-  </script>
 </body>
 
 </html>

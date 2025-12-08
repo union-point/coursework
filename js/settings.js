@@ -1,5 +1,3 @@
-// Settings Page JavaScript
-
 // Theme Selector
 // Theme handling with applyTheme function
 function applyTheme(theme) {
@@ -14,6 +12,9 @@ function applyTheme(theme) {
     } else {
         // Auto: follow system preference
         root.classList.add('theme-auto');
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            root.classList.add('theme-dark');
+        }
     }
     // Persist selection
     localStorage.setItem('theme', theme);
@@ -28,6 +29,13 @@ document.addEventListener('DOMContentLoaded', () => {
             button.classList.add('active');
             const theme = button.dataset.theme;
             applyTheme(theme);
+            if (savedTheme === 'auto') {
+                window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+                    if (localStorage.getItem('theme') === 'auto') {
+                        applyTheme('auto');
+                    }
+                });
+            }
             console.log(`Թեման փոխվել է ${getThemeName(theme)}-ի`);
         });
     });
@@ -60,7 +68,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const settingName = e.target.closest('.settings-item').querySelector('h3').textContent;
             const isEnabled = e.target.checked;
 
-            console.log(`${settingName}: ${isEnabled ? 'Միացված' : 'Անջատված'}`);
 
             // Show notification
             console.log(`${settingName} ${isEnabled ? 'միացված է' : 'անջատված է'}`);
@@ -87,7 +94,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const settingName = e.target.closest('.settings-item').querySelector('h3').textContent;
             const selectedValue = e.target.options[e.target.selectedIndex].text;
 
-            console.log(`${settingName}: ${selectedValue}`);
 
             // Show notification
             console.log(`${settingName} փոխվել է ${selectedValue}-ի`);
@@ -117,125 +123,128 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Email Edit Handlers
-    const editEmailBtn = document.getElementById('edit-email-btn');
-    const emailEditForm = document.getElementById('email-edit-form');
+    // =========================================
+    // CHANGE EMAIL & PASSWORD SECTION
+    // =========================================
+    // --- Utility helpers ---
+    function show(el) { el.style.display = 'block'; }
+    function showFlex(el) { el.style.display = 'flex'; }
+    function hide(el) { el.style.display = 'none'; }
+
+    function clearInputs(inputs) {
+        inputs.forEach(i => {
+            i.value = '';
+            i.classList.remove('error');
+        });
+    }
+
+    function addLiveValidation(inputs) {
+        inputs.forEach(i => {
+            i.addEventListener('input', () => i.classList.remove('error'));
+        });
+    }
+
+    // EMAIL SECTION
+
     const emailSetting = document.getElementById('email-setting');
-    const saveEmailBtn = document.getElementById('save-email-btn');
+    const emailEditForm = document.getElementById('email-edit-form');
+
+    const editEmailBtn = document.getElementById('edit-email-btn');
     const cancelEmailBtn = document.getElementById('cancel-email-btn');
+    const saveEmailBtn = document.getElementById('save-email-btn');
 
-    if (editEmailBtn) {
-        editEmailBtn.addEventListener('click', () => {
-            emailSetting.style.display = 'none';
-            emailEditForm.style.display = 'block';
-        });
-    }
+    const newEmail = document.getElementById('new-email');
+    const oldEmailPassword = document.getElementById('email-old-password');
 
-    if (cancelEmailBtn) {
-        cancelEmailBtn.addEventListener('click', () => {
-            emailEditForm.style.display = 'none';
-            emailSetting.style.display = 'flex';
-            // Clear form fields
-            document.getElementById('new-email').value = '';
-            document.getElementById('email-old-password').value = '';
-        });
-    }
+    addLiveValidation([newEmail, oldEmailPassword]);
 
-    if (saveEmailBtn) {
-        saveEmailBtn.addEventListener('click', () => {
-            const newEmail = document.getElementById('new-email').value;
-            const oldPassword = document.getElementById('email-old-password').value;
+    editEmailBtn?.addEventListener('click', () => {
+        hide(emailSetting);
+        show(emailEditForm);
+    });
 
-            if (!newEmail || !oldPassword) {
-                console.log('Խնդրում ենք լրացնել բոլոր դաշտերը');
-                return;
-            }
+    cancelEmailBtn?.addEventListener('click', () => {
+        hide(emailEditForm);
+        showFlex(emailSetting);
+        clearInputs([newEmail, oldEmailPassword]);
+    });
 
-            // Email validation
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(newEmail)) {
-                console.log('Խնդրում ենք մուտքագրել վավեր էլ. փոստ');
-                return;
-            }
+    saveEmailBtn?.addEventListener('click', () => {
+        const emailValue = newEmail.value.trim();
+        const passValue = oldEmailPassword.value.trim();
 
-            // Here you would normally verify the old password with the backend
-            // For now, we'll simulate a successful update
-            console.log('Էլ. փոստը հաջողությամբ թարմացվել է');
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-            // Update the displayed email
-            document.getElementById('current-email').textContent = newEmail;
+        if (!emailValue || !emailRegex.test(emailValue)) {
+            newEmail.classList.add('error');
+            return;
+        }
+        if (!passValue) {
+            oldEmailPassword.classList.add('error');
+            return;
+        }
 
-            // Hide form and show setting item
-            emailEditForm.style.display = 'none';
-            emailSetting.style.display = 'flex';
+        console.log('Email updated');
+        document.getElementById('current-email').textContent = emailValue;
 
-            // Clear form fields
-            document.getElementById('new-email').value = '';
-            document.getElementById('email-old-password').value = '';
-        });
-    }
+        hide(emailEditForm);
+        showFlex(emailSetting);
+        clearInputs([newEmail, oldEmailPassword]);
+    });
 
-    // Password Edit Handlers
-    const editPasswordBtn = document.getElementById('edit-password-btn');
-    const passwordEditForm = document.getElementById('password-edit-form');
+
+
+    // PASSWORD SECTION
     const passwordSetting = document.getElementById('password-setting');
-    const savePasswordBtn = document.getElementById('save-password-btn');
+    const passwordEditForm = document.getElementById('password-edit-form');
+
+    const editPasswordBtn = document.getElementById('edit-password-btn');
     const cancelPasswordBtn = document.getElementById('cancel-password-btn');
+    const savePasswordBtn = document.getElementById('save-password-btn');
 
-    if (editPasswordBtn) {
-        editPasswordBtn.addEventListener('click', () => {
-            passwordSetting.style.display = 'none';
-            passwordEditForm.style.display = 'block';
-        });
-    }
+    const oldPass = document.getElementById('old-password');
+    const newPass = document.getElementById('new-password');
+    const confirmPass = document.getElementById('confirm-password');
 
-    if (cancelPasswordBtn) {
-        cancelPasswordBtn.addEventListener('click', () => {
-            passwordEditForm.style.display = 'none';
-            passwordSetting.style.display = 'flex';
-            // Clear form fields
-            document.getElementById('old-password').value = '';
-            document.getElementById('new-password').value = '';
-            document.getElementById('confirm-password').value = '';
-        });
-    }
+    addLiveValidation([oldPass, newPass, confirmPass]);
 
-    if (savePasswordBtn) {
-        savePasswordBtn.addEventListener('click', () => {
-            const oldPassword = document.getElementById('old-password').value;
-            const newPassword = document.getElementById('new-password').value;
-            const confirmPassword = document.getElementById('confirm-password').value;
+    editPasswordBtn?.addEventListener('click', () => {
+        hide(passwordSetting);
+        show(passwordEditForm);
+    });
 
-            if (!oldPassword || !newPassword || !confirmPassword) {
-                console.log('Խնդրում ենք լրացնել բոլոր դաշտերը');
-                return;
-            }
+    cancelPasswordBtn?.addEventListener('click', () => {
+        hide(passwordEditForm);
+        showFlex(passwordSetting);
+        clearInputs([oldPass, newPass, confirmPass]);
+    });
 
-            // Password validation
-            if (newPassword.length < 8) {
-                console.log('Գաղտնաբառը պետք է լինի առնվազն 8 նիշ');
-                return;
-            }
+    savePasswordBtn?.addEventListener('click', () => {
+        const oldV = oldPass.value.trim();
+        const newV = newPass.value.trim();
+        const confV = confirmPass.value.trim();
 
-            if (newPassword !== confirmPassword) {
-                console.log('Գաղտնաբառերը չեն համընկնում');
-                return;
-            }
+        if (!oldV) return oldPass.classList.add('error');
+        if (!newV) return newPass.classList.add('error');
+        if (!confV) return confirmPass.classList.add('error');
 
-            // Here you would normally verify the old password with the backend
-            // For now, we'll simulate a successful update
-            console.log('Գաղտնաբառը հաջողությամբ թարմացվել է');
+        if (newV.length < 8) {
+            newPass.classList.add('error');
+            // return;
+        }
+        if (newV !== confV) {
+            newPass.classList.add('error');
+            confirmPass.classList.add('error');
+            //return;
+        }
 
-            // Hide form and show setting item
-            passwordEditForm.style.display = 'none';
-            passwordSetting.style.display = 'flex';
+        console.log('Password updated');
 
-            // Clear form fields
-            document.getElementById('old-password').value = '';
-            document.getElementById('new-password').value = '';
-            document.getElementById('confirm-password').value = '';
-        });
-    }
+        hide(passwordEditForm);
+        showFlex(passwordSetting);
+        clearInputs([oldPass, newPass, confirmPass]);
+    });
+
 
     // Danger buttons
     const deactivateBtn = document.querySelector('.btn-danger-outline');

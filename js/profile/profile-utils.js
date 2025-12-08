@@ -46,7 +46,7 @@ function parseDate(text) {
     'դեկ.': '12'
   };
 
-  // 1) Найти кусок "օգ. 2025"
+  // find parts like "օգ. 2025"
   const regex = /(հուն\.|փետր\.|մարտ\.|ապր\.|մայ\.|հուն\.|հուլ\.|օգ\.|սեպտ\.|հոկտ\.|նոյ\.|դեկ\.)\s+(\d{4})/;
   const match = text.match(regex);
 

@@ -25,7 +25,7 @@
 
       <input type="hidden" id="role" value="graduate">
 
-      <label for="faculty" id="faculty-label">Ֆակուլտետ/Ինստիտուտ</label>
+      <label for="faculty" id="faculty-label" class="required">Ֆակուլտետ/Ինստիտուտ</label>
       <select id="faculty">
         <option>ՏՀՏԷ</option>
         <option>ՄՄՏՀԴ</option>
@@ -36,7 +36,7 @@
 
       </select>
 
-      <label for="specialization">Մասնագիտացում</label>
+      <label for="specialization" class="required">Մասնագիտացում</label>
       <select id="specialization">
         <option>Ծրագրայի ճարտարագիտություն</option>
         <option>Համակարգչային ճարտարագիտություն </option>
@@ -45,23 +45,23 @@
 
       </select>
 
-      <label id="years-label">Ուսման տարիներ</label>
+      <label id="years-label" class="required">Ուսման տարիներ</label>
       <div class="year-range-box">
         <div class="year-item">
           <span>Սկիզբ</span>
-          <input type="number" id="year-start" placeholder="2019" required>
+          <input type="number" id="year-start" placeholder="2019" value="2021" required>
         </div>
 
         <div class="year-divider">—</div>
 
         <div class="year-item">
           <span>Ավարտ</span>
-          <input type="number" id="year-end" placeholder="2023" required>
+          <input type="number" id="year-end" placeholder="2023" value="2025" required>
         </div>
       </div>
 
 
-      <label for="photo">Ներբեռնել լուսանկար</label>
+      <label for="photo" class="required">Ներբեռնել լուսանկար</label>
 
       <div class="upload-box" onclick="document.getElementById('photo').click()">
         <img src="./image/upload-icon.svg" class="upload-icon" alt="">
@@ -70,7 +70,7 @@
 
       <input type="file" id="photo" accept="image/*" hidden>
 
-      <label for="bio">Հակիրճ նկարագրություն</label>
+      <label for="bio" class="required">Հակիրճ նկարագրություն</label>
       <textarea id="bio" rows="4" placeholder="Պատմեք Ձեր մասին..." required></textarea>
 
       <div class="bottom-t">
