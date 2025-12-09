@@ -9,7 +9,7 @@
  * @param {string} userId - User ID
  * @returns {Promise} - User profile data
  */
-function getUserProfile(userId) {
+function getProfile(userId) {
     return api.get(`/users/${userId}`);
 }
 
@@ -180,6 +180,23 @@ function deleteAnnouncement(id) {
     return api.delete(`/posts/${id}`);
 }
 
+function createPost(postData) {
+    const newpost = {
+        data: {
+            id: response.data.length + 1,
+            title: postData.title,
+            content: postData.content,
+            category: postData.category,
+            createdAt: new Date().toISOString(),
+            author: {
+                name: "Գայանե Սարգսյան",
+                avatar: "https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg"
+            },
+            comments: []
+        }
+    }
+    return newpost//api.post("/posts", postData);
+}
 // ============================================
 // COMMENT OPERATIONS
 // ============================================

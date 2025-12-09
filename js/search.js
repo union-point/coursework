@@ -28,4 +28,13 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+  //handel view profile (btn-view )
+  document.addEventListener('click', (e) => {
+    if (e.target.classList.contains('btn-view')) {
+      const userId = e.target.dataset.userId;
+      localStorage.setItem('user_id', userId);
+      window.location.href = `user.html`;
+    }
+  });
+
 });

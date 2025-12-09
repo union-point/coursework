@@ -13,7 +13,6 @@
 body {
   background-color: var(--window-background);
   color: var(--font-color-primary);
-  overflow: hidden;
 }
 
 .container {
@@ -169,7 +168,35 @@ h2 {
   color: var(--font-color-primary);
 }
 
-.card button {
+.card-buttons {
   margin-top: auto;
+  display: flex;
+  gap: 8px;
+  width: 100%;
+}
+
+.card-buttons button {
+  flex: 1;
   padding: 8px 12px;
+  font-size: 13px;
+}
+
+.btn-view {
+  background-color: transparent !important;
+  color: var(--primary-blue) !important;
+  border: 2px solid var(--primary-blue) !important;
+}
+
+.btn-view:hover {
+  background-color: var(--primary-blue) !important;
+  color: white !important;
+}
+
+.btn-connect {
+  background-color: var(--primary-blue);
+  color: white;
+}
+
+.btn-connect:hover {
+  background-color: var(--secoundary-blue);
 }
