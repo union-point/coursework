@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const fullname = nameInput.value;
 
         // Еnsure every fields are valid before proceeding
-        if (1) { //validateForm()                   ---!!!--- "1"  for testing  ---!!!--- 
+        if (validateForm()) { //validateForm()                   ---!!!--- "1"  for testing  ---!!!--- 
             try {
                 await registerUser({ email, password, fullname });
                 await login(email, password);

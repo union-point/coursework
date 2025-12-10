@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Еnsure both fields are valid before proceeding
-        if (1) {//if (isValid) {     --!!!--for testing
+        if (isValid) {//if (isValid) {     --!!!--for testing
             try {
                 await login(email, password);
                 const is2FAEnabled = localStorage.getItem('is2FAEnabled') === 'true';

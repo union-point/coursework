@@ -7,9 +7,7 @@
 function getUserProfile() {
     const userId = localStorage.getItem('user_id');
     //search user by id
-    console.log(userId);
     const user = userProfile.data.find(user => user.id === parseInt(userId));
-    console.log(user);
     return user;//api.get(`/users/${id}`);
 }
 
@@ -68,7 +66,7 @@ const userProfile = {
             id: 6,
             cover: "https://images.unsplash.com/photo-1552508744-1696d4464960?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
             avatar: "https://yt3.googleusercontent.com/ytc/AIdro_lcnecdjw-T_ERo27p4821DI1EzgAMclMjM_QBrDUEVIT0=s160-c-k-c0x00ffffff-no-rj",
-            name: "Գևորգ Սարգսյան",
+            name: "Գևորգ Մանուկյան",
             jobTitle: "Backend ծրագրավորող",
             description: `Ինձ հետաքրքրում են backend ճարտարապետությունները, մեծ տվյալների մշակումն ու
 կատարողականության օպտիմիզացումը։ Աշխատում եմ Node.js–ով և PostgreSQL–ով, իսկ
@@ -100,7 +98,38 @@ const userProfile = {
             id: 7,
             cover: "https://images.unsplash.com/photo-1496096265110-f83ad7f96608?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
             avatar: "https://hoonch.am/images/Hay/2024/Sat-Avagyan/Satenik-Avagyan-estest-mazaheracman-masnaget-diod.jpg",
-            name: "Մարիա Ավագյան",
+            name: "Լիլիթ Սարգսյան",
+            jobTitle: "UI/UX դիզայներ",
+            description: `Ես ստեղծում եմ պարզ, հարմար և ժամանակակից ինտերֆեյսներ։ Սիրում եմ
+փորձարկել նոր դիզայն սթայլեր և աշխատել prototyping գործիքներով։ Իմ նպատակը
+օգտատիրոջ համար հաճելի և արդյունավետ փորձ ստեղծելն է։`,
+
+            education: [
+                {
+                    logo: "https://www.topuniversities.com/sites/default/files/profiles/logos/250515072612am291939m-logo-200x200.jpg",
+                    institution: "Հայ-Ռուսական (Սլավոնական) Համալսարան",
+                    degree: "Դիզայն, Բակալավր",
+                    startDate: "2019-9",
+                    endDate: "2023-6"
+                }
+            ],
+
+            licenses: [
+                {
+                    title: "UX Design Professional Certificate",
+                    issuer: "Google",
+                    date: "2024-2",
+                    logo: "https://www.gstatic.com/analytics-suite/header/suite/v2/ic_analytics.svg",
+                    credential: ""
+                }
+            ]
+        },
+        // USER 4
+        {
+            id: 8,
+            cover: "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            avatar: "https://www.dimension.am/webroot/myfiles/images/staff/Mariam_Grigorian.jpeg",
+            name: "Մարիամ Գրիգորյան",
             jobTitle: "UI/UX դիզայներ",
             description: `Ես ստեղծում եմ պարզ, հարմար և ժամանակակից ինտերֆեյսներ։ Սիրում եմ
 փորձարկել նոր դիզայն սթայլեր և աշխատել prototyping գործիքներով։ Իմ նպատակը

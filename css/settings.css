@@ -162,6 +162,7 @@ body {
     transform: scale(0.98);
 }
 
+#confirm-delete-btn,
 .btn-danger {
     background: var(--danger-color);
     color: white;
@@ -173,6 +174,8 @@ body {
     font-size: 14px;
     transition: all 0.3s ease;
 }
+
+#confirm-delete-btn:hover,
 
 .btn-danger:hover {
     background: var(--danger-hover);

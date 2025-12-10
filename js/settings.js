@@ -378,55 +378,121 @@ function handleClearCache() {
 }
 
 function handleDeactivateAccount() {
-    const confirmation = confirm(
-        'Վստա՞հ եք, որ ցանկանում եք ապաակտիվացնել ձեր հաշիվը:\n\n' +
-        'Դուք կկարողանաք վերականգնել այն ցանկացած ժամանակ:'
-    );
+    const backdrop = document.getElementById("custom-confirm-backdrop");
+    const passInput = document.getElementById("confirm-password-delete");
+    const err = document.getElementById("confirm-error");
+    const cancelBtn = document.getElementById("confirm-cancel-btn");
+    const deleteBtn = document.getElementById("confirm-delete-btn");
 
-    if (confirmation) {
-        console.log('Հաշիվը ապաակտիվացվում է...');
+    const title = document.getElementById("confirm-title");
+    title.textContent = "";
+    const text = document.getElementById("confirm-text");
+    text.innerHTML = `Վստա՞հ եք, որ ցանկանում եք ապաակտիվացնել ձեր հաշիվը: <br>
+          Դուք կկարողանաք վերականգնել այն ցանկացած ժամանակ:`;
+    deleteBtn.textContent = "Ապաակտիվացնել"
+    // show window
+    backdrop.classList.remove("hidden");
+    passInput.value = "";
+    err.textContent = "";
 
-        // Simulate deactivation
+    // Cancel
+    cancelBtn.onclick = () => {
+        backdrop.classList.add("hidden");
+    };
+    // Confirm deactivation
+    deleteBtn.onclick = () => {
+        const password = passInput.value.trim();
+
+        if (!password) {
+            err.textContent = "Մուտքագրեք գաղտնաբառը";
+            passInput.classList.remove("shake");
+            void passInput.offsetWidth;
+            passInput.classList.add("shake");
+            return;
+        }
+
+        const isCorrect = true; // Simulate password check
+
+        if (!isCorrect) {
+            err.textContent = "Սխալ գաղտնաբառ";
+            passInput.classList.remove("shake");
+            void passInput.offsetWidth;
+            passInput.classList.add("shake");
+            return;
+        }
+
+        // correct - ok
+        backdrop.classList.add("hidden");
+        showNotification("Հաշիվը ապաակտիվացվում է...");
+
         setTimeout(() => {
-            console.log('Հաշիվը հաջողությամբ ապաակտիվացվել է');
-            // Redirect to login page after 2 seconds
+            showNotification("Հաշիվը հաջողությամբ ապաակտիվացվել է'");
             setTimeout(() => {
-                window.location.href = 'login.html';
-            }, 2000);
-        }, 1500);
-    }
+                window.location.href = "login.html";
+            }, 1000);
+        }, 1000);
+    };
 }
 
 function handleDeleteAccount() {
-    console.log("CONFIRM CALLED");
-    const confirmation = confirm(
-        '⚠️ ԶԳՈՒՇԱՑՈՒՄ ⚠️\n\n' +
-        'Վստա՞հ եք, որ ցանկանում եք մշտապես ջնջել ձեր հաշիվը:\n\n' +
-        'Այս գործողությունը ԱՆԴԱՌՆԱԼԻ է և կջնջի բոլոր ձեր տվյալները:\n\n' +
-        'Սեղմեք OK՝ շարունակելու համար:'
-    );
 
-    if (confirmation) {
-        const finalConfirmation = prompt(
-            'Մուտքագրեք "ՋՆՋԵԼ"՝ հաստատելու համար:'
-        );
+    const backdrop = document.getElementById("custom-confirm-backdrop");
+    const passInput = document.getElementById("confirm-password-delete");
+    const err = document.getElementById("confirm-error");
+    const cancelBtn = document.getElementById("confirm-cancel-btn");
+    const deleteBtn = document.getElementById("confirm-delete-btn");
+    deleteBtn.textContent = "ՋՆՋԵԼ"
 
-        if (finalConfirmation === 'ՋՆՋԵԼ') {
-            console.log('Հաշիվը ջնջվում է...');
+    const title = document.getElementById("confirm-title");
+    title.textContent = "ԶԳՈՒՇԱՑՈՒՄ";
+    const text = document.getElementById("confirm-text");
+    text.innerHTML = `Վստա՞հ եք, որ ցանկանում եք մշտապես ջնջել ձեր հաշիվը:<br>
+                Գործողությունը <strong>ԱՆԴԱՌՆԱԼԻ</strong> է։`;
+    // show window
+    backdrop.classList.remove("hidden");
+    passInput.value = "";
+    err.textContent = "";
 
-            // Simulate deletion
-            setTimeout(() => {
-                console.log('Հաշիվը հաջողությամբ ջնջվել է');
-                // Redirect to login page after 2 seconds
-                setTimeout(() => {
-                    window.location.href = 'login.html';
-                }, 2000);
-            }, 1500);
-        } else if (finalConfirmation !== null) {
-            console.log('Սխալ հաստատում: Հաշիվը չի ջնջվել');
+    // Cancel
+    cancelBtn.onclick = () => {
+        backdrop.classList.add("hidden");
+    };
+
+    // Confirm deletion
+    deleteBtn.onclick = () => {
+        const password = passInput.value.trim();
+
+        if (!password) {
+            err.textContent = "Մուտքագրեք գաղտնաբառը";
+            passInput.classList.remove("shake");
+            void passInput.offsetWidth;
+            passInput.classList.add("shake");
+            return;
         }
-    }
+
+        const isCorrect = true; // Simulate password check
+
+        if (!isCorrect) {
+            err.textContent = "Սխալ գաղտնաբառ";
+            passInput.classList.remove("shake");
+            void passInput.offsetWidth;
+            passInput.classList.add("shake");
+            return;
+        }
+
+        // correct - ok
+        backdrop.classList.add("hidden");
+        showNotification("Հաշիվը ջնջվում է...");
+
+        setTimeout(() => {
+            showNotification("Հաշիվը հաջողությամբ ջնջվել է");
+            setTimeout(() => {
+                window.location.href = "login.html";
+            }, 1000);
+        }, 1000);
+    };
 }
+
 
 // Add smooth scroll behavior
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {

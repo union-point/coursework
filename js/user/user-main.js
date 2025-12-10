@@ -5,6 +5,8 @@ function initializeProfileButtons() {
     const profileButton = document.querySelector('.primary-btn');
     if (profileButton) {
         profileButton.addEventListener('click', () => {
+            localStorage.setItem('name', name); // ! remove after testing
+            console.log(name);
             window.location.href = 'message.html';
         });
     }
@@ -95,6 +97,7 @@ async function initializeUserProfile() {
         const profile = response;
         const profileSection = document.querySelector('.main-content');
         const fullname = profileSection.querySelector('.fullname');
+        name = profile.name;
         fullname.textContent = profile.name;
         const jobTitle = profileSection.querySelector('.job-title');
         jobTitle.textContent = profile.jobTitle;
@@ -161,7 +164,8 @@ function initializeProfile() {
     // Initialize profile
     initializeUserProfile();
     // Initialize buttons
-    initializeProfileButtons();
+    const name = null;
+    initializeProfileButtons(name);
     // Initialize announcements section
     initializeAnnouncementsSection();
 }
