@@ -4,7 +4,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const PasswordInput = document.getElementById('password');
     const confirmPasswordInput = document.getElementById('confirm');
     const emailInput = document.getElementById('email');
-    const nameInput = document.getElementById('fullname');
+    const firstNameInput = document.getElementById('firstname');
+    const lastNameInput = document.getElementById('lastname');
+
     const submitBtn = document.getElementById('submit-btn');
     const strengthBar = document.getElementById('strength-bar');
     const strengthText = document.getElementById('strength-text');
@@ -83,7 +85,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function validateForm() {
         const email = emailInput.value;
-        const name = nameInput.value;
+        const firstName = firstNameInput.value;
+        const lastName = lastNameInput.value;
+
         const password = PasswordInput.value;
 
         let isValid = true;
@@ -97,11 +101,17 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // check name not empty
-        if (!name) {
-            nameInput.classList.add('error');
+        if (!firstName) {
+            firstNameInput.classList.add('error');
             isValid = false;
         } else {
-            nameInput.classList.remove('error');
+            firstNameInput.classList.remove('error');
+        }
+        if (!lastName) {
+            lastNameInput.classList.add('error');
+            isValid = false;
+        } else {
+            lastNameInput.classList.remove('error');
         }
         // check password not empty
         if (!password) {
@@ -121,12 +131,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const password = PasswordInput.value;
         const email = emailInput.value;
-        const fullname = nameInput.value;
-
+        const firstName = firstNameInput.value;
+        const lastName = lastNameInput.value;
         // Еnsure every fields are valid before proceeding
         if (validateForm()) { //validateForm()                   ---!!!--- "1"  for testing  ---!!!--- 
             try {
-                await registerUser({ email, password, fullname });
+                await registerUser({ email, password, firstName, lastName });
                 await login(email, password);
                 window.location.href = "profile_info.html";
 
